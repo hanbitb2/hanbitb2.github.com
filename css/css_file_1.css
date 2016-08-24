@@ -163,3 +163,20 @@ section{
 	background-image: url(../images/summer3_img.jpg);
 	background-repeat: no-repeat;
 }
+#map{
+	height:100%;
+	width:50%;
+	display:block;
+	float:left;
+}
+#map_content{
+	width:50%;
+	height:500px;
+	left:50%;
+	background-color:black;
+	color:white;
+	display:block;
+	float:left;
+	padding:50px;
+	position:absolute;
+}
