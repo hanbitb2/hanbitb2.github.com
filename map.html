@@ -4,8 +4,22 @@
 <meta charset="UTF-8">
 <title>Java In Spring</title>
 <link rel="stylesheet" type="text/css" href="/css/css_file_1.css">
-<script>
+<style>
 
+.menu{
+	display: block;
+	float:right;
+	width: 50%;
+}
+nav div.menubar{
+	display: block;
+	float:right;
+	width: 50%;
+	position:absolute;
+}
+
+</style>
+<script>
 var map;
 function initMap() {
 	var hb=new google.maps.LatLng(37.499501, 127.029277);
@@ -23,7 +37,6 @@ function initMap() {
 		    infowindow.open(map, marker);
 		  });
 }
-
     </script>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUN6ZUXqNd3Dm0oBCTuPOUfPpqFmp1248&callback=initMap"
         async defer></script>
@@ -35,6 +48,7 @@ function initMap() {
 		<img src="../images/java.png" width="100"> 
 	</header>
 	<nav>		
+    <div class="menu">
 		<div class="menubar">
 			<ul>				
 				<li><a href="#">Introduce</a>
@@ -61,6 +75,7 @@ function initMap() {
 				    </ul>
 				 </li>
 			</ul>
+    </div>
 		</div>	
 	</nav>	
 	<div class="content">
