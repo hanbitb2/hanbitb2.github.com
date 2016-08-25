@@ -77,10 +77,6 @@
     margin-top: 20px;
     margin-bottom: 20px;
   }
-  th, td{
-    padding:5px;
-  }
-
   span{
     background-color:#bbb;
     color:white;
@@ -89,10 +85,12 @@
     font-weight: bold;
     color:white;
     margin-top: 20px;
-    margin-left:20px;
     padding:10px;
     display:block;
     float:right;
+  }
+  th, td{
+    padding:5px;
   }
 
   table{
@@ -122,6 +120,7 @@ textarea{
 	border-radius:4px;
 	margin:10px 10px;
 }
+
 
 
 </style>
@@ -180,7 +179,7 @@ textarea{
 
       			</div>
       			<div class="fnq">
-              <p class="title">자주쓰는 질문 작성</p>
+      				<p class="title">자주쓰는 질문 작성</p>
               <hr>
               <div class="fnq_write">
                 <form name="fnq_write">
@@ -243,6 +242,27 @@ $('.bt-roll').children().bind('click',function(){
 	return false;
 
 });
+
+function layer_toggle(num) {
+	var listNum = 6; //전체 글 개수를 넣어줌. 지금은 5개라서 5개만
+  /*document.getElementById("subject" + num).style.fontWeight='bold';*/
+
+	for(var i=0; i<listNum; i++){
+		var content = document.getElementById("fnq_answer" + i);
+
+		if(num == i){ //i번째 글 선택하면 내용출력,
+      if(content.style.display == 'block'){//열려있으면 닫아라
+        content.style.display = 'none';
+      }
+      else if(content.style.display == 'none'){ //닫혀있으면 열어라
+        content.style.display = 'block';
+      }
+		}else{ //아니면 다른 글 내용 닫기
+			content.style.display = 'none';
+		}
+	}
+
+
 }
 </script>
 </body>
