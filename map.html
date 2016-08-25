@@ -17,21 +17,35 @@ nav div.menubar{
 	width: 50%;
 	position:absolute;
 }
-
+#map{
+	height:100%;
+	width:50%;
+	display:block;
+}
+#map_content{
+	width:50%;
+	height:500px;
+	left:50%;
+	background-color:black;
+	color:white;
+	display:block;
+	padding:50px;
+	position:absolute;
+}
 </style>
 <script>
 var map;
 function initMap() {
 	var hb=new google.maps.LatLng(37.499501, 127.029277);
-	
+
   var map = new google.maps.Map(document.getElementById('map'), {
     center: hb,
     zoom: 16
   });
-  
+
   var infowindow = new google.maps.InfoWindow;
   infowindow.setContent('한빛교육센터');
-  
+
 		  var marker = new google.maps.Marker({map: map, position: hb});
 		  marker.addListener('click', function() {
 		    infowindow.open(map, marker);
@@ -45,28 +59,28 @@ function initMap() {
 <div class="container">
 	<header>
 		<span><a href="#">Sign In</a></span>
-		<img src="../images/java.png" width="100"> 
+		<img src="../images/java.png" width="100">
 	</header>
-	<nav>		
+	<nav>
     <div class="menu">
 		<div class="menubar">
-			<ul>				
+			<ul>
 				<li><a href="#">Introduce</a>
 					<ul>
 						<li><a href="#">카페소개</a></li>
-						<li><a href="#">찾아오시는길</a></li>					
+						<li><a href="#">찾아오시는길</a></li>
 					</ul>
 				</li>
 				<li><a href="#">Menu</a>
 				 	<ul>
 						<li><a href="#">Coffee</a></li>
-					</ul>				 
+					</ul>
 				 </li>
 				 <li><a href="#">Custum</a>
 				 	<ul>
 						<li><a href="#">만들기</a></li>
 						<li><a href="#">내역확인</a></li>
-					</ul>	
+					</ul>
 				 </li>
 				<li><a href="#" >Q&A</a>
 					<ul>
@@ -76,11 +90,11 @@ function initMap() {
 				 </li>
 			</ul>
     </div>
-		</div>	
-	</nav>	
+		</div>
+	</nav>
 	<div class="content">
 		<section>
-			
+
 	<div id="map"></div>
 	<div id="map_content">여기에 설명</div>
 		</section>
