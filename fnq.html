@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Java In Spring</title>
+<link rel="stylesheet" href="css/main.css" type="text/css">
+<link rel="stylesheet" href="css/common.css" type="text/css">
+<style>
+	section article{
+		display: block;
+		position: relative;
+		top: 17px;
+		z-index:0;
+	}
+	section article article{
+		display: block;
+		width: 530px;
+		height: 550px;
+		margin-top:50px;
+		margin: auto;
+		border-radius:15px;
+		background-color: rgba(255,255,255,0.5);
+		z-index:-1;
+	}
+
+	section article article h1{
+		margin-left: 30px;
+		padding-top: 30px;
+		color: #492143;
+		font-size: 20pt;
+	}
+
+	.album-wrap {position:relative; width:400px; height:400px; margin:0 auto; top:30px; overflow:hidden;}
+	.album-wrap ul.album {position:absolute;}
+	.album-wrap ul.album li {float:left; width:400px;}
+
+	.album li img{
+		width: 400px;
+		border-radius:15px;
+		height: auto;
+	}
+
+	ul.bt-roll {width:110px; margin:0 auto; margin-top:50px;}
+	ul.bt-roll li {float:left; margin-right:5px; margin-left: 20px;}
+
+  .content{
+  	width:95%;
+  	margin:auto;
+  	margin-top:2%;
+  	margin-bottom:2%;
+  	line-height:2.0;
+  }
+
+  div.list, div.fnq{
+  	height:100%;
+  	float:left;
+  }
+
+  div.list{
+  	width:30%;
+  	/*background-color:red;*/
+  }
+  div.fnq{
+  	width:70%;
+  	/*background:pink;*/
+  }
+  .title{
+    font-size:20pt;
+    font-weight:bold;
+    color:#333;
+    padding-bottom: 20px;
+  }
+  hr{
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .fnq div:nth-child(odd){ //제목
+    font-weight: bold;
+    background-color: #fff;
+    border-top: 1px solid #bbb;
+  }
+
+  .fnq div:nth-child(even){ //내용
+    padding:10px 0 0 10px;
+    background-color: #eee;
+    display: none;
+    border-top: 1px solid #bbb;
+  }
+
+  .fnq div:nth-child(odd) p { //제목글
+    font-size:10px;
+    font-variant: 10px;
+    font-weight: bold;
+    padding:10px 0 0 10px;
+  }
+  .fnq div:nth-child(even) p{ //내용글
+  	text-indent:5px;
+  	font-size:9pt;
+    padding:20px;
+  }
+  span{
+    background-color:#bbb;
+    color:white;
+    font-size:8pt;
+    border-radius: 4px;
+    font-weight: bold;
+    color:white;
+    margin-top: 20px;
+    padding:10px;
+    display:block;
+    float:right;
+  }
+
+</style>
+
+<script src="../jquery/jquery-1.7.1.min.js"></script>
+
+</head>
+<body>
+<div class="container">
+	<header>
+		<span><a href="JIS_login.html">Sign In</a></span>
+		<a href="./main.html"><img src="../images/java.png" width="100" ></a>
+	</header>
+	<nav>
+		<div class="menubar">
+			<ul>
+				<li class="navi_set">
+					<div class="topnav">Introduce</div>
+					<ul class="subnav">
+						<li><a href="#">카페소개</a></li>
+						<li><a href="map.html">찾아오시는길</a></li>
+					</ul>
+				</li>
+				<li class="navi_set">
+					<div class="topnav">Menu</div>
+				 	<ul class="subnav">
+						<li><a href="#">Coffee</a></li>
+					</ul>
+				 </li>
+				 <li class="navi_set">
+				 	<div class="topnav">Custum</div>
+				 	<ul class="subnav">
+						<li><a href="#">만들기</a></li>
+						<li><a href="#">내역확인</a></li>
+					</ul>
+				 </li>
+				<li class="navi_set">
+					<div class="topnav">Q&A</div>
+					<ul class="subnav">
+					    <li><a href="#">자주하는질문</a></li>
+					    <li><a href="#">질문&답변</a></li>
+				    </ul>
+				 </li>
+			</ul>
+		</div>
+	</nav>
+	<div class="content">
+		<section>
+
+      			<div class="list">
+      			<h3>관리자게시판리스트</h3>
+      			<ul>
+      				<li>자주하는 질문</li>
+      				<li>묻고 답하기</li>
+      			</ul>
+
+      			</div>
+      			<div class="fnq">
+      				<p class="title">자주하는 질문</p>
+      				<hr>
+      				<!-- 반복 시작 : db불러올 때 'fnq_subject + 글번호' 형식으로 불러와서 div이름을 붙여줘야한다. 그건 그때가서...-->
+      				<div id="fnq_subject0">
+      				<a onclick="layer_toggle(0); return false;" href="#"><p>제목 : 궁금하다.<p></a>
+      				</div>
+      				<div id="fnq_answer0">
+      				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+      				Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+      				when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+      				It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+      				It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+      				and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+      				</p>
+      				</div>
+      				<!-- 반복 끝 -->
+
+              <!--여기서부터는 예시용-->
+      				<div id="fnq_subject1">
+      				<a onclick="layer_toggle(1); return false;" href="#"><p>제목 : 궁금하다.<p></a>
+      				</div>
+      				<div id="fnq_answer1">
+      				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+      				Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+      				when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+      				It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+      				It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+      				and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+      				</p>
+      				</div>
+      				<div id="fnq_subject2">
+      				<a onclick="layer_toggle(2); return false;" href="#"><p>제목 : 궁금하다.<p></a>
+      				</div>
+      				<div id="fnq_answer2">
+      				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+      				Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+      				when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+      				It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+      				It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+      				and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+      				</p>
+      				</div>
+      				<div id="fnq_subject3">
+      				<a onclick="layer_toggle(3); return false;" href="#"><p>제목 : 궁금하다.<p></a>
+      				</div>
+      				<div id="fnq_answer3">
+      				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+      				Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+      				when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+      				It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+      				It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+      				and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+      				</p>
+      				</div>
+      				<div id="fnq_subject4">
+      				<a onclick="layer_toggle(4); return false;" href="#"><p>제목 : 궁금하다.<p></a>
+      				</div>
+      				<div id="fnq_answer4">
+      				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+      				Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+      				when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+      				It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+      				It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+      				and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+      				</p>
+      				</div>
+              <!--글쓰기 버튼 나중에 관리자만 보이도록 수정 -->
+              <span><a href="#">글쓰기</a></span>
+      			</div>
+
+		</section>
+	</div>
+	<div class="push"></div>
+</div>
+
+<footer>
+	<div>
+		(주)한빛이엔아이 한빛교육센터학원 Tel : 02-552-3432 | 주소 : 강남구 역삼동 819-10
+	</div>
+</footer>
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $(".topnav").hover(function() {
+        $(this).parent().find(".subnav").slideDown('fast').show();
+        $(this).parent().hover(function() {
+        }, function(){
+            $(this).parent().find(".subnav").slideUp('fast');
+        });
+    });
+});
+
+var $list = $('ul.album');
+var size = $list.children().outerWidth();
+var len =  $list.children().length;
+
+$list.css('width',len*size);
+
+$('.bt-roll').children().bind('click',function(){
+	var idx = $('.bt-roll').children().index(this);
+	$list.animate({'left': -(idx*size)+'px' },'normal');
+
+	var source2 = $('.bt-roll').children().find('img').attr('src').replace('_.png','.png');
+	$('.bt-roll').children().find('img').attr('src',source2);
+
+	var source = $(this).find('img').attr('src').replace('.png','_.png');
+	$(this).find('img').attr('src',source);
+
+	return false;
+
+});
+
+function layer_toggle(num) {
+	var listNum = 6; //전체 글 개수를 넣어줌. 지금은 5개라서 5개만
+  /*document.getElementById("subject" + num).style.fontWeight='bold';*/
+
+	for(var i=0; i<listNum; i++){
+		var content = document.getElementById("fnq_answer" + i);
+
+		if(num == i){ //i번째 글 선택하면 내용출력,
+      if(content.style.display == 'block'){//열려있으면 닫아라
+        content.style.display = 'none';
+      }
+      else if(content.style.display == 'none'){ //닫혀있으면 열어라
+        content.style.display = 'block';
+      }
+		}else{ //아니면 다른 글 내용 닫기
+			content.style.display = 'none';
+		}
+	}
+
+
+}
+</script>
+</body>
+</html>
