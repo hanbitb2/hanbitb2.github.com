@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Java In Spring</title>
+<link rel="stylesheet" href="css/main.css" type="text/css">
+<link rel="stylesheet" href="css/common.css" type="text/css">
+<style>
+	section article{
+		display: block;
+		position: relative;
+		top: 17px;
+		z-index:0;
+	}
+	section article article{
+		display: block;
+		width: 530px;
+		height: 550px;
+		margin-top:50px;
+		margin: auto;
+		border-radius:15px;
+		background-color: rgba(255,255,255,0.5);
+		z-index:-1;
+	}
+
+	section article article h1{
+		margin-left: 30px;
+		padding-top: 30px;
+		color: #492143;
+		font-size: 20pt;
+	}
+
+	.album-wrap {position:relative; width:400px; height:400px; margin:0 auto; top:30px; overflow:hidden;}
+	.album-wrap ul.album {position:absolute;}
+	.album-wrap ul.album li {float:left; width:400px;}
+
+	.album li img{
+		width: 400px;
+		border-radius:15px;
+		height: auto;
+	}
+
+	ul.bt-roll {width:110px; margin:0 auto; margin-top:50px;}
+	ul.bt-roll li {float:left; margin-right:5px; margin-left: 20px;}
+
+  .content{
+  	width:100%;
+  	margin:auto;
+  	line-height:2.0;
+    background-color:white;
+  }
+
+  div.list, div.fnq{
+  	height:90%;
+  	margin-top:2%;
+  	margin-bottom:2%;
+  	float:left;
+  }
+
+  div.list{
+  	width:30%;
+    margin-left:2%;
+    padding-bottom:-2%;
+  }
+  div.fnq{
+  	width:65%;
+    padding-bottom:-2%;
+  }
+  .title{
+    font-size:20pt;
+    font-weight:bold;
+    color:#333;
+    padding-bottom: 20px;
+    letter-spacing: -3px;
+  }
+  hr{
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  th, td{
+    padding:5px;
+  }
+
+  span{
+    background-color:#bbb;
+    color:white;
+    font-size:8pt;
+    border-radius: 4px;
+    font-weight: bold;
+    color:white;
+    margin-top: 20px;
+    margin-left:20px;
+    padding:10px;
+    display:block;
+    float:right;
+  }
+
+  table{
+    width:100%;
+  }
+
+  label{
+    font-size:9pt;
+  }
+
+  tr td:first-child{
+    width:50px;
+  }
+input[type=text], input[type=password]{
+	width: 100%;
+	padding: 10px 10px;
+	/*border:1px solid #ccc;*/
+	border-radius: 4px;
+	margin:10px 10px;
+}
+
+textarea{
+	height:200px;
+	width:100%;
+	rows:40;
+	padding:10px 10px;
+	border-radius:4px;
+	margin:10px 10px;
+}
+
+
+</style>
+
+<script src="../jquery/jquery-1.7.1.min.js"></script>
+
+</head>
+<body>
+<div class="container">
+	<header>
+		<span><a href="JIS_login.html">Sign In</a></span>
+		<a href="./main.html"><img src="../images/java.png" width="100" ></a>
+	</header>
+	<nav>
+		<div class="menubar">
+			<ul>
+				<li class="navi_set">
+					<div class="topnav">Introduce</div>
+					<ul class="subnav">
+						<li><a href="#">카페소개</a></li>
+						<li><a href="map.html">찾아오시는길</a></li>
+					</ul>
+				</li>
+				<li class="navi_set">
+					<div class="topnav">Menu</div>
+				 	<ul class="subnav">
+						<li><a href="#">Coffee</a></li>
+					</ul>
+				 </li>
+				 <li class="navi_set">
+				 	<div class="topnav">Custum</div>
+				 	<ul class="subnav">
+						<li><a href="#">만들기</a></li>
+						<li><a href="#">내역확인</a></li>
+					</ul>
+				 </li>
+				<li class="navi_set">
+					<div class="topnav">Q&A</div>
+					<ul class="subnav">
+					    <li><a href="#">자주하는질문</a></li>
+					    <li><a href="#">질문&답변</a></li>
+				    </ul>
+				 </li>
+			</ul>
+		</div>
+	</nav>
+	<div class="content">
+		<section>
+
+      			<div class="list">
+      			<h3>관리자게시판리스트</h3>
+      			<ul>
+      				<li>자주하는 질문</li>
+      				<li>묻고 답하기</li>
+      			</ul>
+
+      			</div>
+      			<div class="fnq">
+              <p class="title">자주쓰는 질문 수정</p>
+              <hr>
+              <div class="fnq_write">
+                <form name="fnq_write">
+                  <table>
+                    <tr>
+                      <td><label>질문</label></td>
+                      <td><input type="text" placeholder="수정하려는 제목"></td>
+                    </tr>
+                    <tr>
+                      <td><label>답변</label></td>
+                      <td><textarea placeholder="수정하려는 답변."></textarea></td>
+                    </tr>
+                      <td colspan="2"><span><a href="fnq_write.jsp">글쓰기</a></span><span><a href="fnq.html">취소</a></span><td>
+                    </tr>
+                  </table>
+
+
+                </form>
+              </div>
+      			</div>
+
+		</section>
+	</div>
+	<div class="push"></div>
+</div>
+
+<footer>
+	<div>
+		(주)한빛이엔아이 한빛교육센터학원 Tel : 02-552-3432 | 주소 : 강남구 역삼동 819-10
+	</div>
+</footer>
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $(".topnav").hover(function() {
+        $(this).parent().find(".subnav").slideDown('fast').show();
+        $(this).parent().hover(function() {
+        }, function(){
+            $(this).parent().find(".subnav").slideUp('fast');
+        });
+    });
+});
+
+var $list = $('ul.album');
+var size = $list.children().outerWidth();
+var len =  $list.children().length;
+
+$list.css('width',len*size);
+
+$('.bt-roll').children().bind('click',function(){
+	var idx = $('.bt-roll').children().index(this);
+	$list.animate({'left': -(idx*size)+'px' },'normal');
+
+	var source2 = $('.bt-roll').children().find('img').attr('src').replace('_.png','.png');
+	$('.bt-roll').children().find('img').attr('src',source2);
+
+	var source = $(this).find('img').attr('src').replace('.png','_.png');
+	$(this).find('img').attr('src',source);
+
+	return false;
+
+});
+}
+</script>
+</body>
+</html>
