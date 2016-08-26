@@ -1,8 +1,8 @@
 @charset "utf-8";
-@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+@import url('http://fonts.googleapis.com/earlyaccess/nanumgothic.css');
 * {font-family: 'Nanum Gothic';}
 * { margin:0; padding:0; }
-html, body { margin:0px; padding:0px; background-color:#fff; font-family:Tahoma, 'Dotum', 'Gulim', 'serif', sans-serif; }
+html, body { margin:0px; padding:0px; background-color:#fff; font-family:'Nanum Gothic', Tahoma, 'Dotum', 'Gulim', 'serif', sans-serif; }
 img, fieldset { border:0px; }
 legend { visibility:hidden; height:0px; width:0px; line-height:0; _text-indent:-10px; font-size:0px; }
 table { border-collapse:collapse; }
