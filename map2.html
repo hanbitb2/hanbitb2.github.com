@@ -1,0 +1,183 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Java In Spring</title>
+<link rel="stylesheet" href="css/main.css" type="text/css">
+<link rel="stylesheet" href="css/common.css" type="text/css">
+<style>
+   section article{
+      display: block;
+      position: relative;
+      top: 17px;
+      z-index:0;
+   }
+   section article article{
+      display: block;
+      width: 530px;
+      height: 550px;
+      margin-top:50px;
+      margin: auto;
+      border-radius:15px;
+      background-color: rgba(255,255,255,0.5);
+      z-index:-1;
+   }
+
+   section article article h1{
+      margin-left: 30px;
+      padding-top: 30px;
+      color: #492143;
+      font-size: 20pt;
+   }
+
+   .album-wrap {position:relative; width:400px; height:400px; margin:0 auto; top:30px; overflow:hidden;}
+   .album-wrap ul.album {position:absolute;}
+   .album-wrap ul.album li {float:left; width:400px;}
+
+   .album li img{
+      width: 400px;
+      border-radius:15px;
+      height: auto;
+   }
+
+   ul.bt-roll {width:110px; margin:0 auto; margin-top:50px;}
+   ul.bt-roll li {float:left; margin-right:5px; margin-left: 20px;}
+
+section{
+	display:block;
+	height:619px;
+}
+aside.left{
+	width:15%;
+	min-height:100%;
+	background-color:red;
+	float:left;
+}
+article{
+  height:100%;
+  width:100%;
+}
+div.map{
+	width:85%;
+	height:100%;
+	background-color:green;
+	float:left;
+}
+div#map{
+	width:50%;
+	min-height:100%;
+  background-color:yellow;
+	float:left;
+}
+
+</style>
+
+<script src="../jquery/jquery-1.7.1.min.js"></script>
+
+</head>
+<body>
+<div class="container">
+   <header>
+      <span><a href="JIS_login.html">Sign In</a></span>
+      <a href="./main.html"><img src="../images/java.png" width="100" ></a>
+   </header>
+   <nav>
+      <div class="menubar">
+         <ul>
+            <li class="navi_set">
+               <div class="topnav">Introduce</div>
+               <ul class="subnav">
+                  <li><a href="#">카페소개</a></li>
+                  <li><a href="map.html">찾아오시는길</a></li>
+               </ul>
+            </li>
+            <li class="navi_set">
+               <div class="topnav">Menu</div>
+                <ul class="subnav">
+                  <li><a href="#">Coffee</a></li>
+               </ul>
+             </li>
+             <li class="navi_set">
+                <div class="topnav">Custum</div>
+                <ul class="subnav">
+                  <li><a href="#">만들기</a></li>
+                  <li><a href="#">내역확인</a></li>
+               </ul>
+             </li>
+            <li class="navi_set">
+               <div class="topnav">Q&A</div>
+               <ul class="subnav">
+                   <li><a href="#">자주하는질문</a></li>
+                   <li><a href="#">질문&답변</a></li>
+                </ul>
+             </li>
+         </ul>
+      </div>
+   </nav>
+      <section>
+			
+	<aside class="left">menu</aside>
+	<article>
+		<div class="map">
+			<div id="map"></div>
+    <script>
+
+var map;
+function initMap() {
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: -34.397, lng: 150.644},
+    zoom: 8
+  });
+}
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUN6ZUXqNd3Dm0oBCTuPOUfPpqFmp1248&callback=initMap"
+      async defer></script>
+		</div>
+		<div class="fix_store">
+		</div>
+	</article>
+</section>
+<footer>
+<div>
+(주)한빛이엔아이 한빛교육센터학원 Tel : 02-552-3432 | 주소 : 강남구 역삼동 819-10
+</div>
+</footer>
+
+<script type="text/javascript">
+$(document).ready(function(){
+$(".topnav").hover(function() {
+    $(this).parent().find(".subnav").slideDown('fast').show();
+    $(this).parent().hover(function() {
+    }, function(){
+        $(this).parent().find(".subnav").slideUp('fast');
+    });
+});
+});
+
+var $list = $('ul.album');
+var size = $list.children().outerWidth();
+var len =  $list.children().length;
+
+$list.css('width',len*size);
+
+$('.bt-roll').children().bind('click',function(){
+var idx = $('.bt-roll').children().index(this);
+$list.animate({'left': -(idx*size)+'px' },'normal');
+
+var source2 = $('.bt-roll').children().find('img').attr('src').replace('_.png','.png');
+$('.bt-roll').children().find('img').attr('src',source2);
+
+var source = $(this).find('img').attr('src').replace('.png','_.png');
+$(this).find('img').attr('src',source);
+
+return false;
+
+});
+
+</script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUN6ZUXqNd3Dm0oBCTuPOUfPpqFmp1248&callback=initMap"
+        async defer></script>
+</body>
+</html>
