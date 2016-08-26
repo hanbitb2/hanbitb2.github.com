@@ -6,11 +6,6 @@
 <link rel="stylesheet" href="css/main.css" type="text/css">
 <link rel="stylesheet" href="css/common.css" type="text/css">
 <style>
-	body{
-		background-color:white;
-		background:rgba(0,0,255, 0.5);
-		
-	}
 	section article{
 		display: block;
 		position: relative;
@@ -48,15 +43,27 @@
 	ul.bt-roll {width:110px; margin:0 auto; margin-top:50px;}
 	ul.bt-roll li {float:left; margin-right:5px; margin-left: 20px;}
 
-  	.content{
-  		width:100%;
-  		margin:auto;
-  		line-height:2.0;
-	   	background-color:white;
-	  }
+  .content{
+  	width:100%;
+  	margin:auto;
+  	line-height:2.0;
+    background-color:white;
+  }
+
+div.titleBox{
+		width:40%;
+		padding-left:30%;
+		padding-top:80px;
+}
+		div.img_bar{
+			width:100%;
+			height:200px;
+			display: block;
+			background:url("images/img_bar.jpg");
+		}
 
   div.list, div.fnq{
-  	height:90%;
+  	height:80%;
   	margin-top:2%;
   	margin-bottom:2%;
   	float:left;
@@ -72,27 +79,34 @@
     padding-bottom:-2%;
   }
   .title{
-    font-size:20pt;
+    font-size:30pt;
     font-weight:bold;
-    color:#333;
-    padding-bottom: 20px;
+    color:white;
     letter-spacing: -3px;
+		position:relative;
   }
+	.title2{
+		color:#eee;
+    letter-spacing: -1px;
+	}
   hr{
     margin-top: 20px;
     margin-bottom: 20px;
   }
+	.fnq div:first-child{
+		border-top:2px solid #bbb;
+	}
   .fnq div:nth-child(odd){ //제목
     font-weight: bold;
     background-color: #fff;
-    border-top: 1px solid #bbb;
-  }
+    border-bottom: 1px solid #bbb;
+	  }
 
   .fnq div:nth-child(even){ //내용
     padding:10px 0 0 10px;
     background-color: #eee;
     display: none;
-    border-top: 1px solid #bbb;
+    border-bottom: 1px solid #bbb;
   }
 
   .fnq div:nth-child(odd) p { //제목글
@@ -124,6 +138,11 @@
     display:block;
     float:right;
   }
+	footer{
+		display:block;
+		float: left;
+		height:200px;
+	}
 
 </style>
 
@@ -169,9 +188,14 @@
 			</ul>
 		</div>
 	</nav>
+	<div class="img_bar">
+		<div class="titleBox">
+			<p class="title">자주하는 질문</p>
+			<p class="title2">고객님의 문의사항에 대한 답변을 빠르게 찾으실 수 있습니다.</p>
+		</div>
+	</div>
 	<div class="content">
-		<section>
-
+		<!--<section>-->
       			<div class="list">
       			<h3>관리자게시판리스트</h3>
       			<ul>
@@ -181,11 +205,10 @@
 
       			</div>
       			<div class="fnq">
-      				<p class="title">자주하는 질문</p>
-      				<hr>
       				<!-- 반복 시작 : db불러올 때 'fnq_subject + 글번호' 형식으로 불러와서 div이름을 붙여줘야한다. 그건 그때가서...-->
       				<div id="fnq_subject0">
       				<a onclick="layer_toggle(0); return false;" href="#"><p>제목 : 궁금하다.<p></a>
+							<!--<p id="btnSubject">제목 : window.onclick으로 했을 때</p>-->
       				</div>
       				<div id="fnq_answer0">
       				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
@@ -258,8 +281,7 @@
               <!--글쓰기 버튼 나중에 관리자만 보이도록 수정 -->
               <span><a href="#"><a href="fnq_write.html">글쓰기</a></span>
       			</div>
-
-		</section>
+		<!--</section>-->
 	</div>
 	<div class="push"></div>
 </div>
