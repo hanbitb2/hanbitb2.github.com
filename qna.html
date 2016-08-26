@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Java In Spring</title>
+<link rel="stylesheet" href="../css/main.css" type="text/css">
+<link rel="stylesheet" href="../css/common.css" type="text/css">
+<style>	
+		
+	section{
+		display:block;
+		background-color: white;
+		min-height:700px;
+		padding:0; 
+		position:relative;			
+		width:100%;
+		margin:auto;
+	}
+	
+	aside{
+		display: block;
+		width:20%;				
+		min-height:700px;
+		float: left;
+		border-right: 2px solid #C9C9CB;
+	}
+	
+	aside ul{				
+	}
+	
+	aside ul li{
+		padding-top:10px;
+		padding-bottom:10px;
+		padding-left:10px;
+				
+	}
+	
+	#dqna{
+		background-color: #B4CDE6;		
+		color: #4B4B19;
+	}
+	
+	aside ul li:hover ,aside ul li:hover h1{
+		background-color: #B4CDE6;		
+		color: #4B4B19;
+		cursor: pointer;
+	}
+	
+	article{
+		display: block;
+		width: 79%;
+		min-height:700px;
+		float: left;		
+	}
+	
+	.board{
+		width:90%;
+		margin:auto;
+		margin-top: 50px;
+	}
+	.board .theader{		
+ 		width:100%;	
+		display:block;
+		height: 60px;
+		background-color: #F4F4F2;
+		border-radius: 4px 4px 0 0;
+	}	
+	
+	.searchgroup{
+		padding:15px;
+		float: right;	
+	}
+	
+	.search,.searchvalue{	
+		display: block;
+		width:auto;
+		float:left;
+	}
+	.search{
+		
+		background-color: #3066A0;
+		padding: 5px 10px 5px 10px;		
+		color:white;
+		font-weight:bold;
+	}
+	.searchvalue input{
+		padding: 5px 10px 6px 10px;
+	}
+	.board .btngroup{
+		padding: 5px 10px 5px 10px;
+		display:block;		
+		height: 30px;
+		float: right;
+		margin-top: -30px;
+	}
+	.btngroup span{
+		color:white;
+		font-weight:bold;
+		background-color: #3066A0;
+		padding: 5px 10px 5px 10px;
+	}
+	
+	.tfoot{
+		display:block;
+		width:100%;	
+		height: 30px;
+		margin: 3px 0 3px 0;
+	}
+	.tfoot .pnavi{		
+		width:300px;
+		margin: auto;
+		height: 30px;
+		clear: left;
+		text-align: center;
+		
+	}
+	/*.board .tfoot .pnavi{
+		display: block;
+		width: 300px;
+		margin: auto;
+	} */
+	
+	table{
+		width:100%;
+		border-collapse: collapse;
+	}
+	table th{
+		border-top:2px solid #aaa;
+		border-bottom:2px solid #aaa;
+		background-color: white;
+		height: 50px;
+	}
+	table td.ch{		
+		border-right: 1px solid #ccc;
+	}
+	table th.ch{
+		width: 30px;
+	}
+	table tr{
+		border-bottom:1px solid #ccc;
+	}
+	table tr td{
+		text-align:center;
+		height: 50px;
+		
+	}
+	
+</style>
+
+<script>
+	window.onload = function(){		
+		dqna.onclick = function(){
+			location.href="qna.html";
+			location.replace("qna.html");
+		}
+	}
+</script>
+
+<script src="../jquery/jquery-1.7.1.min.js"></script>
+
+</head>
+<body>
+<div class="container">
+	<header>
+		<span><a href="JIS_login.html">Sign In</a></span>
+		<span><a href="admin.html">Admin</a></span>		
+		<a href="./main.html"><img src="../images/java.png" width="100" ></a> 
+	</header>
+	<nav>		
+		<div class="menubar">
+			<ul>				
+				<li class="navi_set">
+					<div class="topnav">Introduce</div>
+					<ul class="subnav">
+						<li><a href="#">카페소개</a></li>
+						<li><a href="map.html">찾아오시는길</a></li>					
+					</ul>
+				</li>
+				<li class="navi_set">
+					<div class="topnav">Menu</div>
+				 	<ul class="subnav">
+						<li><a href="#">Coffee</a></li>
+					</ul>				 
+				 </li>
+				 <li class="navi_set">
+				 	<div class="topnav">Custum</div>
+				 	<ul class="subnav">
+						<li><a href="#">만들기</a></li>
+						<li><a href="#">내역확인</a></li>
+					</ul>	
+				 </li>
+				<li class="navi_set">
+					<div class="topnav">Q&A</div>
+					<ul class="subnav">
+					    <li><a href="#">자주하는질문</a></li>
+					    <li><a href="#">질문&답변</a></li>
+				    </ul>
+				 </li>
+			</ul>
+		</div>	
+	</nav>	
+	<div class="content">
+		<section>
+			<aside>
+				<ul>
+					<li id="menu">
+						<h1>메뉴관리 게시판</h1>
+					</li>
+					<li id="chain">
+						<h1>체인점관리 게시판	</h1>
+					</li>
+					<li id="custom">
+						<h1>커스텀관리 게시판	</h1>
+					</li>
+					<li id="sqna">
+						<h1>자주하는질문관리 게시판</h1>
+					</li>
+					<li id="dqna">
+						<h1>질문&답변관리 게시판</h1>		
+					</li>
+					<li id="user">
+						<h1>회원관리 게시판</h1>		
+					</li>					
+				</ul>
+			</aside>
+			<article>
+				<div class="board">		
+					<div class="theader">
+						<div class="searchgroup">
+							<div class="searchvalue">
+								<input type="text">
+							</div>
+							<div class="search">검색</div>
+						</div>
+					</div>			
+					<table>
+						<tr>
+							<th class="ch">								
+							</th>
+							<th>
+								1
+							</th>
+							<th>
+							2
+							</th>
+							<th>
+							3
+							</th>
+						</tr>
+						<tr>
+							<td class="ch">	
+								<input type="checkbox">
+							</td>
+							<td>
+								1
+							</td>
+							<td>
+							2
+							</td>
+							<td>
+							3
+							</td>
+						</tr>					
+						<tr>
+							<td class="ch">	
+								<input type="checkbox">
+							</td>
+							<td>
+								1
+							</td>
+							<td>
+							2
+							</td>
+							<td>
+							3
+							</td>
+						</tr>
+						<tr>
+							<td class="ch">	
+								<input type="checkbox">
+							</td>
+							<td>
+								1
+							</td>
+							<td>
+							2
+							</td>
+							<td>
+							3
+							</td>
+						</tr>
+						<tr>
+							<td class="ch">	
+								<input type="checkbox">
+							</td>
+							<td>
+								1
+							</td>
+							<td>
+							2
+							</td>
+							<td>
+							3
+							</td>
+						</tr>
+					</table>
+					<div class="tfoot">
+						<div class="pnavi">
+							 paginavigator
+						</div>
+						<div class="btngroup">
+							<span>추가</span>
+							<span>수정</span>
+							<span>삭제</span>
+						</div>
+					</div>
+				</div>
+			</article>			
+		</section>		
+	</div>
+	<div class="push"></div>
+</div>
+
+<footer>
+	<div>
+		(주)한빛이엔아이 한빛교육센터학원 Tel : 02-552-3432 | 주소 : 강남구 역삼동 819-10
+	</div>
+</footer>
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $(".topnav").hover(function() {
+        $(this).parent().find(".subnav").slideDown('fast').show();
+        $(this).parent().hover(function() {  
+        }, function(){  
+            $(this).parent().find(".subnav").slideUp('fast');
+        });  
+    });
+});
+
+var $list = $('ul.album');
+var size = $list.children().outerWidth();
+var len =  $list.children().length;
+
+$list.css('width',len*size);
+
+$('.bt-roll').children().bind('click',function(){	
+	var idx = $('.bt-roll').children().index(this);	
+	$list.animate({'left': -(idx*size)+'px' },'normal');
+
+	var source2 = $('.bt-roll').children().find('img').attr('src').replace('_.png','.png');
+	$('.bt-roll').children().find('img').attr('src',source2);
+
+	var source = $(this).find('img').attr('src').replace('.png','_.png');
+	$(this).find('img').attr('src',source);
+
+	return false;
+	
+});
+</script>
+</body>
+</html>
