@@ -23,13 +23,13 @@ footer, .push{
 footer{
 	width: 100%;
 	display: block;
-	background-color: #bbbbbb;
+	background-color: #bbbbbb;	
 }
 
 footer div{
-	display: block;
+	display: block;		
 	text-align:center;
-	padding-top: 10px;
+	padding-top: 10px;	
 	height:30px;
 	color: white;
 	font-size: 11pt;
@@ -48,7 +48,7 @@ header span{
 	display: block;
 	float: right;
 	margin-right: 20px;
-
+	
 }
 header span a{
 	text-decoration: none;
@@ -80,7 +80,7 @@ nav div.menubar{
 	font-weight:bold;
 }
 
-.menubar ul{
+.menubar ul{	
 	height:50px;
 	list-style-type:none;
 	margin:0;
@@ -148,7 +148,7 @@ nav div.menubar{
 	margin:0px;
 	padding:0px 10px 0px 15px;
 	text-align:left;
-	border-radius:0 0 8px 8px;
+	border-radius:0 0 8px 8px;	
 }
 
 .menubar li ul a:hover, .menubar li ul li:hover a{
@@ -169,53 +169,49 @@ section{
 aside.left{
 	width:15%;
 	min-height:100%;
-	background-color:red;
 	float:left;
 }
 article{
-  height:100%;
-  width:100%;
-}
-div.map{
 	width:85%;
 	height:100%;
-	background-color:green;
+	float:left;
+}
+div.map{
+	width:50%;
+	height:100%;
 	float:left;
 }
 div#map{
-	width:50%;
+	width:100%;
 	min-height:100%;
-  background-color:yellow;
-	float:left;
 }
 </style>
-<link rel="stylesheet" href="/maps/documentation/javascript/demos/demos.css">
 </head>
 <body>
 <div class="container">
 	<header>
 		<span><a href="main_login.html">Sign In</a></span>
-		<img src="../images/java.png" width="100">
+		<img src="../images/java.png" width="100"> 
 	</header>
-	<nav>
+	<nav>		
 		<div class="menubar">
-			<ul>
+			<ul>				
 				<li><a href="#">Introduce</a>
 					<ul>
 						<li><a href="#">카페소개</a></li>
-						<li><a href="map.html">찾아오시는길</a></li>
+						<li><a href="map.html">찾아오시는길</a></li>					
 					</ul>
 				</li>
 				<li><a href="#">Menu</a>
 				 	<ul>
 						<li><a href="#">Coffee</a></li>
-					</ul>
+					</ul>				 
 				 </li>
 				 <li><a href="#">Custum</a>
 				 	<ul>
 						<li><a href="#">만들기</a></li>
 						<li><a href="#">내역확인</a></li>
-					</ul>
+					</ul>	
 				 </li>
 				<li><a href="#" >Q&A</a>
 					<ul>
@@ -224,30 +220,59 @@ div#map{
 				    </ul>
 				 </li>
 			</ul>
-		</div>
-	</nav>
+		</div>	
+	</nav>	
 	<div class="push"></div>
 </div>
 <section>
 	<aside class="left">menu</aside>
 	<article>
 		<div class="map">
-			<div id="map"></div>
-    <script>
-
-var map;
-function initMap() {
-  map = new google.maps.Map(document.getElementById('map'), {
+			<div id="map"></div> 
+				<script>
+				  function initMap() {
+  var map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: -34.397, lng: 150.644},
-    zoom: 8
+    zoom: 6
   });
+  var infoWindow = new google.maps.InfoWindow({map: map});
+
+  // Try HTML5 geolocation.
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var pos = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      };
+
+      infoWindow.setPosition(pos);
+      infoWindow.setContent('Location found.');
+      map.setCenter(pos);
+    }, function() {
+      handleLocationError(true, infoWindow, map.getCenter());
+    });
+  } else {
+    // Browser doesn't support Geolocation
+    handleLocationError(false, infoWindow, map.getCenter());
+  }
+}
+
+function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+  infoWindow.setPosition(pos);
+  infoWindow.setContent(browserHasGeolocation ?
+                        'Error: The Geolocation service failed.' :
+                        'Error: Your browser doesn\'t support geolocation.');
 }
 
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUN6ZUXqNd3Dm0oBCTuPOUfPpqFmp1248&callback=initMap"
-      async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCS02ggOI-_KOaD-7fzY5gwdI29RiNniV8&signed_in=true&callback=initMap"
+        async defer>
+    </script>
 		</div>
 		<div class="fix_store">
+			<h3>추가, 수정</h3>
+			<span>추가</span>
+			<span>수정</span>
 		</div>
 	</article>
 </section>
