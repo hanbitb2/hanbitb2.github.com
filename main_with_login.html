@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Java In Spring</title>
+<link rel="stylesheet" href="../css/main.css" type="text/css">
+<link rel="stylesheet" href="../css/common.css" type="text/css">
+<style>	
+	section article{
+		display: block;
+		position: relative;
+		top: 17px;		
+		z-index:0;
+	}
+	section article article{
+		display: block;
+		width: 530px;
+		height: 550px;		
+		margin-top:50px;
+		margin: auto;		
+		border-radius:15px;
+		background-color: rgba(255,255,255,0.5);
+		z-index:-1;
+	}	
+	
+	section article article h1{
+		margin-left: 30px;
+		padding-top: 30px;
+		color: #492143;
+		font-size: 20pt;
+	}
+		
+	.album-wrap {position:relative; width:400px; height:400px; margin:0 auto; top:30px; overflow:hidden;}
+	.album-wrap ul.album {position:absolute;}
+	.album-wrap ul.album li {float:left; width:400px;}
+	
+	.album li img{
+		width: 400px;
+		border-radius:15px;
+		height: auto;
+	}
+	
+	ul.bt-roll {width:110px; margin:0 auto; margin-top:50px;}
+	ul.bt-roll li {float:left; margin-right:5px; margin-left: 20px;}
+	
+	span.btn_login{
+		display:inline-block;
+		width:70px;
+		height:20px;
+		background-color:#4e2b19;
+		border-radius:5px;
+		padding:5px 15px 5px 15px;
+		font-size:14px;
+		font-weight:bold;
+		color:white;
+	}
+
+	span.btn_find_join{
+		display:inline-block;
+		width:150px;
+		height:20px;
+		background-color:#4e2b19;
+		border-radius:5px;
+		padding:5px 15px 5px 15px;
+		font-size:14px;
+		font-weight:bold;
+		color:white;
+	}
+	
+	span.btn_join{
+		display:inline-block;
+		width:70px;
+		height:20px;
+		background-color:#4e2b19;
+		border-radius:5px;
+		padding:5px 15px 5px 15px;
+		font-size:14px;
+		font-weight:bold;
+		color:white;
+	}
+	
+	#lean_overlay {
+    position: fixed;
+    z-index:100;
+    top: 0px;
+    left: 0px;
+    height:100%;
+    width:100%;
+    background: #000;
+    display: none;
+	}
+	
+	#loginmodal h2{color:black; }
+	
+	#loginmodal {
+	width: 450px;
+	height:400px;  /*팝업창의 크기조절*/
+	margin-top:100px;           /*팝업창 위아래 간격조절*/
+	padding: 18px;
+	background : url(../images/loginbg.png);
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	-webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+	}
+	
+	section.backone{	
+	background: url(../images/summer3_img.jpg) center center fixed no-repeat #45434c; 
+	background-size:auto 100%; 
+	height:800px; 
+	padding:0; 
+	position:relative;
+	/* background-repeat: repeat-y;	
+	width:100%;
+	height:619px;
+	z-index:-50; */
+	}
+	section.backtwo{	
+		background: url("../images/fav_prod_bg_new.jpg") center center fixed no-repeat #45434c;
+		background-size:auto 100%; 
+		height:800px; 
+		padding:0; 
+		position:relative;
+		/* background-repeat: repeat-y;	
+		width:100%;
+		height:619px;
+		z-index:-50; */
+	}
+</style>
+
+<script src="../jquery/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="../jquery/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="../jquery/jquery.leanModal.min.js"></script>
+
+</head>
+<body>
+<div class="container">
+	<header>
+		<!--login 버튼 링크 부분 -->
+		<span><a href="#loginmodal" class="flatbtn" id="modaltrigger">Sign In</a></span>
+		<span><a href="admin.html">Admin</a></span>		
+		<a href="./main.html"><img src="../images/java.png" width="100" ></a> 
+	</header>
+	<nav>		
+		<div class="menubar">
+			<ul>				
+				<li class="navi_set">
+					<div class="topnav">Introduce</div>
+					<ul class="subnav">
+						<li><a href="#">카페소개</a></li>
+						<li><a href="map.html">찾아오시는길</a></li>					
+					</ul>
+				</li>
+				<li class="navi_set">
+					<div class="topnav">Menu</div>
+				 	<ul class="subnav">
+						<li><a href="#">Coffee</a></li>
+					</ul>				 
+				 </li>
+				 <li class="navi_set">
+				 	<div class="topnav">Custum</div>
+				 	<ul class="subnav">
+						<li><a href="#">만들기</a></li>
+						<li><a href="#">내역확인</a></li>
+					</ul>	
+				 </li>
+				<li class="navi_set">
+					<div class="topnav">Q&A</div>
+					<ul class="subnav">
+					    <li><a href="#">자주하는질문</a></li>
+					    <li><a href="#">질문&답변</a></li>
+				    </ul>
+				 </li>
+			</ul>
+		</div>	
+	</nav>	
+	<div class="content">
+		<section class="backone">
+			<article>
+				<article>
+					<h1>NEW COFFEE</h1>
+					<div class="album-wrap">
+						<ul class="album clfix">
+							<li><a href="#"><img src="../images/coffee1.jpg" title="레이첼 야마가타"></a></li>
+							<li><a href="#"><img src="../images/coffee2.jpg" title="알리"></a></li>
+						</ul>
+					</div>
+					<ul class="bt-roll">
+						<li><a href="#"><img src="../images/btn_circle_.png" alt="" /></a></li>
+						<li><a href="#"><img src="../images/btn_circle.png" alt="" /></a></li>
+					</ul>
+				</article>	
+			</article>
+		</section>
+		<section class="backtwo">
+		</section>
+	</div>
+	<div class="push"></div>
+</div>
+<!-- login 버튼 클릭 후 열릴 레이어 팝업 -->
+<div id="loginmodal" style="display:none;">
+<br/><h2>LOGIN</h2><br/>
+<center>
+<div class="p_c_text"><h3>Welcome!<br/>Java In Spring에 오신 것을 환영합니다.</h3>
+							<h4>설정하신 아이디와 비밀번호를 입력해주세요.</h4></div>
+<div class="login_line">
+<div class="box_in">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>ID</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="text" name="id" id="id" size="23"><br/>
+<label>Password</label>&nbsp;&nbsp;
+<input type="text" name="pw" id="pw" size="23"><br/><br/>
+</div>
+<span class="btn_login"><a href="">LOGIN</a></span>
+<span class="btn_find_join"><a href="">아이디/비밀번호 찾기</a></span>
+</div>
+<div class="p_c_text"><br/><h3>Java In Spring 회원이 아니세요?<br/></h3>
+						<h4>Java In Spring 회원만의 특별한 혜택을 누릴 수 있습니다.</h4></div>
+<span class="btn_join"><a href="">회원가입</a></span>
+</div>
+</center>
+<!-- 모달윈도우부분 start -->
+<script type="text/javascript">
+$(function(){
+	$('#loginform').submit(function(e){
+		return false;
+	});
+	
+	$('#modaltrigger').leanModal({top:110, overlay:0.8, closeButton: ".hidemodal"});
+});
+</script>
+<!-- 모달윈도우부분 end -->
+
+<footer>
+	<div>
+		(주)한빛이엔아이 한빛교육센터학원 Tel : 02-552-3432 | 주소 : 강남구 역삼동 819-10
+	</div>
+</footer>
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $(".topnav").hover(function() {
+        $(this).parent().find(".subnav").slideDown('fast').show();
+        $(this).parent().hover(function() {  
+        }, function(){  
+            $(this).parent().find(".subnav").slideUp('fast');
+        });  
+    });
+});
+var $list = $('ul.album');
+var size = $list.children().outerWidth();
+var len =  $list.children().length;
+$list.css('width',len*size);
+$('.bt-roll').children().bind('click',function(){	
+	var idx = $('.bt-roll').children().index(this);	
+	$list.animate({'left': -(idx*size)+'px' },'normal');
+	var source2 = $('.bt-roll').children().find('img').attr('src').replace('_.png','.png');
+	$('.bt-roll').children().find('img').attr('src',source2);
+	var source = $(this).find('img').attr('src').replace('.png','_.png');
+	$(this).find('img').attr('src',source);
+	return false;
+	
+});
+</script>
+</body>
+</html>
