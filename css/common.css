@@ -1,7 +1,55 @@
 @charset "utf-8";
-@import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css");
+/* 
+ * Nanum Barun Gothic (Korean) http://hangeul.naver.com
+ */
+@import url(https://cdn.rawgit.com/openhiun/hangul/14c0f6faa2941116bb53001d6a7dcd5e82300c3f/nanumbarungothic.css);
+@font-face {
+  font-family: 'Nanum Barun Gothic';
+  font-style: normal;
+  font-weight: 200;
+  src: local('Nanum Barun Gothic UltraLight'), local('Nanum Barun Gothic-UltraLight'), local('NanumBarunGothic UltraLight');
+  src: url(./NanumBarunGothicUltraLight.eot);
+  src: url(./NanumBarunGothicUltraLight.eot?#iefix) format('embedded-opentype'),
+       url(./NanumBarunGothicUltraLight.woff) format('woff'),
+       url(./NanumBarunGothicUltraLight.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Nanum Barun Gothic';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Nanum Barun Gothic Light'), local('Nanum Barun Gothic-Light'), local('NanumBarunGothic Light');
+  src: url(./NanumBarunGothicLight.eot);
+  src: url(./NanumBarunGothicLight.eot?#iefix) format('embedded-opentype'),
+       url(./NanumBarunGothicLight.woff) format('woff'),
+       url(./NanumBarunGothicLight.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Nanum Barun Gothic';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Nanum Barun Gothic Regular'), local('Nanum Barun Gothic-Regular'), local('NanumBarunGothic Regular');
+  src: url(./NanumBarunGothic.eot);
+  src: url(./NanumBarunGothic.eot?#iefix) format('embedded-opentype'),
+       url(./NanumBarunGothic.woff) format('woff'),
+       url(./NanumBarunGothic.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Nanum Barun Gothic';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Nanum Barun Gothic Bold'), local('Nanum Barun Gothic-Bold'), local('NanumBarunGothic Bold');
+  src: url(./NanumBarunGothicBold.eot);
+  src: url(./NanumBarunGothicBold.eot?#iefix) format('embedded-opentype'),
+       url(./NanumBarunGothicBold.woff) format('woff'),
+       url(./NanumBarunGothicBold.ttf) format('truetype');
+}
+
+
 * { margin:0; padding:0; }
-* { font-family: 'Nanum Gothic', serif, 'Dotum', 'Gulim', 'serif', sans-serif;  }
+* { font-family: 'Nanum Barun Gothic', serif, 'Dotum', 'Gulim', 'serif', sans-serif;  }
 html, body { margin:0px; padding:0px; background-color:#fff;}
 img, fieldset { border:0px; }
 legend { visibility:hidden; height:0px; width:0px; line-height:0; _text-indent:-10px; font-size:0px; }
@@ -75,8 +123,8 @@ dl.explain:after {content: "."; display: block; height: 0px; clear: both; visibi
 	dl.explain dd {float:left; width:90%; line-height:20px;}
 
 code {font-size:15px; border:1px solid #D2D2D2; padding:2px 5px; border-radius:8px; -moz-border-radius:8px; -webkit-border-radius:8px; -o-border-radius:8px; -ms-border-radius:8px; background-color:#F4F4F4;}
-.code {font-family:'Nanum Gothic', Tohoma; font-size:11px; color:#666;}
-.code-b {font-family:'Nanum Gothic', Tohoma; font-size:25px; color:#666;}
+.code {font-family:'Nanum Barun Gothic', Tohoma; font-size:11px; color:#666;}
+.code-b {font-family'Nanum Barun Gothic', Tohoma; font-size:25px; color:#666;}
  
 /* iframe */
 #ifr {padding:0; margin:0;}
@@ -93,7 +141,7 @@ code {font-size:15px; border:1px solid #D2D2D2; padding:2px 5px; border-radius:8
 /* header {position:relative; width:100%; margin:0 0 0px; padding-bottom:10px; border-bottom:1px solid #b3b3b3; zoom:1;} */
 	header:after {content: "."; display: block; height: 0px; clear: both; visibility: hidden;}
 	header .gnb-wrap {width:970px; margin:0 auto;}
-	header h1 {width:300px; font-family:'Nanum Gothic',"Segoe UI", "SegoeUI", "Segoe", "Arial", "Tahoma"; font-size:52px; font-weight:bold; color:#000; font-weight:normal; line-height:68px; letter-spacing:-3px;}
+	header h1 {width:300px; font-family:'Nanum Barun Gothic',"Segoe UI", "SegoeUI", "Segoe", "Arial", "Tahoma"; font-size:52px; font-weight:bold; color:#000; font-weight:normal; line-height:68px; letter-spacing:-3px;}
 	header p.htxt {width: 245px; margin:-5px 0 0 0; font-weight:bold; color:#999; text-align: right;}
 	header p.htxt span.lx {width:85px; display:inline-block; margin-right:10px; border-bottom:8px solid #ededed;}
 	header nav#gnb-nav {float:right; margin:-60px 0 0 400px;}
@@ -124,15 +172,15 @@ code {font-size:15px; border:1px solid #D2D2D2; padding:2px 5px; border-radius:8
 
 footer {position:relative; width:100%; padding-top:15px; border-top:1px solid #d3d3d3; zoom:1;}
 	footer .footer-wrap {width:850px; margin:0 auto;}
-	footer h1 {float:left; margin-right:80px; font-family: 'Nanum Gothic', "Segoe UI", "SegoeUI", "Segoe", "Arial", "Tahoma"; font-size:18px; font-weight:bold; color:#777; font-weight:normal; line-height:18px; font-weight:bold;}
+	footer h1 {float:left; margin-right:80px; font-family: 'Nanum Barun Gothic', "Segoe UI", "SegoeUI", "Segoe", "Arial", "Tahoma"; font-size:18px; font-weight:bold; color:#777; font-weight:normal; line-height:18px; font-weight:bold;}
 	footer nav {float:left;}
 	footer nav ul li {float:left; margin-right:10px;}
 	footer nav ul li a {display:block; width:80px; height:20px; background-color:#dbdbdb; border-radius:75px; font-size:11px; font-weight:bold; line-height:20px; text-align:center;}
 
 section#contents {position:relative; width:850px; margin:0 auto; padding-bottom:50px;}
 article.book {position:relative; padding:0 20px;}
-	article.book h1 {font-family: 'Nanum Gothic', "Segoe UI", "SegoeUI", "Segoe", "Arial", "Tahoma"; font-size:25px; font-weight:bold; color:#414141; font-weight:normal; line-height:22px;}
-	article.book h2 {display:inline-block; height:35px; margin-bottom:0; padding:0 20px; background-color:#b4b4b4; border-radius:10px 10px 0 0; font-family:"Segoe UI", "SegoeUI", "Segoe", "Arial", "Tahoma"; font-size:18px; font-weight:bold; color:#fff; font-weight:normal; line-height:35px;}
+	article.book h1 {font-family: 'Nanum Barun Gothic', "Segoe UI", "SegoeUI", "Segoe", "Arial", "Tahoma"; font-size:25px; font-weight:bold; color:#414141; font-weight:normal; line-height:22px;}
+	article.book h2 {display:inline-block; height:35px; margin-bottom:0; padding:0 20px; background-color:#b4b4b4; border-radius:10px 10px 0 0; font-family:'Nanum Barun Gothic',"Segoe UI", "SegoeUI", "Segoe", "Arial", "Tahoma"; font-size:18px; font-weight:bold; color:#fff; font-weight:normal; line-height:35px;}
 	article.book ul.book-list {margin-bottom:30px; border-top:1px dotted #b4b4b4;}
 	article.book ul.book-list li {float:left; width:140px; height:225px; margin:0 60px 45px 0; text-align:center;}
 	article.book ul.book-list li a {display:inline-block; margin-top:10px; font-weight:bold; color:#1797c8;}
@@ -169,12 +217,12 @@ article.study {position:relative; padding:0 20px;}
 	article.study nav.s-nav {margin:0 0 20px 0;}
 	article.study nav.s-nav ul {border-bottom:1px dotted #b4b4b4;}
 	article.study nav.s-nav ul li {float:left; margin-right:1px;}
-		article.study nav.s-nav ul li a {display:block; height:35px; padding:0 20px; background-color:#b4b4b4; border-radius:10px 10px 0 0; font-family:"Segoe UI", "SegoeUI", "Segoe", "Arial", "Tahoma"; font-size:18px; font-weight:bold; color:#fff; font-weight:normal; line-height:35px;}
+		article.study nav.s-nav ul li a {display:block; height:35px; padding:0 20px; background-color:#b4b4b4; border-radius:10px 10px 0 0; font-family:'Nanum Barun Gothic',"Segoe UI", "SegoeUI", "Segoe", "Arial", "Tahoma"; font-size:18px; font-weight:bold; color:#fff; font-weight:normal; line-height:35px;}
 		article.study nav.s-nav ul li a.sel {background-color:#000; color:#fff;}
 
 	article.study ul.study-list {}
 		article.study ul.study-list li {float:left; width:200px; height:150px; border:1px solid #eaeaea;}
-		article.study ul.study-list li a {display:block; width:200px; height:150px; font-family:'Nanum Gothic', "Segoe UI", "SegoeUI", "Segoe", "Arial", "Tahoma","맑은 고딕"; font-size:30px; line-height:150px; color:#000; text-align:center;}
+		article.study ul.study-list li a {display:block; width:200px; height:150px; font-family:'Nanum Barun Gothic', "Segoe UI", "SegoeUI", "Segoe", "Arial", "Tahoma","맑은 고딕"; font-size:30px; line-height:150px; color:#000; text-align:center;}
 		article.study ul.study-list li a:hover {color:#fff; text-decoration:underline;}
 		article.study ul.study-list li a.lh2 {height:115px; padding-top:35px; line-height:37px;}
 		article.study ul.study-list li a.lh3 {height:135px; padding-top:15px; line-height:37px;}
@@ -184,7 +232,7 @@ article.study {position:relative; padding:0 20px;}
 		article.study ul.study-list.coding li a {background-color:#a9cc5e;}
 
 	article.study-details {width:800px; margin:50px auto;}
-		article.study-details h1.script {position:relative; display:block; width:400px; height:250px; margin:0 auto 80px; background-color:#b98cdb; font-family:"Segoe UI", "SegoeUI", "Segoe", "Arial", "Tahoma","맑은 고딕"; font-size:52px; color:#000; line-height:250px; font-weight:normal; text-align:center;}
+		article.study-details h1.script {position:relative; display:block; width:400px; height:250px; margin:0 auto 80px; background-color:#b98cdb; font-family:'Nanum Barun Gothic',"Segoe UI", "SegoeUI", "Segoe", "Arial", "Tahoma","맑은 고딕"; font-size:52px; color:#000; line-height:250px; font-weight:normal; text-align:center;}
 		article.study-details h1.script.lh2 {height:200px; padding-top:50px; line-height:70px;}
 		article.study-details h1.script.lh3 {height:230px; padding-top:20px; line-height:70px;}
 		article.study-details h1.script.lh4 {height:250px; padding-top:0px; line-height:60px;}
