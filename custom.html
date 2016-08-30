@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Java In Spring</title>
+<link rel="stylesheet" href="css/main.css" type="text/css">
+<link rel="stylesheet" href="css/common.css" type="text/css">
+<style>
+   section article{
+      display: block;
+      position: relative;
+      top: 17px;
+      z-index:0;
+   }
+   section article article{
+      display: block;
+      width: 530px;
+      height: 550px;
+      margin-top:50px;
+      margin: auto;
+      border-radius:15px;
+      background-color: rgba(255,255,255,0.5);
+      z-index:-1;
+   }
+
+   section article article h1{
+      margin-left: 30px;
+      padding-top: 30px;
+      color: #492143;
+      font-size: 20pt;
+   }
+
+   .album-wrap {position:relative; width:400px; height:400px; margin:0 auto; top:30px; overflow:hidden;}
+   .album-wrap ul.album {position:absolute;}
+   .album-wrap ul.album li {float:left; width:400px;}
+
+   .album li img{
+      width: 400px;
+      border-radius:15px;
+      height: auto;
+   }
+
+   ul.bt-roll {width:110px; margin:0 auto; margin-top:50px;}
+   ul.bt-roll li {float:left; margin-right:5px; margin-left: 20px;}
+
+   div.titleBox{
+         width:40%;
+         padding-left:30%;
+         padding-top:80px;
+   }
+         div.img_bar{
+            width:100%;
+            height:200px;
+            display: block;
+            background:url("images/img_bar.jpg");
+         }
+         .title{
+            font-size:30pt;
+            font-weight:bold;
+            color:white;
+            letter-spacing: -3px;
+            position:relative;
+         }
+         .title2{
+            color:#eee;
+            letter-spacing: -1px;
+         }
+
+   table.d1 {
+    margin: 10px;
+    border: 1px solid #ccc;
+    float: left;
+    width: 150px;
+    text-align: center;
+  }
+
+    table.d1 img {
+    width: 100%;
+    height: auto;
+  }
+
+    .wrap{
+    width: 100%;
+    height : 100%;
+
+    }
+
+    .wrap1{
+      width:70%;
+      height:30%;
+      display : inline-block;
+      text-align: center;
+      display:block;
+      margin:auto;
+
+    }
+
+    .wrap2{
+      width:50%;
+      height:60%;
+      display: block;
+      float:left;
+    }
+
+    #iceDiv{
+      float: left;
+      height:100px;
+      width:100%;
+      display:none;
+    }
+    #wrap2-1{
+        width:100%;
+        height:100%;
+      display: none;
+      float:left;
+    }
+
+            #wrap2-2{
+              width:100%;
+              height:100%;
+              display: none;
+              float:left;
+            }
+                #wrap2-3{
+                  width:100%;
+                  height:100%;
+                  display: none;
+                  float:left;
+                }
+                    #wrap2-4{
+                      width:100%;
+                      height:100%;
+                      display: none;
+                      float:left;
+                    }
+                        #wrap2-5{
+                          width:100%;
+                          height:100%;
+                          display: none;
+                          float:left;
+                        }
+
+    .wrap3{
+      width:50%;
+      height:60%;
+    display: block;
+    float:left;
+    }
+
+    .wrap4{
+      width:100%;
+      height:10%;
+    display: block;
+    float:left;
+    }
+
+
+    div.d2 {
+     margin: 50px;
+     border: 1px solid #ccc;
+     float: left;
+     width: 150px;
+     text-align: center;
+   }
+
+   .f1{
+       padding : 10px;
+       float : left;
+       border : 1px solid black;
+       margin-top: auto;
+     }
+
+    .ac {
+      display: block;
+      width: 200px;
+      height: 150px;
+      border: 1px solid gray;
+      float: right;
+      margin : 50px;
+   }
+
+    .img2 {
+     width: 100%;
+     height: auto;
+   }
+
+  .addlist th{
+    border : 1px solid black;
+  }
+</style>
+
+<script src="../jquery/jquery-1.7.1.min.js"></script>
+
+</head>
+<body>
+<div class="container">
+   <header>
+      <span><a href="JIS_login.html">Sign In</a></span>
+      <a href="./main.html"><img src="../images/java.png" width="100" ></a>
+   </header>
+   <nav>
+      <div class="menubar">
+         <ul>
+            <li class="navi_set">
+               <div class="topnav">Introduce</div>
+               <ul class="subnav">
+                  <li><a href="#">카페소개</a></li>
+                  <li><a href="map.html">찾아오시는길</a></li>
+               </ul>
+            </li>
+            <li class="navi_set">
+               <div class="topnav">Menu</div>
+                <ul class="subnav">
+                  <li><a href="#">Coffee</a></li>
+               </ul>
+             </li>
+             <li class="navi_set">
+                <div class="topnav">Custum</div>
+                <ul class="subnav">
+                  <li><a href="#">만들기</a></li>
+                  <li><a href="#">내역확인</a></li>
+               </ul>
+             </li>
+            <li class="navi_set">
+               <div class="topnav">Q&A</div>
+               <ul class="subnav">
+                   <li><a href="#">자주하는질문</a></li>
+                   <li><a href="#">질문&답변</a></li>
+                </ul>
+             </li>
+         </ul>
+      </div>
+   </nav>
+   <div class="img_bar">
+         <div class="titleBox">
+            <p class="title"><a href="fnq.html">커스터마이징</a></p>
+            <p class="title2">나만의 특별한 음료를 만들어 보세요.</p>
+         </div>
+      </div>
+      <section>
+   <!-- 커스텀 페이지 시작  -->
+  <div class = "wrap">
+    <div class = "wrap1">
+      <!--selectionMenu(db번호)번호로 넘길거다 db불러올 때 번호 불러와서 넣어줄 수 있게 짜세영-->
+  <table class = "d1">
+      <td id = "aaa">
+        <img src="http://placehold.it/300X313" width="300" height="313"/> 아메리카노
+        <input type = "radio" name = "menu1" value = "americano" onclick="selectionMenu(1)">
+         </td>
+    </table>
+  <table class = "d1">
+      <td>
+        <img src = "../images/latte.jpg" alt = "카페라떼"> 카페라떼
+        <input type = "radio" name = "menu1" value = "latte" onclick="selectionMenu(2)">
+      </td>
+    </table>
+  <table class = "d1">
+      <td>
+        <img src = "../images/mocca.jpg" alt = "카페모카"> 카페모카
+        <input type = "radio" name = "menu1" value = "mocca" onclick="selectionMenu(3)">
+      </td>
+    </table>
+  <table class = "d1">
+      <td>
+        <img src = "../images/greentea.jpg" alt = "그린티프라푸치노"> 그린티프라푸치노
+        <input type = "radio" name = "menu1" value = "greentea" onclick="selectionMenu(4)">
+      </td>
+    </table>
+  <table class = "d1">
+      <td>
+        <img src = "../images/lemon.jpg" alt = "레몬에이드"> 레몬에이드
+        <input type = "radio" name = "menu1" value = "lemon" onclick="selectionMenu(5)">
+      </td>
+    </table>
+  </div>
+  <div class="wrap2">
+    <!--loop돌아야 하는 div. (wrap2-메뉴번호) 포맷-->
+  <div id="wrap2-1">
+    <div class = "d2">
+    <img clas="img2" src="http://placehold.it/300X313" width="300" height="313"/> 아메리카노
+  </div>
+    <article>
+  <form class = "f1">
+      <input type = "button" name = "ice" id="btnIce" onclick="ficeDiv()" value = "&nbsp;ICE&nbsp;">
+      <input type = "button" name = "hot" id="btnHot" value = "&nbsp;HOT&nbsp;"><br><br>
+      <div id="iceDiv">
+        <ul>
+          <li>얼음 <br>
+           <input type = "button" name = "less" value = "적게" >
+           <input type = "button" name = "middle" value = "보통">
+           <input type = "button" name = "more" value = "많이">
+         </li>
+      </ul>
+      </div>
+    <div>
+      <ul>
+           <li> 샷
+          <input type="number" name="quantity" min="1" max="9">
+          <input type ="button" name = "submit" value = "추가">
+        </li> <br>
+        <li> 시럽 <br>
+          <input type = "button" name = "less" value = "적게">
+          <input type = "button" name = "medium" value = "보통">
+          <input type = "button" name = "more" value = "많이">
+        </li> <br>
+      <li> 사이즈 <select id = "size">
+      <option value = "regular"> REGULAR </option>
+      <option value = "large"> LARGE </option>
+    </li></select> <br><br>
+    <li> 휘핑 <input type = "range" name = "whip" value = "휘핑"></li>
+  </ul>
+</div>
+<div class="wrap4">
+  <input type="text" placeholder="커스텀이름">
+  <span>확인</span>
+</div>
+<div class = "ac">
+<table class = "addlist">
+  <h3> Custom Add List </h3>
+  <tr>
+    <th> name </th>
+    <th> option </th>
+    <th> price </th>
+  </tr>
+  <tr>
+    <td> 1 </td>
+    <td> 1 </td>
+    <td> 1 </td>
+  </tr>
+  <tr>
+    <td> 2 </td>
+    <td> 2 </td>
+    <td> 2 </td>
+  </tr>
+  <tr>
+    <td> 3 </td>
+    <td> 3 </td>
+    <td> 3 </td>
+  </tr>
+  <tr>
+    <td> 4 </td>
+    <td> 4 </td>
+    <td> 4 </td>
+  </tr>
+  <tr>
+    <td> 5 </td>
+    <td> 5 </td>
+    <td> 5 </td>
+  </tr>
+</table>
+</div>
+  </div>
+  </form>
+     </div>
+  <!--여기까지 아래는 예시로 넣은 div-->
+  <div id="wrap2-2">
+    <div class = "d2">
+       <img class = "img2" src = "../images/latte.jpg" alt = "카페라떼"> 카페라떼
+     </div>
+      </div>
+  <div id="wrap2-3">
+    <div class = "d2">
+         <img class = "img2" src = "../images/mocca.jpg" alt = "카페모카"> 카페모카
+       </div>
+      </div>
+  <div id="wrap2-4">
+    <div class = "d2">
+         <img class = "img2" src = "../images/greentea.jpg" alt = "녹차프라푸치노"> 녹차프라푸치노<br>
+       </div>
+      </div>
+  <div id="wrap2-5">
+      <div class = "d2">
+         <img class = "img2" src = "../images/lemon.jpg" alt = "레몬에이드"> 레몬에이드
+       </div>
+      </div>
+  <div class="wrap3">
+  </div>
+</article>
+</section>
+<footer>
+<div>
+(주)한빛이엔아이 한빛교육센터학원 Tel : 02-552-3432 | 주소 : 강남구 역삼동 819-10
+</div>
+</footer>
+
+<script type="text/javascript">
+$(document).ready(function(){
+$(".topnav").hover(function() {
+    $(this).parent().find(".subnav").slideDown('fast').show();
+    $(this).parent().hover(function() {
+    }, function(){
+        $(this).parent().find(".subnav").slideUp('fast');
+    });
+});
+});
+
+var $list = $('ul.album');
+var size = $list.children().outerWidth();
+var len =  $list.children().length;
+
+$list.css('width',len*size);
+
+$('.bt-roll').children().bind('click',function(){
+var idx = $('.bt-roll').children().index(this);
+$list.animate({'left': -(idx*size)+'px' },'normal');
+
+var source2 = $('.bt-roll').children().find('img').attr('src').replace('_.png','.png');
+$('.bt-roll').children().find('img').attr('src',source2);
+
+var source = $(this).find('img').attr('src').replace('.png','_.png');
+$(this).find('img').attr('src',source);
+
+return false;
+
+});
+
+function selectionMenu(num) {
+var listNum = 5; //전체 글 개수를 넣어줌. 지금은 5개라서 5개만
+//document.getElementById('wrap2-' + num).style.display='block';
+/*document.getElementById("subject" + num).style.fontWeight='bold';*/
+
+for(var i=1; i<=listNum; i++){
+var content = document.getElementById('wrap2-' + i);
+if(num == i){ //i번째 글 선택하면 내용출력,
+  if(content.style.display == 'block'){//열려있으면 닫아라
+    content.style.display = 'none';
+  }
+  else if(content.style.display == 'none'){ //닫혀있으면 열어라
+    content.style.display = 'block';
+  }
+}else{ //아니면 다른 글 내용 닫기
+  content.style.display = 'none';
+}
+}
+
+}
+
+function ficeDiv(){
+  var idiv = document.getElementById("iceDiv");
+  if(idiv.style.display == 'none')
+    idiv.style.display = 'block';
+  else
+    idiv.style.display = 'none';
+}
+
+
+
+
+</script>
+</body>
+</html>
