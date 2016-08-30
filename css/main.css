@@ -28,7 +28,7 @@ footer div{
 }
 
 header{
-	height:100px;
+	height:70px;
 	background-color: #C9C9CB;
 	z-index:-10;
 	/* background: url(../images/title.jpg) center top; */
@@ -157,4 +157,8 @@ nav div.menubar{
 
 .menubar p{
 	clear:left;
+}
+header a img{
+	width:70px; 
+	margin:15px 0 0 40px;	
 }
