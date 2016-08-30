@@ -38,10 +38,12 @@ header{
 }
 
 header span{
-	
 	float: right;
+	margin-top : 10px;
 	margin-right: 20px;
-	
+	font-size:11px;
+	z-index:100;
+	color: white;
 }
 header span a{
 	text-decoration: none;
