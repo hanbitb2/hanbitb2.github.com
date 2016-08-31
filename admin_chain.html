@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Java In Spring</title>
+<link rel="stylesheet" href="../css/main.css" type="text/css">
+<link rel="stylesheet" href="../css/common.css" type="text/css">
+<script src="../5.jquery/js/jquery-3.1.0.min.js"></script>
+<script>
+	$("document").ready(function(){
+		$("#checkboxAll").click(function(){
+			if($("#checkboxAll").prop("checked")){
+				$("input[name=checkbox]").prop("checked",true);
+				$("em").text("선택해제");
+			}else{
+				$("input[name=checkbox]").prop("checked",false);
+				$("em").text("전체선택");
+			}
+		});	
+		$("input[type=checkbox]").click(function(){			
+			var check = false;
+			for(i=1;i<11;i++){
+				if($("#chk"+i).prop("checked")){
+					check=true;
+				}
+			}
+			if(check == true){
+				$("#delet").show();	
+			}else{
+				$("#delet").hide();	
+			} 				
+			
+		});
+		$("#delet").click(function(){
+			confirm("삭제하시겠습니까?");
+		});
+	});
+</script>
+<style>	
+	section{
+		display:block;
+		background-color: white;
+		min-height:600px;
+		position:relative;			
+		width:100%;
+	}
+	aside{
+		display: block;
+		width:20%;
+		min-width:220px;		
+		min-height:700px;
+		float: left;
+		border-right: 2px solid #ccc;
+	}
+	aside ul{				
+	}
+	aside ul li{
+		padding-top:10px;
+		padding-bottom:10px;
+		padding-left:10px;
+				
+	}
+	aside ul li:hover ,aside ul li:hover h1{
+		background-color: #B4CDE6;		
+		color: #4B4B19;
+		cursor: pointer;
+	}
+	article{
+		display: block;
+		width: 79%;
+		min-height:100%;
+		float: left;		
+	}
+	div.map{
+	display:block;
+	width:49%;
+	height:500px;
+	float:left;
+	border:1px solid red;
+}
+div#map{
+	width:100%;
+	height:100%;
+}
+div.fix_store{
+	display:block;
+	width:50%;
+	height:100%;
+	float:left;
+	background-color:#C9C9CB;
+}
+.fix_store h3{
+	margin:7px 0 10px 10px;
+}
+div.buttons{
+	text-align:right;
+	margin:5px 20px 10px 0;
+}
+.buttons span{
+	background-color:lightblue;
+	margin-left:15px;
+	border-radius:5px;
+	text-align:center;
+	padding:3px 6px 3px 6px;
+}
+span a{
+	text-decoration:none;
+}
+div.store_list{
+	height:530px;
+	overflow:auto;
+}
+table{
+	width:100%;
+	margin-top:20px;
+}
+th{
+	font-size:15pt;
+	padding:7px 7px 10px 7px;
+}
+th:nth-child(2), th:first-child{
+	width:10%;
+}
+th:nth-child(3){
+	width:60%;
+}
+th, td{
+	border-bottom:1px solid lightgray;
+	text-align:center;
+}
+table td{
+	height:100px;
+}
+td:nth-child(3){
+	text-align:left;
+	text-indent:15px;
+}
+div.paging{
+	margin:20px 0 20px 0;
+	text-align:center;
+}
+input[type=checkbox]:checked + tr{
+	background:blue;
+}
+em{
+	text-decoration:none;
+	font-size:8pt;
+}
+</style>
+
+<script>
+
+	window.onload = function(){		
+		dqna.onclick = function(){
+			location.href="qna.html";			
+		}
+	}
+
+</script>
+
+<script src="../jquery/jquery-1.7.1.min.js"></script>
+
+</head>
+<body>
+<div class="container">
+	<header>
+		<span><a href="JIS_login.html">Sign In</a></span>
+		<span><a href="admin.html">Admin</a></span>		
+		<a href="./main.html"><img src="../images/java.png" width="100" ></a> 
+	</header>
+	<nav>		
+		<div class="menubar">
+			<ul>				
+				<li class="navi_set">
+					<div class="topnav">Introduce</div>
+					<ul class="subnav">
+						<li><a href="#">카페소개</a></li>
+						<li><a href="map.html">찾아오시는길</a></li>					
+					</ul>
+				</li>
+				<li class="navi_set">
+					<div class="topnav">Menu</div>
+				 	<ul class="subnav">
+						<li><a href="#">Coffee</a></li>
+					</ul>				 
+				 </li>
+				 <li class="navi_set">
+				 	<div class="topnav">Custum</div>
+				 	<ul class="subnav">
+						<li><a href="#">만들기</a></li>
+						<li><a href="#">내역확인</a></li>
+					</ul>	
+				 </li>
+				<li class="navi_set">
+					<div class="topnav">Q&A</div>
+					<ul class="subnav">
+					    <li><a href="#">자주하는질문</a></li>
+					    <li><a href="#">질문&답변</a></li>
+				    </ul>
+				 </li>
+			</ul>
+		</div>	
+	</nav>	
+	<div class="content">
+		<section>
+			<aside>
+				<ul id="ul">
+					<li id="menu" value="a">
+						<h1>메뉴관리 게시판</h1>
+					</li>
+					<li id="chain">
+						<h1>체인점관리 게시판	</h1>
+					</li>
+					<li id="custom">
+						<h1>커스텀관리 게시판	</h1>
+					</li>
+					<li id="sqna">
+						<h1>자주하는질문관리 게시판</h1>
+					</li>
+					<li id="dqna">
+						<h1>질문&답변관리 게시판</h1>		
+					</li>
+					<li id="user">
+						<h1>회원관리 게시판</h1>		
+					</li>					
+				</ul>
+			</aside>
+			<article>					
+				<div class="map">
+					<div id="map"></div> 
+					<script>
+						function initMap() {
+						  var originalMapCenter = new google.maps.LatLng(37.499772,127.030188);
+						  var map = new google.maps.Map(document.getElementById('map'), {
+						    zoom: 18,
+						    center: originalMapCenter
+						  });
+						
+						  var infowindow = new google.maps.InfoWindow({
+						    content: 'Change the zoom level',
+						    position: originalMapCenter
+						  });
+						  infowindow.open(map);
+						
+						  map.addListener('zoom_changed', function() {
+						    infowindow.setContent('Zoom: ' + map.getZoom());
+						  });
+						}
+	
+	   				 </script>
+    				<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCS02ggOI-_KOaD-7fzY5gwdI29RiNniV8&signed_in=true&callback=initMap" async defer></script>
+				</div>
+				<div class="fix_store">
+					<h3>추가, 수정</h3>
+					<div class="buttons">
+						<span id="delet" style="display:none;"><a href="#">삭제</a></span>
+						<span><a href="admin_chain2.html">추가</a></span>
+						<span><a href="admin_chain2.html">수정</a></span>
+					</div>
+					<div class="store_list">
+						<table>
+							<tr>
+								<th>
+									<label>
+										<em>전체선택</em><br>
+										<input type="checkbox"name="allbox"id="checkboxAll">
+									</label>
+								</th>
+								<th>번호</th>
+								<th>지점</th>
+								<th>연락처</th>
+							</tr>
+							<tr>
+								<td><input type="checkbox"name="checkbox"id="chk1" ></td>
+								<td>1</td>
+								<td>서울</td>
+								<td>123</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox"name="checkbox"id="chk2"></td>
+								<td>2</td>
+								<td>경기</td>
+								<td>123</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox"name="checkbox"id="chk3"></td>
+								<td>3</td>
+								<td>강원</td>
+								<td>123</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox"name="checkbox"id="chk4"></td>
+								<td>4</td>
+								<td>강원</td>
+								<td>123</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox"name="checkbox"id="chk5"></td>
+								<td>5</td>
+								<td>강원</td>
+								<td>123</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox"name="checkbox"id="chk6"></td>
+								<td>6</td>
+								<td>강원</td>
+								<td>123</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox"name="checkbox"id="chk7"></td>
+								<td>7</td>
+								<td>강원</td>
+								<td>123</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox"name="checkbox"id="chk8"></td>
+								<td>8</td>
+								<td>강원</td>
+								<td>123</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox"name="checkbox"id="chk9"></td>
+								<td>9</td>
+								<td>강원</td>
+								<td>123</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox"name="checkbox"id="chk10"></td>
+								<td>10</td>
+								<td>강원</td>
+								<td>123</td>
+							</tr>
+						</table>
+						<div class="paging">
+							<label>숫자다</label>
+						</div>
+					</div>
+				</div>	
+			</article>			
+		</section>		
+	</div>
+	<div class="push"></div>
+</div>
+
+<footer>
+	<div>
+		(주)한빛이엔아이 한빛교육센터학원 Tel : 02-552-3432 | 주소 : 강남구 역삼동 819-10
+	</div>
+</footer>
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $(".topnav").hover(function() {
+        $(this).parent().find(".subnav").slideDown('fast').show();
+        $(this).parent().hover(function() {  
+        }, function(){  
+            $(this).parent().find(".subnav").slideUp('fast');
+        });  
+    });
+});
+
+var $list = $('ul.album');
+var size = $list.children().outerWidth();
+var len =  $list.children().length;
+
+$list.css('width',len*size);
+
+$('.bt-roll').children().bind('click',function(){	
+	var idx = $('.bt-roll').children().index(this);	
+	$list.animate({'left': -(idx*size)+'px' },'normal');
+
+	var source2 = $('.bt-roll').children().find('img').attr('src').replace('_.png','.png');
+	$('.bt-roll').children().find('img').attr('src',source2);
+
+	var source = $(this).find('img').attr('src').replace('.png','_.png');
+	$(this).find('img').attr('src',source);
+
+	return false;
+	
+});
+</script>
+</body>
+</html>
