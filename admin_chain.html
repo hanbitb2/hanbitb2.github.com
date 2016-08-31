@@ -16,20 +16,21 @@
 				$("input[name=checkbox]").prop("checked",false);
 				$("em").text("전체선택");
 			}
-		});			
-	});
-	
-	$("document").ready(function(){
-		$("input[type=checkbox]").click(function(){
-			if($("input[name=checkbox]").prop("checked")){
-				$("#delet").show();
-			}else{
-				$("#delet").hide();
+		});	
+		$("input[type=checkbox]").click(function(){			
+			var check = false;
+			for(i=1;i<11;i++){
+				if($("#chk"+i).prop("checked")){
+					check=true;
+				}
 			}
+			if(check == true){
+				$("#delet").show();	
+			}else{
+				$("#delet").hide();	
+			} 				
+			
 		});
-	});
-	
-	$("document").ready(function(){
 		$("#delet").click(function(){
 			confirm("삭제하시겠습니까?");
 		});
