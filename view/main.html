@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Java In Spring</title>
+<link rel="stylesheet" href="../css/main.css" type="text/css">
+<link rel="stylesheet" href="../css/common.css" type="text/css">
+<link href='https://cdn.rawgit.com/openhiun/hangul/14c0f6faa2941116bb53001d6a7dcd5e82300c3f/nanumbarungothic.css' rel='stylesheet' type='text/css'>
+<style>	
+	*{
+	@import url(https://cdn.rawgit.com/openhiun/hangul/14c0f6faa2941116bb53001d6a7dcd5e82300c3f/nanumbarungothic.css);
+	font-family: 'Nanum Barun Gothic', sans-serif;
+	}
+	
+	section article{
+		display: block;
+		position: relative;
+		top: 17px;		
+		z-index:0;
+	}
+	section article article{
+		display: block;
+		width: 530px;
+		height: 550px;		
+		margin-top:50px;
+		margin: auto;		
+		border-radius:15px;
+		background-color: rgba(255,255,255,0.5);
+		z-index:-1;
+	}	
+	
+	section article article h1{
+		margin-left: 30px;
+		padding-top: 30px;
+		color: #492143;
+		font-size: 20pt;
+	}
+		
+	.album-wrap {position:relative; width:400px; height:400px; margin:0 auto; top:30px; overflow:hidden;}
+	.album-wrap ul.album {position:absolute;}
+	.album-wrap ul.album li {float:left; width:400px;}
+	
+	.album li img{
+		width: 400px;
+		border-radius:15px;
+		height: auto;
+	}
+	
+	ul.bt-roll {width:110px; margin:0 auto; margin-top:50px;}
+	ul.bt-roll li {float:left; margin-right:5px; margin-left: 20px;}
+	section.backone{	
+	background: url(../images/summer3_img.jpg) center center fixed no-repeat #45434c; 
+	background-size:auto 100%; 
+	height:800px; 
+	padding:0; 
+	position:relative;
+	/* background-repeat: repeat-y;	
+	width:100%;
+	height:619px;
+	z-index:-50; */
+	}
+	section.backtwo{	
+		background: url("../images/fav_prod_bg_new.jpg") center center fixed no-repeat #45434c; 
+		background-size:auto 100%; 
+		height:800px; 
+		padding:0; 
+		position:relative;
+		/* background-repeat: repeat-y;	
+		width:100%;
+		height:619px;
+		z-index:-50; */
+	}
+</style>
+
+<script src="../jquery/jquery-1.7.1.min.js"></script>
+
+</head>
+<body>
+<div class="container">
+	<header>
+		<span><a href="JIS_login.html">Sign In</a></span>
+		<span><a href="admin.html">Admin</a></span>		
+		<a href="./main.html"><img src="../images/java.png" ></a> 
+	</header>
+	<nav>		
+		<div class="menubar">
+			<ul>				
+				<li class="navi_set">
+					<div class="topnav">Introduce</div>
+					<ul class="subnav">
+						<li><a href="#">카페소개</a></li>
+						<li><a href="map.html">찾아오시는길</a></li>					
+					</ul>
+				</li>
+				<li class="navi_set">
+					<div class="topnav">Menu</div>
+				 	<ul class="subnav">
+						<li><a href="#">Coffee</a></li>
+					</ul>				 
+				 </li>
+				 <li class="navi_set">
+				 	<div class="topnav">Custum</div>
+				 	<ul class="subnav">
+						<li><a href="#">만들기</a></li>
+						<li><a href="#">내역확인</a></li>
+					</ul>	
+				 </li>
+				<li class="navi_set">
+					<div class="topnav">Q&A</div>
+					<ul class="subnav">
+					    <li><a href="#">자주하는질문</a></li>
+					    <li><a href="#">질문&답변</a></li>
+				    </ul>
+				 </li>
+			</ul>
+		</div>	
+	</nav>	
+	<div class="content">
+		<section class="backone">
+			<article>
+				<article>
+					<h1>NEW COFFEE</h1>
+					<div class="album-wrap">
+						<ul class="album clfix">
+							<li><a href="#"><img src="../images/coffee1.jpg" title="레이첼 야마가타"></a></li>
+							<li><a href="#"><img src="../images/coffee2.jpg" title="알리"></a></li>
+						</ul>
+					</div>
+					<ul class="bt-roll">
+						<li><a href="#"><img src="../images/btn_circle_.png" alt="" /></a></li>
+						<li><a href="#"><img src="../images/btn_circle.png" alt="" /></a></li>
+					</ul>
+				</article>	
+			</article>
+		</section>
+		<section class="backtwo">
+		</section>
+	</div>
+	<div class="push"></div>
+</div>
+
+<footer>
+	<div>
+		(주)한빛이엔아이 한빛교육센터학원 Tel : 02-552-3432 | 주소 : 강남구 역삼동 819-10
+	</div>
+</footer>
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $(".topnav").hover(function() {
+        $(this).parent().find(".subnav").slideDown('fast').show();
+        $(this).parent().hover(function() {  
+        }, function(){  
+            $(this).parent().find(".subnav").slideUp('fast');
+        });  
+    });
+});
+
+var $list = $('ul.album');
+var size = $list.children().outerWidth();
+var len =  $list.children().length;
+
+$list.css('width',len*size);
+
+$('.bt-roll').children().bind('click',function(){	
+	var idx = $('.bt-roll').children().index(this);	
+	$list.animate({'left': -(idx*size)+'px' },'normal');
+
+	var source2 = $('.bt-roll').children().find('img').attr('src').replace('_.png','.png');
+	$('.bt-roll').children().find('img').attr('src',source2);
+
+	var source = $(this).find('img').attr('src').replace('.png','_.png');
+	$(this).find('img').attr('src',source);
+
+	return false;
+	
+});
+</script>
+</body>
+</html>

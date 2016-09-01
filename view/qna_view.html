@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Java In Spring</title>
+<link rel="stylesheet" href="../css/main.css" type="text/css">
+<link rel="stylesheet" href="../css/common.css" type="text/css">
+<link rel="stylesheet" href="../css/brModal.css" type="text/css">
+<script type="text/javascript" src="../jquery/brModal.js"></script>
+
+<style>	
+		
+	section{
+		display:block;
+		background-color: white;
+		min-height:700px;
+		padding:0; 
+		position:relative;			
+		width:100%;
+		margin:auto;
+	}
+	
+	aside{
+		display: block;
+		width:20%;				
+		min-height:700px;
+		float: left;
+		border-right: 2px solid #C9C9CB;
+	}
+	
+	aside ul{				
+	}
+	
+	aside ul li{
+		padding-top:10px;
+		padding-bottom:10px;
+		padding-left:10px;
+				
+	}
+	
+	#dqna{
+		background-color: #B4CDE6;		
+		color: #4B4B19;
+	}
+	
+	aside ul li:hover ,aside ul li:hover h1{
+		background-color: #B4CDE6;		
+		color: #4B4B19;
+		cursor: pointer;
+	}
+	
+	article{
+		display: block;
+		width: 79%;
+		min-height:700px;
+		float: left;		
+	}
+	
+	.board_view{
+		width:90%;
+		margin:auto;
+		margin-top: 50px;
+	}
+	.board_view .theader{		
+ 		width:100%;	
+		display:block;
+		height: 60px;
+		background-color: #F4F4F2;
+		border-top:1px solid #ccc;
+		border-bottom:1px solid #ccc;
+	}	
+	
+	.board_day{
+		padding:15px;
+		float: right;	
+	}
+	
+	.board_subject{	
+		padding:20px;
+		display: block;
+		width:auto;
+		float:left;
+	}
+	
+	.theader_sub{
+		width:100%;	
+		display:block;
+		height: 50px;
+		background-color: white;		
+		border-bottom:1px solid #ccc;
+	}
+	.board_writer{
+		padding:15px 15px 15px 20px;
+		display: block;
+		width:auto;
+		float:left;
+	}
+	.board_count{
+		padding:15px;
+		float: right;	
+	}
+	
+	.board_body{
+		width:100%;	
+		display:block;
+		min-height: 180px;				
+		border-bottom:1px solid #ccc;		
+	}
+	
+	.board_content{
+		width:90%;
+		margin:auto;
+		margin-top: 50px;
+		margin-bottom:50px;
+		line-height: 30px;
+		overflow-y: scroll;
+		height: 300px;		
+	}
+	
+	.footer_head{
+		width:100%;	
+		display:block;
+		height: 70px;				
+		border-bottom:1px solid #ccc;
+	}
+	.btngroup_left{
+		float: left;
+	}
+	
+	.btngroup_right{
+		float:right;
+	}
+	.footer_head_sub{
+		margin-top: 20px;
+	}
+	
+	.btngroup_left span,.btngroup_right span{
+		padding : 5px;		
+		background-color: #3066A0;
+		color:white;		
+		font-weight: bold;
+		font-size: 15px;		
+	}
+	.board .btngroup{
+		padding: 5px 10px 5px 10px;
+		display:block;		
+		height: 30px;
+		float: right;
+		margin-top: -30px;
+	}
+	.btngroup span{
+		color:white;
+		font-weight:bold;
+		background-color: #3066A0;
+		padding: 5px 10px 5px 10px;
+	}
+	
+	.tfoot{
+		display:block;
+		width:100%;	
+		height: 30px;
+		margin: 3px 0 3px 0;
+	}
+	.tfoot .pnavi{		
+		width:300px;
+		margin: auto;
+		height: 30px;
+		clear: left;
+		text-align: center;
+	}
+</style>
+
+<script>
+	window.onload = function(){		
+		dqna.onclick = function(){
+			location.href="qna.html";
+			location.replace("qna.html");
+		}
+	}
+</script>
+
+<script src="../jquery/jquery-1.7.1.min.js"></script>
+</head>
+<body>
+<div class="container">
+	<header>
+		<span><a href="JIS_login.html">Sign In</a></span>
+		<span><a href="admin.html">Admin</a></span>		
+		<a href="./main.html"><img src="../images/java.png" width="100" ></a> 
+	</header>
+	<nav>		
+		<div class="menubar">
+			<ul>				
+				<li class="navi_set">
+					<div class="topnav">Introduce</div>
+					<ul class="subnav">
+						<li><a href="#">카페소개</a></li>
+						<li><a href="map.html">찾아오시는길</a></li>					
+					</ul>
+				</li>
+				<li class="navi_set">
+					<div class="topnav">Menu</div>
+				 	<ul class="subnav">
+						<li><a href="#">Coffee</a></li>
+					</ul>				 
+				 </li>
+				 <li class="navi_set">
+				 	<div class="topnav">Custum</div>
+				 	<ul class="subnav">
+						<li><a href="#">만들기</a></li>
+						<li><a href="#">내역확인</a></li>
+					</ul>	
+				 </li>
+				<li class="navi_set">
+					<div class="topnav">Q&A</div>
+					<ul class="subnav">
+					    <li><a href="#">자주하는질문</a></li>
+					    <li><a href="#">질문&답변</a></li>
+				    </ul>
+				 </li>
+			</ul>
+		</div>	
+	</nav>	
+	<div class="content">
+		<section>
+			<aside>
+				<ul>
+					<li id="menu">
+						<h1>메뉴관리 게시판</h1>
+					</li>
+					<li id="chain">
+						<h1>체인점관리 게시판	</h1>
+					</li>
+					<li id="custom">
+						<h1>커스텀관리 게시판	</h1>
+					</li>
+					<li id="sqna">
+						<h1>자주하는질문관리 게시판</h1>
+					</li>
+					<li id="dqna">
+						<h1>질문&답변관리 게시판</h1>		
+					</li>
+					<li id="user">
+						<h1>회원관리 게시판</h1>		
+					</li>					
+				</ul>
+			</aside>
+			<article>
+				<div class="board_view">		
+					<div class="theader">
+						<div class="board_view_box">
+							<div class="board_subject">
+								제목을 써보아요
+							</div>
+							<div class="board_day">2016-08-16</div>
+						</div>
+					</div>
+					<div class="theader_sub">
+						<div class="board_view_box">
+							<div class="board_writer">
+								박보람
+							</div>
+							<div class="board_count">조회수</div>
+						</div>
+					</div>
+					<div class="board_body">
+						<div class="board_view_box">
+							<div class="board_content">
+								내용을 써보아요
+								내용을 써보아요
+								내용을 써보아요
+								내용을 써보아요
+								내용을 써보아요
+								내용을 써보아요
+								내용을 써보아요
+								내용을 써보아요
+								내용을 써보아요
+								내용을 써보아요
+								내용을 써보아요
+								내용을 써보아요
+								내용을 써보아요
+								내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요
+								내용을 써보아요
+								내용을 써보아요
+								내용을 써보아요
+								내용을 써보아요
+								내용을 써보아요
+								내용을 써보아요
+								내용을 써보아요
+								내용을 써보아요
+								내용을 써보아요
+								내용을 써보아요
+								내용을 써보아요
+								내용을 써보아요
+								내용을 써보아요
+								내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요
+								내용을 써보아요
+								내용을 써보아요
+								내용을 써보아요
+								내용을 써보아요
+								내용을 써보아요
+								내용을 써보아요
+								내용을 써보아요
+								내용을 써보아요
+								내용을 써보아요
+								내용을 써보아요
+								내용을 써보아요
+								내용을 써보아요
+								내용을 써보아요
+								내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요내용을 써보아요
+							</div>							
+						</div>
+					</div>
+					
+					<div class="footer_head">
+						<div class="board_view_box">
+							<div class="footer_head_sub">
+								<div class="btngroup_left">
+									<span>목록</span>
+									<span>이전</span>
+									<span>답글</span>
+								</div>
+								<div class="btngroup_right">									
+									<span>수정</span>
+									<span>삭제</span>
+								</div>
+							</div>
+						</div>
+					</div>
+										
+				</div>				
+			</article>			
+		</section>		
+	</div>
+	<div class="push"></div>
+</div>
+<footer>
+	<div>
+		(주)한빛이엔아이 한빛교육센터학원 Tel : 02-552-3432 | 주소 : 강남구 역삼동 819-10
+	</div>
+</footer>
+
+<script type="text/javascript">
+$(document).ready(function(){	
+	
+	$(".topnav").hover(function() {
+        $(this).parent().find(".subnav").slideDown('fast').show();
+        $(this).parent().hover(function() {  
+        }, function(){  
+            $(this).parent().find(".subnav").slideUp('fast');
+        });  
+    });    
+});
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Java In Spring</title>
+<link rel="stylesheet" href="../css/main.css" type="text/css">
+<link rel="stylesheet" href="../css/common.css" type="text/css">
+<link rel="stylesheet" href="../css/brModal.css" type="text/css">
+<script type="text/javascript" src="../jquery/brModal.js"></script>
+
+<style>	
+		
+	section{
+		display:block;
+		background-color: white;
+		min-height:700px;
+		padding:0; 
+		position:relative;			
+		width:100%;
+		margin:auto;
+	}
+	
+	aside{
+		display: block;
+		width:20%;				
+		min-height:700px;
+		float: left;
+		border-right: 2px solid #C9C9CB;
+	}
+	
+	aside ul{				
+	}
+	
+	aside ul li{
+		padding-top:10px;
+		padding-bottom:10px;
+		padding-left:10px;
+				
+	}
+	
+	#dqna{
+		background-color: #B4CDE6;		
+		color: #4B4B19;
+	}
+	
+	aside ul li:hover ,aside ul li:hover h1{
+		background-color: #B4CDE6;		
+		color: #4B4B19;
+		cursor: pointer;
+	}
+	
+	article{
+		display: block;
+		width: 79%;
+		min-height:700px;
+		float: left;		
+	}
+	
+	.board{
+		width:90%;
+		margin:auto;
+		margin-top: 50px;
+	}
+	.board .theader{		
+ 		width:100%;	
+		display:block;
+		height: 60px;
+		background-color: #F4F4F2;
+		border-radius: 4px 4px 0 0;
+	}	
+	
+	.searchgroup{
+		padding:15px;
+		float: right;	
+	}
+	
+	.search,.searchvalue{	
+		display: block;
+		width:auto;
+		float:left;
+	}
+	.search{
+		
+		background-color: #3066A0;
+		padding: 5px 10px 5px 10px;		
+		color:white;
+		font-weight:bold;
+	}
+	.searchvalue input{
+		padding: 5px 10px 6px 10px;
+	}
+	.board .btngroup{
+		padding: 5px 10px 5px 10px;
+		display:block;		
+		height: 30px;
+		float: right;
+		margin-top: -30px;
+	}
+	.btngroup span{
+		color:white;
+		font-weight:bold;
+		background-color: #3066A0;
+		padding: 5px;
+		font-size:15px;
+	}
+	
+	.tfoot{
+		display:block;
+		width:100%;	
+		height: 30px;
+		margin: 3px 0 3px 0;
+	}
+	.tfoot .pnavi{		
+		width:300px;
+		margin: auto;
+		height: 30px;
+		clear: left;
+		text-align: center;
+		
+	}
+	/*.board .tfoot .pnavi{
+		display: block;
+		width: 300px;
+		margin: auto;
+	} */
+	
+	table{
+		width:100%;
+		border-collapse: collapse;
+	}
+	table th{
+		border-top:2px solid #aaa;
+		border-bottom:2px solid #aaa;
+		background-color: white;
+		height: 50px;
+	}
+	table td.ch{		
+		border-right: 1px solid #ccc;
+	}
+	table th.ch{
+		width: 30px;
+	}
+	table tr{
+		border-bottom:1px solid #ccc;
+	}
+	table tr td{
+		text-align:center;
+		height: 50px;
+		
+	}
+	#aCheck{
+		cursor: pointer;
+	}	
+	#aCheckbox{
+		display: none;
+	}
+	
+	/* 추가 modal 디자인_박보람 */
+	input, textarea, keygen, select, button {
+	    text-rendering: auto;
+	    color: initial;
+	    letter-spacing: normal;
+	    word-spacing: normal;
+	    text-transform: none;
+	    text-indent: 0px;
+	    text-shadow: none;
+	    display: inline-block;
+	    text-align: start;
+	    margin: 0em 0em 0em 0em;
+	    font: 13.3333px Arial;
+	}
+	
+	.write-box{
+		display: block;
+	    margin: 10px 0 10px 100px;
+	    position: relative;
+	    padding: 0;
+	    height: 30px;
+	    border: 0;	    
+	}
+	
+	div.write-box label {
+	    position: absolute;
+	    display: inline-block;
+	    top: 0;
+	    left: -100px;
+	    width: 100px;
+	    height: 100%;
+	    text-align: left;
+	    margin: 0;
+	    font-weight: 700;
+	    padding-left: 10px;
+	}
+	
+	div.write-box label span {
+	    display: table-cell;
+	    height: 30px;
+	    vertical-align: middle;
+	    line-height: 12px;
+	    font-size: 12px;
+	}
+	
+	div.write-box label span span.label-required {
+	    display: inline-block;
+	    color: #da2128;
+	    height: auto;
+	    margin: -3px 0 0 3px;
+	    width: auto;
+	}
+	
+	div.write-box label span {
+	    display: table-cell;
+	    height: 30px;
+	    vertical-align: middle;
+	    line-height: 12px;
+	    font-size: 12px;
+	}
+	
+	div.write-box span.write-span {
+	    display: table-cell;
+	    height: 30px;
+	    vertical-align: middle;
+	    text-align: left;
+	    float: inherit;
+	}
+	
+	div.write-box span.write-span input[type='text'] {
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    width: 300px;
+	    height: 100%;
+	    background: #ffffff !important;
+	    border-style: solid;
+	    border-width: 1px;
+	    border-color: #b6b6b6 #d7d7d7 #d7d7d7 #b6b6b6;
+	    font-size: 12px;
+	    color: #424242;
+	    padding: 0 10px;
+	    box-sizing: border-box;
+	}
+	
+	div.rainboard-write-wrapper div.write-box-devider {
+	    display: block;
+	    padding: 0;
+	    border-bottom: 1px solid #e0e0e0;
+	}
+	
+	div.rainboard-wrapper div.rainboard-write-wrapper div.check-box {
+	    height: 15px;
+	}
+	
+	input[type="checkbox"], input[type="radio"] {
+		margin: 4px 0 0;
+	    margin-top: 1px \9;
+	    line-height: normal;
+	    box-sizing: border-box;
+	    padding: 0;
+	}
+	
+	div.rainboard-write-wrapper div.textarea-box {
+	    display: block;
+	    margin-bottom: 10px;
+	}
+	
+	div.rainboard-write-wrapper div.textarea-box textarea:not(.wp-editor-area) {
+	    display: block;
+	    margin-top: 10px;
+	    width: 100%;
+	    min-height: 200px;
+	    border: 1px solid #e0e0e0;
+	    background: #f1f1f1;
+	    color: #424242;
+	    padding: 10px;
+	    line-height: 1.5;
+	    font-size: 12px;
+	    box-sizing: border-box;
+	}
+	span.write-span div.file-upload {
+	    display: block;
+	    margin: 0 100px 0 0;
+	    position: relative;
+	    height: 30px;
+	}
+	
+	span.write-span div.file-upload div.upload-btn {
+	    position: absolute;
+	    top: 0;
+	    right: -100px;
+	}
+	span.write-span div.file-upload div.upload-btn button {
+	    position: relative;
+	    width: 90px !important;
+	    height: 30px;
+	}
+	.rainboard-button {
+	    background: #fff;
+	    border-color: #a9a9a9;
+	    color: #333;
+	    font-size: 12px;
+	    font-weight: bold;
+	    border-radius: 3px;
+	}
+	.rainboard-button {
+	    display: inline-block;
+	    height: 27px;
+	    padding: 0 10px;
+	    background: #fff;
+	    border-radius: 3px;
+	    border: 1px solid #a9a9a9;
+	    font-size: 12px;
+	    line-height: 27px;
+	    text-decoration: none;
+	    vertical-align: middle;
+	    cursor: pointer;
+	    box-shadow: none;
+	    color: #424242;
+	    width: auto;
+	}
+	span.write-span div.file-upload input.text {
+	    display: block;
+	    position: inherit;
+	}
+	span.write-span input.text {
+	    width: 300px;
+	    height: 23px;
+	    padding: 0 6px;
+	    border: 1px solid #b5b5b5;
+	    cursor: pointer;
+	}
+	
+	.rainboard-wrapper input[type="text"], .rainboard-wrapper select {
+	    padding: 0 5px;
+	    margin: 0;
+	}
+	
+	span.write-span div.file-upload div.upload-btn input.file {
+	    position: absolute;
+	    width: 90px;
+	    top: 0;
+	    right: 0;
+	    height: 30px;
+	    cursor: pointer;
+	    opacity: 0;
+	    filter: alpha(opacity=0);
+	    -ms-filter: "alpha(opacity=0)";
+	    -khtml-opacity: 0;
+	    -moz-opacity: 0;
+	}
+	
+	input[type="file"] {
+	    display: block;
+	}
+	.max-attach-size{
+		box-sizing: border-box;
+		display: block;
+		text-align: left;
+		font-size: 12px;
+	    color: #424242;	    
+	}
+	div.rainboard-wrapper div.rainboard-controller {
+	    display: block;
+	    margin-top: 7px;
+	    position: relative;
+	    height: 30px;
+	}
+	
+	.rainboard-controller{
+		margin-top: 20px;
+	}
+	.borad-num{
+		width: 80px;
+	}
+	.borad-sub{
+		width: auto;
+	}
+	.borad-writer{
+		width: 80px;
+	}
+	.borad-day{
+		width: 150px;
+	}
+	.borad-count{
+		width: 80px;
+	}
+	/* 추가 modal 디자인_박보람 end */
+	
+</style>
+
+<script>
+	window.onload = function(){		
+		dqna.onclick = function(){
+			location.href="qna.html";
+			location.replace("qna.html");
+		}
+	}
+</script>
+
+<script src="../jquery/jquery-1.7.1.min.js"></script>
+</head>
+<body>
+<div class="container">
+	<header>
+		<span><a href="JIS_login.html">Sign In</a></span>
+		<span><a href="admin.html">Admin</a></span>		
+		<a href="./main.html"><img src="../images/java.png" width="100" ></a> 
+	</header>
+	<nav>		
+		<div class="menubar">
+			<ul>				
+				<li class="navi_set">
+					<div class="topnav">Introduce</div>
+					<ul class="subnav">
+						<li><a href="#">카페소개</a></li>
+						<li><a href="map.html">찾아오시는길</a></li>					
+					</ul>
+				</li>
+				<li class="navi_set">
+					<div class="topnav">Menu</div>
+				 	<ul class="subnav">
+						<li><a href="#">Coffee</a></li>
+					</ul>				 
+				 </li>
+				 <li class="navi_set">
+				 	<div class="topnav">Custum</div>
+				 	<ul class="subnav">
+						<li><a href="#">만들기</a></li>
+						<li><a href="#">내역확인</a></li>
+					</ul>	
+				 </li>
+				<li class="navi_set">
+					<div class="topnav">Q&A</div>
+					<ul class="subnav">
+					    <li><a href="#">자주하는질문</a></li>
+					    <li><a href="#">질문&답변</a></li>
+				    </ul>
+				 </li>
+			</ul>
+		</div>	
+	</nav>	
+	<div class="content">
+		<section>
+			<aside>
+				<ul>
+					<li id="menu">
+						<h1>메뉴관리 게시판</h1>
+					</li>
+					<li id="chain">
+						<h1>체인점관리 게시판	</h1>
+					</li>
+					<li id="custom">
+						<h1>커스텀관리 게시판	</h1>
+					</li>
+					<li id="sqna">
+						<h1>자주하는질문관리 게시판</h1>
+					</li>
+					<li id="dqna">
+						<h1>질문&답변관리 게시판</h1>		
+					</li>
+					<li id="user">
+						<h1>회원관리 게시판</h1>		
+					</li>					
+				</ul>
+			</aside>
+			<article>
+				<div class="board">		
+					<div class="theader">
+						<div class="searchgroup">
+							<div class="searchvalue">
+								<input type="text">
+							</div>
+							<div class="search">검색</div>
+						</div>
+					</div>			
+					<table>
+						<tr>
+							<th class="ch">		
+								<img id="aCheck" src="../images/red_check.png" width="15" title="전체선택">
+								<input id="aCheckbox" type="checkbox">					
+							</th>
+							<th class="borad-num">번호</th>
+							<th class="borad-sub">제목</th>
+							<th class="borad-writer">작성자</th>
+							<th class="borad-day">작성일</th>
+							<th class="borad-count">조회</th>
+						</tr>
+						<tr>
+							<td class="ch">	
+								<input type="checkbox" class="cb">
+							</td>
+							<td>1</td>
+							<td><a href="qna_view.html">제목입니다</a></td>
+							<td>박보람</td>
+							<td>2016-08-15</td>
+							<td>0</td>
+						</tr>						
+					</table>
+					<div class="tfoot">
+						<div class="pnavi">
+							 paginavigator
+						</div>
+						<div class="btngroup">
+							<span class="add">추가</span>
+							<span>수정</span>
+							<span>삭제</span>
+						</div>
+					</div>
+				</div>
+			</article>			
+		</section>		
+	</div>
+	<div class="push"></div>
+</div>
+<div id="brModal" class="modal">
+	<div class="modal_content">
+		<span class="close">×</span>			
+		<!-- <img class="modal-content" id="img01"> -->			
+		<form method="post" name="" id="" enctype="multipart/form-data" action="#">		
+        <div class="rainboard-write-wrapper">
+        	<div class="write-box-devider"></div>
+        	<div class="write-box">
+	            <label class="rainboard-write-title" for="entry-title">
+	            	<span>제목<span class="label-required">*</span></span>
+	            </label>
+            	<span class="write-span">
+                	<input type="text" title="제목" style="width:100%" name="rainboard_post_title" id="entry-title">
+                </span>
+          	</div>
+          	<div class="write-box-devider"></div>
+            <div class="write-box check-box">
+            	<label for="input-checkbox-secret">
+            		<span>비밀글</span>
+            	</label>
+            	<input type="checkbox" title="비밀글" value="1" name="rainboard_secret_flag" class="input-checkbox" id="input-checkbox-secret">
+        	</div>
+          	<div class="write-box-devider"></div>
+            <div class="textarea-box">
+            	<span class="write-span">
+            		<textarea name="rainboard_post_content" rows="" cols=""></textarea>
+			    </span>
+			</div>
+          	<div class="write-box-devider"></div>
+          	<div class="write-box attach-box attach-box-1">
+            	<label for="entry-file">
+            		<span data-title="첨부파일">첨부파일</span>
+            	</label>
+				<span style="position:relative; width:300px" class="write-span">
+					<div class="file-upload">
+						<input type="text" style="font-size:12px" readonly="readonly" title="파일 첨부하기" class="text">
+						<div class="upload-btn">
+							<button title="파일 찾아보기" class="img-upload rainboard-button" type="button"><span>찾아보기</span></button>
+							<input type="file" name="upload[]" title="파일 찾아보기" class="file">
+						</div>
+					</div>
+				</span>
+			</div>
+			<div class="write-box-devider"></div>
+          	<div class="write-box attach-box attach-box-1">
+	           	<label for="entry-file">
+	           		<span data-title="첨부파일">첨부파일</span>
+	           	</label>
+				<span style="position:relative; width:300px" class="write-span">
+					<div class="file-upload">
+						<input type="text" style="font-size:12px" readonly="readonly" title="파일 첨부하기" class="text">
+						<div class="upload-btn">
+							<button title="파일 찾아보기" class="img-upload rainboard-button" type="button"><span>찾아보기</span></button>
+							<input type="file" name="upload[]" title="파일 찾아보기" class="file">
+						</div>
+					</div>
+				</span>
+			</div>
+			<div class="write-box-devider"></div>
+          
+		    <div class="max-attach-size">첨부 가능용량 :<span>2 MB</span></div>
+		    <div class="write-box-devider"></div>         
+		</div>
+       	<div class="rainboard-controller">
+        	<a class="rainboard-button button-prev" href="#"> 취소 </a>
+        	<a class="rainboard-button button-prev button-save" style="float:right" action="#">확인</a>			
+		</div>
+		</form>
+		<div id="caption"></div>
+	</div>
+</div>
+
+<footer>
+	<div>
+		(주)한빛이엔아이 한빛교육센터학원 Tel : 02-552-3432 | 주소 : 강남구 역삼동 819-10
+	</div>
+</footer>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	/* 모달 */
+	$(".add").click(function(){		
+		$("#brModal").css("display","block");		
+	});
+		
+	$(".close").click(function(){
+		$("#brModal").css("display","none");
+	});
+	/* 모달 end*/
+		
+	$(".topnav").hover(function() {
+        $(this).parent().find(".subnav").slideDown('fast').show();
+        $(this).parent().hover(function() {  
+        }, function(){  
+            $(this).parent().find(".subnav").slideUp('fast');
+        });  
+    });
+    
+    $("#aCheck").click(function(){
+    	if($("#aCheckbox").is(":checked")){
+    		$('#aCheckbox').prop("checked",false);
+    		$('.cb').prop("checked",false);
+    	}else{
+    		$('#aCheckbox').prop("checked",true);
+    		$('.cb').prop("checked",true);
+    	}    	    	
+    });
+});
+
+var $list = $('ul.album');
+var size = $list.children().outerWidth();
+var len =  $list.children().length;
+
+$list.css('width',len*size);
+
+$('.bt-roll').children().bind('click',function(){	
+	var idx = $('.bt-roll').children().index(this);	
+	$list.animate({'left': -(idx*size)+'px' },'normal');
+
+	var source2 = $('.bt-roll').children().find('img').attr('src').replace('_.png','.png');
+	$('.bt-roll').children().find('img').attr('src',source2);
+
+	var source = $(this).find('img').attr('src').replace('.png','_.png');
+	$(this).find('img').attr('src',source);
+
+	return false;
+	
+});
+</script>
+</body>
+</html>
