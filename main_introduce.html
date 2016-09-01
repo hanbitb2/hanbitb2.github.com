@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Java In Spring</title>
+<link rel="stylesheet" href="../css/main.css" type="text/css">
+<link rel="stylesheet" href="../css/common.css" type="text/css">
+<style>	
+	section article{
+		display: block;
+		position: relative;
+		top: 17px;		
+		z-index:0;
+	}
+	section article article{
+		display: block;
+		width:530px;
+		height:550px;		
+		/*margin-top:50px;*/
+		margin:70px 0px auto 200px;		
+		border-radius:15px;
+		background-color: rgba(0,0,0,0.5);
+	}	
+	
+	section article article h1{
+		margin-left:30px;
+		padding-top:100px;
+		color:white;
+		font-size: 20pt;
+	}
+	section article article p{
+		margin-left:30px;
+		padding-top:30px;
+		color:white;
+		font-size: 13pt;
+	}
+	
+			
+	section.backone{	
+	background: url(../images/1.jpg) center center fixed no-repeat #45434c; 
+	background-size:100% 100%; 
+	height:1000px; 
+	margin-top:-70px;
+	padding:0; 
+	position:relative;
+	/* background-repeat: repeat-y;	
+	width:100%;
+	height:619px;
+	z-index:-50; */
+	}
+	
+	
+</style>
+
+<script src="../jquery/jquery-1.7.1.min.js"></script>
+
+</head>
+<body>
+<div class="container">
+	<header>
+		<span><a href="JIS_login.html">Sign In</a></span>
+		<span><a href="admin.html">Admin</a></span>		
+		<a href="./main.html"><img src="../images/java.png" width="100" ></a> 
+	</header>
+	<nav>		
+		<div class="menubar">
+			<ul>				
+				<li class="navi_set">
+					<div class="topnav">Introduce</div>
+					<ul class="subnav">
+						<li><a href="#">카페소개</a></li>
+						<li><a href="map.html">찾아오시는길</a></li>					
+					</ul>
+				</li>
+				<li class="navi_set">
+					<div class="topnav">Menu</div>
+				 	<ul class="subnav">
+						<li><a href="#">Coffee</a></li>
+					</ul>				 
+				 </li>
+				 <li class="navi_set">
+				 	<div class="topnav">Custum</div>
+				 	<ul class="subnav">
+						<li><a href="#">만들기</a></li>
+						<li><a href="#">내역확인</a></li>
+					</ul>	
+				 </li>
+				<li class="navi_set">
+					<div class="topnav">Q&A</div>
+					<ul class="subnav">
+					    <li><a href="#">자주하는질문</a></li>
+					    <li><a href="#">질문&답변</a></li>
+				    </ul>
+				 </li>
+			</ul>
+		</div>	
+	</nav>	
+	<div class="content">
+		<section class="backone">
+			<article>
+				<article>
+				
+					<h1>Java In Spring<br>
+						2016년 08월 쯔음 시작 
+					</h1>
+					<p>한빛교육센터에서 자바인스프링으로!! 우린 6명 <br>
+					콜드 브루 전용 원두를 차가운 물로 14시간 동안 추출하여 한정된 양만 제공됩니다.</p>
+					
+				</article>	
+			</article>
+		</section>
+		<section class="backtwo">
+		</section>
+	</div>
+	<div class="push"></div>
+</div>
+
+<footer>
+	<div>
+		(주)한빛이엔아이 한빛교육센터학원 Tel : 02-552-3432 | 주소 : 강남구 역삼동 819-10
+	</div>
+</footer>
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $(".topnav").hover(function() {
+        $(this).parent().find(".subnav").slideDown('fast').show();
+        $(this).parent().hover(function() {  
+        }, function(){  
+            $(this).parent().find(".subnav").slideUp('fast');
+        });  
+    });
+});
+var $list = $('ul.album');
+var size = $list.children().outerWidth();
+var len =  $list.children().length;
+$list.css('width',len*size);
+$('.bt-roll').children().bind('click',function(){	
+	var idx = $('.bt-roll').children().index(this);	
+	$list.animate({'left': -(idx*size)+'px' },'normal');
+	var source2 = $('.bt-roll').children().find('img').attr('src').replace('_.png','.png');
+	$('.bt-roll').children().find('img').attr('src',source2);
+	var source = $(this).find('img').attr('src').replace('.png','_.png');
+	$(this).find('img').attr('src',source);
+	return false;
+	
+});
+</script>
+</body>
+</html>
