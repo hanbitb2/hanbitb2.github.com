@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Java In Spring</title>
+<link rel="stylesheet" href="css/main.css" type="text/css">
+<link rel="stylesheet" href="css/common.css" type="text/css">
+<style>
+   section article{
+      display: block;
+      position: relative;
+      top: 17px;
+      z-index:0;
+   }
+   section article article{
+      display: block;
+      width: 530px;
+      height: 550px;
+      margin-top:50px;
+      margin: auto;
+      border-radius:15px;
+      background-color: rgba(255,255,255,0.5);
+      z-index:-1;
+   }
+   section article article h1{
+      margin-left: 30px;
+      padding-top: 30px;
+      color: #492143;
+      font-size: 20pt;
+   }
+   .album-wrap {position:relative; width:400px; height:400px; margin:0 auto; top:30px; overflow:hidden;}
+   .album-wrap ul.album {position:absolute;}
+   .album-wrap ul.album li {float:left; width:400px;}
+   .album li img{
+      width: 400px;
+      border-radius:15px;
+      height: auto;
+   }
+   ul.bt-roll {width:110px; margin:0 auto; margin-top:50px;}
+   ul.bt-roll li {float:left; margin-right:5px; margin-left: 20px;}
+   .content{
+     width:100%;
+     height:100%;
+     display: block;
+     float: left;
+   }
+   div.titleBox{
+   		width:40%;
+   		padding-left:30%;
+   		padding-top:80px;
+   }
+   		div.img_bar{
+   			width:100%;
+   			height:200px;
+   			display: block;
+   			background:url("images/img_bar.jpg");
+   		}
+      .title{
+        font-size:30pt;
+        font-weight:bold;
+        color:white;
+        letter-spacing: -3px;
+        position:relative;
+      }
+      .title2{
+        color:#eee;
+        letter-spacing: -1px;
+      }
+    div.list, div.cList{
+    	height:80%;
+    	margin-top:2%;
+    	margin-bottom:2%;
+    	float:left;
+    }
+    div.list{
+    	width:30%;
+      margin-left:2%;
+      padding-bottom:-2%;
+    }
+  	.list h3{
+  		font-size: 20pt;
+  		text-indent: 10px;
+  	}
+  	.list li:first-child{
+  		border-top: 1px solid #ccc;
+  	}
+  	.list li{
+  		width:50%;
+  		font-size:12pt;
+  		border-bottom: 1px solid #ccc;
+  		padding:10px;
+  	}
+   .cList{
+     width:65%;
+     height:100%;
+     display: block;
+     float:left;
+     margin:auto;
+   }
+   .myCustom, .btn, .money{
+     width:100%;
+     display:block;
+     margin:auto;
+   }
+  .btn{
+    height:70px;
+  }
+  .money{
+    margin-top:20px;
+    padding:20px 0 20px 0;
+    background-color: #f3f8fb;
+    border:1px solid #dae4eb;
+  }
+  button{
+      background-color: white;
+      border:none;
+      font-size:10pt;
+    }
+   #customTable{
+     margin:20px 0 20px 0;
+     width:100%;
+     border-top: 1px solid #dae4eb;
+     border-bottom: 1px solid #dae4eb;
+   }
+   #customTable td{
+    padding:10px;
+    font-size: 9pt;
+  }
+  #customTable tr:first-child{
+    background-color: #f3f8fb;
+  }
+  #customTable tr:nth-child(even){
+    border-top: 1px solid #dae4eb;
+  }
+  #customTable .t1{
+    text-align: center;
+    width:5%;
+  }
+  #customTable .t2{
+    text-align: center;
+    width:10%;
+  }
+  #customTable .t3{
+    width:60%;
+  }
+  #customTable .t4{
+    width:25%;
+    text-align: center;
+  }
+  #customTable th{
+    padding:10px 0 10px 0;
+    font-size:9pt;
+  }
+  #customTable td p{
+     color:#999;
+   }
+   .detailTable{
+     border-top: 2px solid #dae4eb;
+     width:100%;
+     margin:0 0 20px 0;
+   }
+   .detailTable tr{
+     font-size:6pt;
+     border-bottom:1px solid #dae4eb;
+   }
+   .detailTable th{
+    text-align: left;
+    text-indent: 10px;
+    background-color: white;
+   }
+   .detailTable .tt1{
+     width:20%;
+   }
+   .detailTable .tt2{
+     width:60%;
+   }
+   .detailTable .tt3{
+     width:20%;
+   }
+     span{
+       background-color:#bbb;
+       color:white;
+       font-size:8pt;
+       border-radius: 4px;
+       font-weight: bold;
+       color:white;
+       margin: 20px 10px 20px 10px;
+       padding:10px;
+       display:block;
+       float:right;
+     }
+     .money p{
+       font-size: 15pt;
+       font-weight: bold;
+       padding-left: 20px;
+     }
+     .money #price{
+       font-size: 12pt;
+      text-align: right;
+      padding-right: 30px;
+     }
+   img{
+     opacity: 0.5;
+   }
+   img:hover{
+     opacity: 1.0;
+   }
+   footer{
+     display:block;
+     float: left;
+     height:200px;
+   }
+</style>
+
+<script src="../jquery/jquery-1.7.1.min.js"></script>
+
+</head>
+<body>
+<div class="container">
+   <header>
+      <span><a href="JIS_login.html">Sign In</a></span>
+      <a href="./main.html"><img src="../images/java.png" width="100" ></a>
+   </header>
+   <nav>
+      <div class="menubar">
+         <ul>
+            <li class="navi_set">
+               <div class="topnav">Introduce</div>
+               <ul class="subnav">
+                  <li><a href="#">카페소개</a></li>
+                  <li><a href="map.html">찾아오시는길</a></li>
+               </ul>
+            </li>
+            <li class="navi_set">
+               <div class="topnav">Menu</div>
+                <ul class="subnav">
+                  <li><a href="#">Coffee</a></li>
+               </ul>
+             </li>
+             <li class="navi_set">
+                <div class="topnav">Custum</div>
+                <ul class="subnav">
+                  <li><a href="#">만들기</a></li>
+                  <li><a href="custom_list.html">내역확인</a></li>
+               </ul>
+             </li>
+            <li class="navi_set">
+               <div class="topnav">Q&A</div>
+               <ul class="subnav">
+                   <li><a href="#">자주하는질문</a></li>
+                   <li><a href="#">질문&답변</a></li>
+                </ul>
+             </li>
+         </ul>
+      </div>
+   </nav>
+   <div class="img_bar">
+     <div class="titleBox">
+       <p class="title">커스텀 내역 확인</p>
+       <p class="title2">고객님의 지난 커스텀을 확인하실 수 있습니다.</p>
+     </div>
+   </div>
+        <!--커스텀 리스트 시작-->
+        <div class="content">
+          <!--웹에서는 80% 타블릿 이하 디바이스에서는 100%로 짤 것.-->
+          <div class="list">
+            <h3>CUSTUM</h3>
+      			<ul>
+      				<li>커스텀 만들기</li>
+      				<li><a href="custom_list.html">내역확인</a></li>
+      			</ul>
+          </div>
+          <div class="cList">
+
+              <div class="myCustom"><!--커스텀리스트-->
+                <!--내 마음대로 넣음 DB에서 가져올 때는 loop-->
+                <table id="customTable">
+                  <tr class="row0">
+                    <th class="t1"><input type="checkbox" id="check_all"></th>
+                    <th class="t2">사진</th>
+                    <th class="t3">이름</th>
+                    <th class="t4">날짜</th>
+                  </tr>
+                  <!--loop start-->
+                  <tr id="row1-1"><!--"row1- + [index]""-->
+                    <td class="t1"><input type="checkbox" id="check1" class="check"></td>
+                    <td class="t2"><img src="http://placehold.it/60X60" width="60" height="60"/></td>
+                    <td class="t3"><button calss="cName 1" id="cName 1">커스텀이름</button></td>
+                    <!-- "cuName + [인덱스값]" 형식으로 이름 지어준다~ -->
+                    <td class="t4">2016년 8월 30일</td>
+                  </tr>
+                  <tr class="row2" id="row2-1"><!--"row2- + [index]""-->
+                    <td colspan="2"><!--공백--></td>
+                    <td colspan="2">
+                      <!--커스텀 내용-->
+                      <table class="detailTable">
+                        <tr><th class="tt1">항목</th><th class="tt2">내용</th><th class="tt3">가격</th><tr>
+                        <!--loop start-->
+                        <tr><td>샷</td><td><label id="shot1">2</label><label>샷</label></td><td class="price1">1200원</td><tr>
+                        <tr><td>시럽</td><td><label id="syrup1">많이</label></td><td class="price1">1200원</td><tr>
+                        <!-- loop end -->
+                        <tr><td colspan="2">TOTAL</td><td>6000원</td></tr>
+                      </table>
+                    </td>
+                  </tr>
+                  <!--loop end-->
+
+                  <!--loop start-->
+                  <tr id="row1-2"><!--"row1- + [index]""-->
+                    <td class="t1"><input type="checkbox" id="check2" class="check"></td>
+                    <td class="t2"><img src="http://placehold.it/60X60" width="60" height="60"/></td>
+                    <td class="t3"><button calss="cName 2" id="cName 2">커스텀이름</button></td>
+                    <!-- "cuName + [인덱스값]" 형식으로 이름 지어준다~ -->
+                    <td class="t4">2016년 8월 30일</td>
+                  </tr>
+                  <tr class="row2" id="row2-2"><!--"row2- + [index]""-->
+                    <td colspan="2"><!--공백--></td>
+                    <td colspan="2">
+                      <!--커스텀 내용-->
+                      <table class="detailTable">
+                        <tr><th class="tt1">항목</th><th class="tt2">내용</th><th class="tt3">가격</th><tr>
+                        <!--loop start-->
+                        <tr><td>샷</td><td><label id="shot1">2</label><label>샷</label></td><td class="price2">1200원</td><tr>
+                        <tr><td>시럽</td><td><label id="syrup2">많이</label></td><td class="price2">1200원</td><tr>
+                        <!-- loop end -->
+                        <tr><td colspan="2">TOTAL</td><td>6000원</td></tr>
+                      </table>
+                    </td>
+                  </tr>
+                  <!--loop end-->
+
+                  <!--loop start-->
+                  <tr id="row1-3"><!--"row1- + [index]""-->
+                    <td class="t1"><input type="checkbox" id="check1" class="check"></td>
+                    <td class="t2"><img src="http://placehold.it/60X60" width="60" height="60"/></td>
+                    <td class="t3"><button calss="cName 3" id="cName 3">커스텀이름</button></td>
+                    <!-- "cuName + [인덱스값]" 형식으로 이름 지어준다~ -->
+                    <td class="t4">2016년 8월 30일</td>
+                  </tr>
+                  <tr class="row2" id="row2-3"><!--"row2- + [index]""-->
+                    <td colspan="2"><!--공백--></td>
+                    <td colspan="2">
+                      <!--커스텀 내용-->
+                      <table class="detailTable">
+                        <tr><th class="tt1">항목</th><th class="tt2">내용</th><th class="tt3">가격</th><tr>
+                        <!--loop start-->
+                        <tr><td>샷</td><td><label id="shot1">2</label><label>샷</label></td><td class="price1">1200원</td><tr>
+                        <tr><td>시럽</td><td><label id="syrup1">많이</label></td><td class="price3">1200원</td><tr>
+                        <!-- loop end -->
+                        <tr><td colspan="2">TOTAL</td><td>6000원</td></tr>
+                      </table>
+                    </td>
+                  </tr>
+                  <!--loop end-->
+                </table>
+
+              </div>
+              <div class="btn"><!--버튼-->
+                <span id="btnAdd">추가</span><span id="btnDel">삭제</span>
+              </div>
+              <div class="money"><!--가격-->
+                <p>가격</p><p id="price">여기에 선택 된 가격이 뜰 것.</p>
+              </div>
+          </div>
+        </div>
+        <!--커스텀 리스트 끝-->
+<footer>
+<div>
+(주)한빛이엔아이 한빛교육센터학원 Tel : 02-552-3432 | 주소 : 강남구 역삼동 819-10
+</div>
+</footer>
+<script src="jquery-3.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $( '#check_all' ).click( function(){
+        $( '.check' ).prop( 'checked', this.checked );
+      });
+  $(".row2").hide();
+  $("button").click(function(){
+    var cid = $(this).attr("id");
+    var index = cid.substr(cid.length-1, cid.length);
+    //$("#cName " + index).slideDown(500);
+    $("#row2-" + index).toggle();
+  });
+$(".topnav").hover(function() {
+    $(this).parent().find(".subnav").slideDown('fast').show();
+    $(this).parent().hover(function() {
+    }, function(){
+        $(this).parent().find(".subnav").slideUp('fast');
+    });
+});
+});
+var $list = $('ul.album');
+var size = $list.children().outerWidth();
+var len =  $list.children().length;
+$list.css('width',len*size);
+$('.bt-roll').children().bind('click',function(){
+var idx = $('.bt-roll').children().index(this);
+$list.animate({'left': -(idx*size)+'px' },'normal');
+var source2 = $('.bt-roll').children().find('img').attr('src').replace('_.png','.png');
+$('.bt-roll').children().find('img').attr('src',source2);
+var source = $(this).find('img').attr('src').replace('.png','_.png');
+$(this).find('img').attr('src',source);
+return false;
+});
+</script>
+</body>
+</html>
