@@ -3,150 +3,172 @@
 <head>
 <meta charset="UTF-8">
 <title>Java In Spring</title>
-<link rel="stylesheet" href="css/main.css" type="text/css">
-<link rel="stylesheet" href="css/common.css" type="text/css">
+<link rel="stylesheet" href="../css/main.css" type="text/css">
+<link rel="stylesheet" href="../css/common.css" type="text/css">
 <style>
-	section article{
-		display: block;
-		position: relative;
-		top: 17px;
-		z-index:0;
-	}
-	section article article{
-		display: block;
-		width: 530px;
-		height: 550px;
-		margin-top:50px;
-		margin: auto;
-		border-radius:15px;
-		background-color: rgba(255,255,255,0.5);
-		z-index:-1;
-	}
 
-	section article article h1{
-		margin-left: 30px;
-		padding-top: 30px;
-		color: #492143;
-		font-size: 20pt;
-	}
-
-	.album-wrap {position:relative; width:400px; height:400px; margin:0 auto; top:30px; overflow:hidden;}
-	.album-wrap ul.album {position:absolute;}
-	.album-wrap ul.album li {float:left; width:400px;}
-
-	.album li img{
-		width: 400px;
-		border-radius:15px;
-		height: auto;
-	}
-
-	ul.bt-roll {width:110px; margin:0 auto; margin-top:50px;}
-	ul.bt-roll li {float:left; margin-right:5px; margin-left: 20px;}
-
-	  .content{
-	  	width:100%;
-	  	margin:auto;
-	  	line-height:2.0;
-	    background-color:white;
-	  }
-
-	div.titleBox{
-			width:40%;
-			padding-left:30%;
-			padding-top:80px;
-	}
-			div.img_bar{
-				width:100%;
-				height:200px;
-				display: block;
-				background:url("images/img_bar.jpg");
-			}
-
-  div.list, div.fnq{
-  	height:80%;
-  	margin-top:2%;
-  	margin-bottom:2%;
-  	float:left;
-  }
-
-  div.list{
-  	width:30%;
-    margin-left:2%;
-    padding-bottom:-2%;
-  }
-  div.fnq{
-  	width:65%;
-    padding-bottom:-2%;
-  }
-  .title{
-    font-size:30pt;
-    font-weight:bold;
-    color:white;
-    letter-spacing: -3px;
+	section{
+		display:block;
+		background-color: white;
+		min-height:700px;
+		padding:0;
 		position:relative;
-  }
-	.title2{
-		color:#eee;
-    letter-spacing: -1px;
+		width:100%;
+		margin:auto;
 	}
-  hr{
-    margin-top: 20px;
-    margin-bottom: 20px;
-  }
-  th, td{
-    padding:5px;
-  }
 
-  span{
-    background-color:#bbb;
-    color:white;
-    font-size:8pt;
-    border-radius: 4px;
-    font-weight: bold;
-    color:white;
-    margin-top: 20px;
-    margin-left:20px;
-    padding:10px;
-    display:block;
-    float:right;
-  }
+	aside{
+		display: block;
+		width:20%;
+		min-height:700px;
+		float: left;
+		border-right: 2px solid #C9C9CB;
+	}
 
-  table{
-    width:100%;
-  }
+	aside ul{
+	}
 
-  label{
-    font-size:9pt;
-  }
+	aside ul li{
+		padding-top:10px;
+		padding-bottom:10px;
+		padding-left:10px;
 
-  tr td:first-child{
-    width:50px;
-  }
-input[type=text], input[type=password]{
-	width: 100%;
-	padding: 10px 10px;
-	/*border:1px solid #ccc;*/
-	border-radius: 4px;
-	margin:10px 10px;
-}
+	}
 
-textarea{
-	height:200px;
-	width:100%;
-	rows:40;
-	padding:10px 10px;
-	border-radius:4px;
-	margin:10px 10px;
-}
+	#dqna{
+		background-color: #B4CDE6;
+		color: #4B4B19;
+	}
 
-footer{
-	display:block;
-	float: left;
-	height:200px;
-}
+	aside ul li:hover ,aside ul li:hover h1{
+		background-color: #B4CDE6;
+		color: #4B4B19;
+		cursor: pointer;
+	}
 
+	article{
+		display: block;
+		width: 79%;
+		min-height:700px;
+		float: left;
+	}
+
+	.board{
+		width:90%;
+		margin:auto;
+		margin-top: 50px;
+	}
+	.board .theader{
+ 		width:100%;
+		display:block;
+		height: 60px;
+		background-color: #F4F4F2;
+		border-radius: 4px 4px 0 0;
+	}
+
+	.searchgroup{
+		padding:15px;
+		float: right;
+	}
+
+	.search,.searchvalue{
+		display: block;
+		width:auto;
+		float:left;
+	}
+	.search{
+
+		background-color: #3066A0;
+		padding: 5px 10px 5px 10px;
+		color:white;
+		font-weight:bold;
+	}
+	.searchvalue input{
+		padding: 5px 10px 6px 10px;
+	}
+	.board .btngroup{
+		padding: 5px 10px 5px 10px;
+		display:block;
+		height: 30px;
+		float: right;
+		margin-top: -30px;
+	}
+	.btngroup span{
+		color:white;
+		font-weight:bold;
+		background-color: #3066A0;
+		padding: 5px 10px 5px 10px;
+	}
+
+	table span{
+		color:white;
+		font-weight:bold;
+		background-color: #808b93;
+		padding: 5px 10px 5px 10px;
+		float:right;
+		margin:0 10px 0 10px;
+	}
+	.tfoot{
+		display:block;
+		width:100%;
+		height: 30px;
+		margin: 3px 0 3px 0;
+	}
+	.tfoot .pnavi{
+		width:300px;
+		margin: auto;
+		height: 30px;
+		clear: left;
+		text-align: center;
+
+	}
+	/*.board .tfoot .pnavi{
+		display: block;
+		width: 300px;
+		margin: auto;
+	} */
+	
+	p{
+		padding:20px;
+		font-size:10pt;
+	}
+
+	table{
+		width:100%;
+		border-collapse: collapse;
+	}
+	table tr{
+		border-bottom:1px solid #ccc;
+	}
+	table tr:nth-child(even){
+	background-color:#ddd;
+	}
+	input[type=text]{
+		width:100%;
+		border-radius:4px;
+		font-size:10pt;
+	}
+	textarea{
+		width:100%;
+		height:100px;
+		border-radius:4px;
+		font-size:10pt;
+		line-height:2.0;
+	}
+	#btnSub, #btnCan{
+		display:none;
+	}
 
 </style>
+
+<script>
+	window.onload = function(){
+		dqna.onclick = function(){
+			location.href="qna.html";
+			location.replace("qna.html");
+		}
+	}
+</script>
 
 <script src="../jquery/jquery-1.7.1.min.js"></script>
 
@@ -155,6 +177,7 @@ footer{
 <div class="container">
 	<header>
 		<span><a href="JIS_login.html">Sign In</a></span>
+		<span><a href="admin.html">Admin</a></span>
 		<a href="./main.html"><img src="../images/java.png" width="100" ></a>
 	</header>
 	<nav>
@@ -190,45 +213,99 @@ footer{
 			</ul>
 		</div>
 	</nav>
-	<div class="img_bar">
-		<div class="titleBox">
-			<p class="title">자주하는 질문 수정</p>
-			<p class="title2">관리자만 질문을 수정할 수 있습니다.</p>
-		</div>
-	</div>
 	<div class="content">
-		<!--<section>-->
-
-      			<div class="list">
-      			<h3>관리자게시판리스트</h3>
-      			<ul>
-      				<li>자주하는 질문</li>
-      				<li>묻고 답하기</li>
-      			</ul>
-
-      			</div>
-      			<div class="fnq">
-              <div class="fnq_write">
-                <form name="fnq_write">
-                  <table>
-                    <tr>
-                      <td><label>질문</label></td>
-                      <td><input type="text" placeholder="수정하려는 제목"></td>
-                    </tr>
-                    <tr>
-                      <td><label>답변</label></td>
-                      <td><textarea placeholder="수정하려는 답변."></textarea></td>
-                    </tr>
-                      <td colspan="2"><span><a href="fnq_write.jsp">글쓰기</a></span><span><a href="fnq.html">취소</a></span><td>
-                    </tr>
-                  </table>
-
-
-                </form>
-              </div>
-      			</div>
-
-		<!--</section>-->
+		<section>
+			<aside>
+				<ul>
+					<li id="menu">
+						<h1>메뉴관리 게시판</h1>
+					</li>
+					<li id="chain">
+						<h1>체인점관리 게시판	</h1>
+					</li>
+					<li id="custom">
+						<h1>커스텀관리 게시판	</h1>
+					</li>
+					<li id="sqna">
+						<h1>자주하는질문관리 게시판</h1>
+					</li>
+					<li id="dqna">
+						<h1>질문&답변관리 게시판</h1>
+					</li>
+					<li id="user">
+						<h1>회원관리 게시판</h1>
+					</li>
+				</ul>
+			</aside>
+			<article>
+				<div class="board">
+					<div class="theader">
+						<div class="searchgroup">
+							<div class="searchvalue">
+								<input type="text">
+							</div>
+							<div class="search">검색</div>
+						</div>
+					</div>
+					<form name="fnqModForm">
+					<table>
+						<tr>
+							<td><p id="fnqSubject1" name="subject">제목</p><p id="orgSub1">제목</p></td>
+							<td>
+							<span id="btnDel1">삭제</span>
+							<span id="btnMod1">수정</span>
+							<span id="btnCan1">취소</span>
+							<span id="btnSub1">확인</span>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2"><p id="fnqContent1" name="content">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p></td>
+						</tr>
+						<tr>
+							<td><p id="fnqSubject2" name="subject">제목</p><p id="orgSub2">제목</p></td>
+							<td>
+							<span id="btnDel2">삭제</span>
+							<span id="btnMod2">수정</span>
+							<span id="btnCan2">취소</span>
+							<span id="btnSub2">확인</span>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2"><p id="fnqContent2" name="content">2의 내용. 넘어갈까요</p></td>
+						</tr>	
+						<tr>
+							<td><p id="fnqSubject3" name="subject">제목333</p><p id="orgSub3">제목333</p></td>
+							<td>
+							<span id="btnDel3">삭제</span>
+							<span id="btnMod3">수정</span>
+							<span id="btnCan3">취소</span>
+							<span id="btnSub3">확인</span>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2"><p id="fnqContent3" name="content">정보: Starting ProtocolHandler ["http-bio-9000"]
+								9월 01, 2016 2:55:28 오후 org.apache.coyote.AbstractProtocol start
+								정보: Starting ProtocolHandler ["ajp-bio-8009"]
+								9월 01, 2016 2:55:28 오후 org.apache.catalina.startup.Catalina start
+								정보: Server startup in 353 ms</p></td>
+						</tr>
+					</table>
+					</form>
+					<!-- 
+					<div class="tfoot">
+						<div class="pnavi">
+							 페이지네비들어갈곳
+						</div>
+						<div class="btngroup">
+							<span>추가</span>
+							<span>수정</span>
+							<span>삭제</span>
+						</div>
+					</div>
+					 -->
+				</div>
+			</article>
+		</section>
 	</div>
 	<div class="push"></div>
 </div>
@@ -238,9 +315,62 @@ footer{
 		(주)한빛이엔아이 한빛교육센터학원 Tel : 02-552-3432 | 주소 : 강남구 역삼동 819-10
 	</div>
 </footer>
-
+<script src="jquery-3.1.0.min.js"></script>
 <script type="text/javascript">
+
 $(document).ready(function(){
+	var listNum = 3; //리스트개스 여기 바꿔줘야한다~
+	var subject;
+	var content;
+	for(var i=1; i<=listNum; i++){
+		 $("#btnCan"+ i).hide();
+		 $("#btnSub"+ i).hide();	
+		 $("#orgSub"+ i).hide();	
+	}
+	  $("span").click(function(){
+		  var cid = $(this).attr("id");
+		  var index = cid.substr(6, cid.length); //인덱스번호
+		  var mode = cid.substr(0,6); //누른 버튼
+		  var isubject = "fnqSubject" + index; //제목 id값
+		  var icontent = "fnqContent" + index; //내용 id값
+		  var subject = $("#" + isubject).text(); //제목 텍스트박스 속
+		  var content = $("#" + icontent).text(); //내용
+		  
+		  if(mode == "btnMod"){ //수정
+			 $("#" + isubject).html("<input type='text' name='subject' value='" + subject + "'>");
+			 $("#" + icontent).html("<textarea name='content'>" + content + "</textarea>"+
+			 "<input type='hidden' name='index' value='" + index + "''>");
+			 $("#btnMod"+ index).hide();
+			 $("#btnDel" + index).hide();
+			 $("#btnCan"+ index).show();
+			 $("#btnSub"+ index).show();
+		  }else if(mode== "btnDel"){ //삭제
+			  var del = confirm("정말로 삭제하시겠습니까?");	
+		  		if(del){
+			  $("form[name=fnqModForm]").html("<input type='hidden' name='index' value='" + index + "''>");
+			  $("form[name=fnqModForm]").attr("action", "fnq_del.jsp").submit();
+		  		}else{
+		  			return false;
+		  		}
+		  }else if(mode == "btnCan"){ //수정취소
+			  	var orgSub = $("#orgSub" + index).text(); //원래 p제목
+				 $("#btnCan"+ index).hide();
+				 $("#btnSub"+ index).hide();
+				 $("#btnMod"+ index).show();
+				 $("#btnDel" + index).show();
+				 $("#" + isubject).html(orgSub);
+				 $("#" + icontent).html(content);
+		  }else if(mode == "btnSub"){ //수정submit
+			  $("form[name=fnqModForm]").attr("action", "fnq_mod.jsp").submit();
+		  }
+	  })
+	/*
+	  $("button").click(function(){
+		    var cid = $(this).attr("id");
+		    var index = cid.substr(cid.length-1, cid.length);
+		    //$("#cName " + index).slideDown(500);
+		    $("#row2-" + index).toggle();
+		  });*/
     $(".topnav").hover(function() {
         $(this).parent().find(".subnav").slideDown('fast').show();
         $(this).parent().hover(function() {
@@ -269,7 +399,6 @@ $('.bt-roll').children().bind('click',function(){
 	return false;
 
 });
-}
 </script>
 </body>
 </html>
