@@ -458,6 +458,9 @@ function layer_toggle(num) {
 		var title = document.getElementById("title" + i);
 
 		if(num == i){ //i번째 글 선택하면 내용출력,
+			if(content.style.display == ''){
+				content.style.display = 'none';
+			}
 			if(content.style.display == 'none'){ //닫혀있으면 열어라
 			content.style.display = 'block';
 			direction.innerHTML = '▼';
