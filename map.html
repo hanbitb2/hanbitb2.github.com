@@ -1,140 +1,291 @@
-
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Java In Spring</title>
-<link rel="stylesheet" href="css/main.css" type="text/css">
-<link rel="stylesheet" href="css/common.css" type="text/css">
+<link rel="stylesheet" href="../css/main.css" type="text/css">
+<link rel="stylesheet" href="../css/common.css" type="text/css">
+<script src="../5.jquery/js/jquery-3.1.0.min.js"></script>
+<script>
+	$("document").ready(function(){
+		$("#checkboxAll").click(function(){
+			if($("#checkboxAll").prop("checked")){
+				$("input[name=checkbox]").prop("checked",true);
+				$("em").text("선택해제");
+			}else{
+				$("input[name=checkbox]").prop("checked",false);
+				$("em").text("전체선택");
+			}
+		});
+	});
+</script>
 <style>
-   section article{
-      display: block;
-      position: relative;
-      top: 17px;
-      z-index:0;
-   }
-   section article article{
-      display: block;
-      width: 530px;
-      height: 550px;
-      margin-top:50px;
-      margin: auto;
-      border-radius:15px;
-      background-color: rgba(255,255,255,0.5);
-      z-index:-1;
-   }
+	section{
+		display:block;
+		background-color: white;
+		min-height:600px;
+		position:relative;
+		width:100%;
+	}
+	aside{
+		display: block;
+		width:20%;
+		min-width:220px;
+		min-height:700px;
+		float: left;
+		border-right: 2px solid #ccc;
+	}
+	aside ul{
+	}
+	aside ul li{
+		padding-top:10px;
+		padding-bottom:10px;
+		padding-left:10px;
 
-   section article article h1{
-      margin-left: 30px;
-      padding-top: 30px;
-      color: #492143;
-      font-size: 20pt;
-   }
-
-   .album-wrap {position:relative; width:400px; height:400px; margin:0 auto; top:30px; overflow:hidden;}
-   .album-wrap ul.album {position:absolute;}
-   .album-wrap ul.album li {float:left; width:400px;}
-
-   .album li img{
-      width: 400px;
-      border-radius:15px;
-      height: auto;
-   }
-
-   ul.bt-roll {width:110px; margin:0 auto; margin-top:50px;}
-   ul.bt-roll li {float:left; margin-right:5px; margin-left: 20px;}
-
-   .content{
-     width:100%;
-     height:100%;
-     display: block;
-   }
-
-	 #map{
-	height:100%;
-	width:50%;
+	}
+	aside ul li:hover ,aside ul li:hover h1{
+		background-color: #B4CDE6;
+		color: #4B4B19;
+		cursor: pointer;
+	}
+	article{
+		display: block;
+		width: 79%;
+		min-height:100%;
+		float: left;
+	}
+	div.map{
 	display:block;
-	float: left;
+	width:49%;
+	height:500px;
+	float:left;
+	border:1px solid red;
 }
-#map_content{
-	background-color:black;
+div#map{
+	width:100%;
+	height:100%;
+}
+div.fix_store{
+	display:block;
 	width:50%;
 	height:100%;
-	color:white;
-	display:block;
-	float: left;
-	/*padding:50px;*/
-	/*position:absolute;*/
+	float:left;
+	background-color:#C9C9CB;
+}
+.fix_store h3{
+	margin:7px 0 10px 10px;
+}
+div.buttons{
+	text-align:right;
+	margin:5px 20px 10px 0;
+}
+.buttons span{
+	background-color:lightblue;
+	margin-left:15px;
+	border-radius:5px;
+	text-align:center;
+	padding:3px 6px 3px 6px;
+}
+span a{
+	text-decoration:none;
+}
+table{
+	width:80%;
+	margin:auto;
+}
+table tr{
+	border-bottom:1px solid lightgray;
+}
+table td{
+	padding:7px 5px 7px 5px;
+}
+td:first-child{
+	width:20%;
+	text-align:center;
+	font-size:12pt;
+	font-weight:bold;
+	border-right:1px solid lightgray;
+}
+td input[type=text]{
+	width:70%;
+	padding:7px 5px 7px 5px;
+}
+td textarea{
+	width:70%;
+	height:150px;
+}
+/*구글맵 서치 컨트롤*/
+.controls {
+  margin-top: 10px;
+  border: 1px solid transparent;
+  border-radius: 2px 0 0 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  height: 32px;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
+#pac-input {
+  background-color: #fff;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  margin-left: 12px;
+  padding: 0 11px 0 13px;
+  text-overflow: ellipsis;
+  width: 300px;
+}
+
+#pac-input:focus {
+  border-color: #4d90fe;
+}
+
+.pac-container {
+  font-family: Roboto;
+}
+
+#type-selector {
+  color: #fff;
+  background-color: #4d90fe;
+  padding: 5px 11px 0px 11px;
+}
+
+#type-selector label {
+  font-family: Roboto;
+  font-size: 13px;
+  font-weight: 300;
+}
 </style>
+
+<script>
+
+	window.onload = function(){
+		dqna.onclick = function(){
+			location.href="qna.html";
+		}
+	}
+
+</script>
 
 <script src="../jquery/jquery-1.7.1.min.js"></script>
 
 </head>
 <body>
 <div class="container">
-   <header>
-      <span><a href="JIS_login.html">Sign In</a></span>
-      <a href="./main.html"><img src="../images/java.png" width="100" ></a>
-   </header>
-   <nav>
-      <div class="menubar">
-         <ul>
-            <li class="navi_set">
-               <div class="topnav">Introduce</div>
-               <ul class="subnav">
-                  <li><a href="#">카페소개</a></li>
-                  <li><a href="map.html">찾아오시는길</a></li>
-               </ul>
-            </li>
-            <li class="navi_set">
-               <div class="topnav">Menu</div>
-                <ul class="subnav">
-                  <li><a href="#">Coffee</a></li>
-               </ul>
-             </li>
-             <li class="navi_set">
-                <div class="topnav">Custum</div>
-                <ul class="subnav">
-                  <li><a href="#">만들기</a></li>
-                  <li><a href="#">내역확인</a></li>
-               </ul>
-             </li>
-            <li class="navi_set">
-               <div class="topnav">Q&A</div>
-               <ul class="subnav">
-                   <li><a href="#">자주하는질문</a></li>
-                   <li><a href="#">질문&답변</a></li>
-                </ul>
-             </li>
-         </ul>
-      </div>
-   </nav>
-      <section>
-				<div class="content">
-        <!--구글맵 시작-->
-		<div id="map"></div>
-		<div id="map_content"><p>여기에 설명</p>
-		<span id="loc">지도위치</span></div>
-        <!--구글맵 끝-->
-			</div>
-</section>
-<footer>
-<div>
-(주)한빛이엔아이 한빛교육센터학원 Tel : 02-552-3432 | 주소 : 강남구 역삼동 819-10
+	<header>
+		<span><a href="JIS_login.html">Sign In</a></span>
+		<span><a href="admin.html">Admin</a></span>
+		<a href="./main.html"><img src="../images/java.png" width="100" ></a>
+	</header>
+	<nav>
+		<div class="menubar">
+			<ul>
+				<li class="navi_set">
+					<div class="topnav">Introduce</div>
+					<ul class="subnav">
+						<li><a href="#">카페소개</a></li>
+						<li><a href="map.html">찾아오시는길</a></li>
+					</ul>
+				</li>
+				<li class="navi_set">
+					<div class="topnav">Menu</div>
+				 	<ul class="subnav">
+						<li><a href="#">Coffee</a></li>
+					</ul>
+				 </li>
+				 <li class="navi_set">
+				 	<div class="topnav">Custum</div>
+				 	<ul class="subnav">
+						<li><a href="#">만들기</a></li>
+						<li><a href="#">내역확인</a></li>
+					</ul>
+				 </li>
+				<li class="navi_set">
+					<div class="topnav">Q&A</div>
+					<ul class="subnav">
+					    <li><a href="#">자주하는질문</a></li>
+					    <li><a href="#">질문&답변</a></li>
+				    </ul>
+				 </li>
+			</ul>
+		</div>
+	</nav>
+	<div class="content">
+		<section>
+			<aside>
+				<ul id="ul">
+					<li id="menu" value="a">
+						<h1>메뉴관리 게시판</h1>
+					</li>
+					<li id="chain">
+						<h1>체인점관리 게시판	</h1>
+					</li>
+					<li id="custom">
+						<h1>커스텀관리 게시판	</h1>
+					</li>
+					<li id="sqna">
+						<h1>자주하는질문관리 게시판</h1>
+					</li>
+					<li id="dqna">
+						<h1>질문&답변관리 게시판</h1>
+					</li>
+					<li id="user">
+						<h1>회원관리 게시판</h1>
+					</li>
+				</ul>
+			</aside>
+			<article>
+				<div class="map">
+					<div id="floating-panel">
+				      <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+				    </div>
+				    <div id="map"></div>
+				</div>
+				<div class="fix_store">
+					<h3>추가, 수정</h3>
+					<div class="buttons">
+						<span><a href="admin_chain.html">추가</a></span>
+						<span><a href="admin_chain.html">취소</a></span>
+					</div>
+					<div class="join_adrres">
+						<table>
+							<tr>
+								<td>위치</td>
+								<td><input type="text"name="local"id="local"></td>
+							</tr>
+							<tr>
+								<td>주소</td>
+								<td><textarea></textarea></td>
+							</tr>
+							<tr>
+								<td>연락처</td>
+								<td><input type="text"name="phone"></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</article>
+		</section>
+	</div>
+	<div class="push"></div>
 </div>
+
+<footer>
+	<div>
+		(주)한빛이엔아이 한빛교육센터학원 Tel : 02-552-3432 | 주소 : 강남구 역삼동 819-10
+	</div>
 </footer>
 
 <script type="text/javascript">
 $(document).ready(function(){
-$(".topnav").hover(function() {
-    $(this).parent().find(".subnav").slideDown('fast').show();
-    $(this).parent().hover(function() {
-    }, function(){
-        $(this).parent().find(".subnav").slideUp('fast');
+    $(".topnav").hover(function() {
+        $(this).parent().find(".subnav").slideDown('fast').show();
+        $(this).parent().hover(function() {
+        }, function(){
+            $(this).parent().find(".subnav").slideUp('fast');
+        });
     });
-});
 });
 
 var $list = $('ul.album');
@@ -144,65 +295,78 @@ var len =  $list.children().length;
 $list.css('width',len*size);
 
 $('.bt-roll').children().bind('click',function(){
-var idx = $('.bt-roll').children().index(this);
-$list.animate({'left': -(idx*size)+'px' },'normal');
+	var idx = $('.bt-roll').children().index(this);
+	$list.animate({'left': -(idx*size)+'px' },'normal');
 
-var source2 = $('.bt-roll').children().find('img').attr('src').replace('_.png','.png');
-$('.bt-roll').children().find('img').attr('src',source2);
+	var source2 = $('.bt-roll').children().find('img').attr('src').replace('_.png','.png');
+	$('.bt-roll').children().find('img').attr('src',source2);
 
-var source = $(this).find('img').attr('src').replace('.png','_.png');
-$(this).find('img').attr('src',source);
+	var source = $(this).find('img').attr('src').replace('.png','_.png');
+	$(this).find('img').attr('src',source);
 
-return false;
+	return false;
 
 });
-//var map;
-function initMap() {
-	var marker;
-	var lat;
-	var lng;
-	var loc = document.getElementById('loc');
-	var infowindow = new google.maps.InfoWindow;
-	var hb=new google.maps.LatLng(37.499501, 127.029277);
+</script>
+<script>
+function initAutocomplete() {
+  var hb=new google.maps.LatLng(37.499501, 127.029277); //한빛교육센터
   var map = new google.maps.Map(document.getElementById('map'), {
     center: hb,
-    zoom: 16
+    zoom: 18,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
   });
 
+  var marker = new google.maps.Marker();
+  function addMarker(location, map) {
+  		marker.setMap(null);
+    // Add the marker at the clicked location, and add the next-available label
+    // from the array of alphabetical characters.
+    	marker = new google.maps.Marker({
+      position: location,
+      map: map
+    });
+  }
 
-		  var marker = new google.maps.Marker();
-			/*
-		  marker.addListener('click', function() {
-		    infowindow.open(map, marker);
-		  });*/
+  // Create the search box and link it to the UI element.
+  var input = document.getElementById('pac-input');
+  var searchBox = new google.maps.places.SearchBox(input);
+  map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
-	google.maps.event.addListener(map, 'click', function(event) {
+  // Bias the SearchBox results towards current map's viewport.
+  map.addListener('bounds_changed', function() {
+    searchBox.setBounds(map.getBounds());
+  });
+
+  google.maps.event.addListener(map, 'click', function(event) {
     addMarker(event.latLng, map);
-
   });
 
-	function addMarker(location, map) {
-		marker.setMap(null);
-	/*	lat = location.getLattitude();
-		lng = location.getLongitude();*/
-		loc.innerHTML = location + "표시";
-  // Add the marker at the clicked location, and add the next-available label
-  // from the array of alphabetical characters.
-  	marker = new google.maps.Marker({
-    position: location,
-    map: map
-  });
-		//infowindow = new google.maps.InfoWindow;
-		//infowindow.open(null);
-		infowindow.setContent('위치 : ' + location);
-		infowindow.setPosition(location);
-		infowindow.open(map);
-}
-}
-google.maps.event.addDomListener(window, 'load', initialize);
+  // Listen for the event fired when the user selects a prediction and retrieve
+  // more details for that place.
+  searchBox.addListener('places_changed', function() {
+    var places = searchBox.getPlaces();
 
+    if (places.length == 0) {
+      return;
+    }
+
+    // For each place, get the icon, name and location.
+    var bounds = new google.maps.LatLngBounds();
+
+    places.forEach(function(place) {
+      if (place.geometry.viewport) {
+        // Only geocodes have viewport.
+        bounds.union(place.geometry.viewport);
+      } else {
+        bounds.extend(place.geometry.location);
+      }
+    });
+    map.fitBounds(bounds);
+  });
+}
 </script>
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUN6ZUXqNd3Dm0oBCTuPOUfPpqFmp1248&callback=initMap"
-        async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCS02ggOI-_KOaD-7fzY5gwdI29RiNniV8&libraries=places&callback=initAutocomplete"
+         async defer></script>
 </body>
 </html>
