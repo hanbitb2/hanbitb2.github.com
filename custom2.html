@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -85,53 +86,22 @@
 
     }
 
-    div.list{
-        width:17%;
-      	height:100%;
-      	margin-top:2%;
-      	margin-bottom:2%;
-      	float:left;
-        display : block;
-
-        margin-left:2%;
-        padding-bottom:-2%;
-      }
-    	.list h3{
-    		font-size: 20pt;
-    		text-indent: 5px;
-    	}
-
-      div.c_ul{
-      width : 100%;
-      height : 100%;
-      }
-
-    	.list li:first-child{
-    		border-top: 1px solid #ccc;
-    	}
-    	.list li{
-    		width:50%;
-        height :100%;
-    		font-size:12pt;
-    		border-bottom: 1px solid #ccc;
-    		padding:10px;
-    	}
-
     .wrap1{
       width:70%;
       height:30%;
       display : inline-block;
       text-align: center;
       display:block;
-      margin-right: -30px;
-      float : left;
+      margin:auto;
+
     }
 
     .wrap2{
       width:50%;
-      height:80%;
+      height:60%;
       display: block;
       float:left;
+
     }
 
     #iceDiv{
@@ -147,6 +117,7 @@
       float:left;
 
     }
+
             #wrap2-2{
               width:100%;
               height:100%;
@@ -178,19 +149,18 @@
 
     .wrap3{
     width:50%;
-    height:80%;
-    display: none;
+    height:60%;
+    display: block;
     float:left;
-
     }
 
     div.d2 {/*메뉴사진 클릭틀*/
-     margin : 100px;
-     margin-top: 150px;
+     margin : 200px;
+     margin-top: 80px;
      border: 1px solid #ccc;
      width: 150px;
      text-align: center;
-     padding-left: -150px;
+     padding : auto;
    }
 
    .img2 {/*메뉴사진 누르면 나오는 이미지*/
@@ -198,82 +168,67 @@
     height: auto;
   }
 
-   .cusopt{/*커스텀 옵션메뉴*/
+   .f1{/*커스텀 옵션메뉴*/
       float : left;
-      margin-left: 350px;
-      margin-top : -300px;
-      display: block;
-      text-align: center;
+      margin-left: 400px;
+      margin-top : -380px;
      }
 
   button{
-    width : 50px;
-    height :30px;
-    border : 0px;
-    background-color:#4e2b19;
-    color : white;
+    width : 40px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    background-color : #ccc;
   }
 
   input[type = number], input[type = text]{
     border-radius: 1px;
   }
 
+
   select{/*사이즈*/
-    width : 150px;
+    width : 100px;
     padding : 5px;
     border : none;
-    border-radius: 1px;
+    border-radius: 4px;
     background-color: #ccc;
   }
 
     div.add {/*커스텀 옵션 누르면 추가되는 리스트*/
     width:250px;
-    height : 300px;
+    height:300px;
     float:left;
-    margin-top: -230px;
-    margin-left: 50px;
+    margin-top: 80px;
     padding : auto;
     text-align: center;
    }
 
-  .addlist {
+  table.addlist {
      width: 100%;
      text-align: center;
+
  }
 
- .addlist th, .addlist td {
+ table.addlist th, table.addlist td {
      text-align: center;
      margin-left: 80px;
-     margin-top : 300px;
      padding: 8px;
  }
 
- .addlist tr:nth-child(even){
+ table.addlist tr:nth-child(even){
    background-color: #f2f2f2}
 
 
-  .addlist th{
-     background-color: #4e2b19;
-     color : white;
+  table.addlist th{
+     border : 1px solid black;
    }
 
    .wrap4{/*커스텀 이름*/
    width:50%;
    margin-left: 350px;
    margin-top : 300px;
-
    }
 
-  #size{
-    background-color : #4e2b19;
-    color : white;
-    text-align: center;
-  }
-
-  .dbt{
-    margin-left : 170%;
-    margin-top: -300px;
-  }
 
 </style>
 <script src="../jquery/jquery-1.7.1.min.js"></script>
@@ -281,7 +236,7 @@
 <body>
 <div class="container">
    <header>
-      <button><a href="JIS_login.html">Sign In</a></button>
+      <span><a href="JIS_login.html">Sign In</a></span>
       <a href="./main.html"><img src="../images/java.png" width="100" ></a>
    </header>
    <nav>
@@ -326,43 +281,36 @@
   <section>
    <!-- 커스텀 페이지 시작  -->
   <div class = "wrap">
-    <div class="list">
-           <h3>CUSTUM</h3>
-           <ul class = "c_ul">
-             <li>커스텀 만들기</li>
-             <li><a href="custom_list.html">내역확인</a></li>
-           </ul>
-         </div>
     <div class = "wrap1">
       <!--selectionMenu(db번호)번호로 넘길거다 db불러올 때 번호 불러와서 넣어줄 수 있게 짜세영-->
   <table class = "d1">
       <td id = "aaa">
         <img src = "../images/americano.jpg" alt = "아메리카노"> 아메리카노
-        <input type = "radio" name = "menu1" id="select1" value = "americano">
+        <input type = "radio" name = "menu1" value = "americano" onclick="selectionMenu(1)">
          </td>
     </table>
   <table class = "d1">
       <td>
         <img src = "../images/latte.jpg" alt = "카페라떼"> 카페라떼
-        <input type = "radio" name = "menu1" id="select2" value = "latte">
+        <input type = "radio" name = "menu1" value = "latte" onclick="selectionMenu(2)">
       </td>
     </table>
   <table class = "d1">
       <td>
         <img src = "../images/mocca.jpg" alt = "카페모카"> 카페모카
-        <input type = "radio" name = "menu1" id="select3" value = "mocca">
+        <input type = "radio" name = "menu1" value = "mocca" onclick="selectionMenu(3)">
       </td>
     </table>
   <table class = "d1">
       <td>
         <img src = "../images/greentea.jpg" alt = "그린티프라푸치노"> 그린티프라푸치노
-        <input type = "radio" name = "menu1" id="select4" value = "greentea">
+        <input type = "radio" name = "menu1" value = "greentea" onclick="selectionMenu(4)">
       </td>
     </table>
   <table class = "d1">
       <td>
         <img src = "../images/lemon.jpg" alt = "레몬에이드"> 레몬에이드
-        <input type = "radio" name = "menu1" id="select5" value = "lemon">
+        <input type = "radio" name = "menu1" value = "lemon" onclick="selectionMenu(5)">
       </td>
     </table>
   </div>
@@ -370,18 +318,18 @@
     <!--loop돌아야 하는 div. (wrap2-메뉴번호) 포맷-->
   <div id="wrap2-1">
     <div class = "d2">
-       <img class = "img2" src = "../images/americano.jpg" alt = "아메리카노"> 아메리카노
-     </div>
-    <div class = "cusopt">
+    <img class = "img2" src = "../images/americano.jpg" alt = "아메리카노"> 아메리카노
+  </div>
+  <form class = "f1">
       <h3>Custom Option</h3>
-      <button name = "ice" id="btnIce" submit = "ice" onclick="ficeDiv()"> ICE </button>
-      <button name = "hot" id="btnHot"> HOT </button><br><br>
+      <label><button name = "ice" id="btnIce" onclick="ficeDiv()"> ICE </button></label>
+      <button name = "hot" id="btnHot" onclick="ficeDiv()"> HOT </button><br><br>
       <div id="iceDiv">
         <ul>
           <li> 얼음 <br>
-           <button name = "less" id = "btnLess"> 적게  </button>
-           <button name = "medium" id = "btnMd"> 보통  </button>
-           <button name = "more" id = "btnMore"> 많이  </button>
+           <button name = "less"> 적게  </button>
+           <button name = "regular"> 보통  </button>
+           <button name = "more"> 많이  </button>
          </li>
       </ul>
       </div>
@@ -396,19 +344,18 @@
           <button name = "regular"> 보통  </button>
           <button name = "more"> 많이  </button>
         </li> <br>
-        <li> 휘핑 <br> <button name = "not"> 없음 </button>
-                      <button name = "regular"> 보통  </button>
-                      <button name = "more"> 많이 </button>
-        </li> <br>
       <li> 사이즈 <select id = "size">
       <option value = "regular"> REGULAR </option>
       <option value = "large"> LARGE </option>
-    </li> </select> <br><br>
-
+    </li></select> <br><br>
+    <li> 휘핑 <br> <span name = "not"> 없음 </span>
+                  <span name = "regular"> 보통  </span>
+                  <span name = "more"> 많이 </span>
+    </li>
   </ul>
-      </div>
-  </div>
 </div>
+  </div>
+  </form>
   <div id="wrap2-2">
     <div class = "d2">
        <img class = "img2" src = "../images/latte.jpg" alt = "카페라떼"> 카페라떼
@@ -428,12 +375,11 @@
       <div class = "d2">
          <img class = "img2" src = "../images/lemon.jpg" alt = "레몬에이드"> 레몬에이드
        </div>
-  </div>
+      </div>
      </div>
-     <div class = "wrap3" id="wrap3">
-       <form name = "addform" id="addform">
+     <div class = "wrap3">
        <div class = "add">
-       <table class = "addlist" id = "addlist1">
+       <table class = "addlist">
          <h3> Custom Add List </h3>
          <tr>
            <th> <input type = "checkbox" name = "chcek"></th>
@@ -441,17 +387,17 @@
            <th> option </th>
            <th> price </th>
          </tr>
-         <tr class = "">
+         <tr>
            <td> <input type = "checkbox" name = "chcek"> </td>
-           <td id="1"> </td>
-           <td id="2"> </td>
-           <td id="3"> </td>
+           <td> 1 </td>
+           <td> 1 </td>
+           <td> 1 </td>
          </tr>
          <tr>
            <td> <input type = "checkbox" name = "chcek"> </td>
-           <td id = "4"> 2 </td>
-           <td id = "5"> 2 </td>
-           <td id = "6"> 2 </td>
+           <td> 2 </td>
+           <td> 2 </td>
+           <td> 2 </td>
          </tr>
          <tr>
            <td> <input type = "checkbox" name = "chcek"> </td>
@@ -472,19 +418,14 @@
            <td> 5 </td>
          </tr>
          <tr>
-          <td>
-            <span class = "dbt">
-            <button class = "button" name = "delete"> 삭제</button>
-          </span>
-          </td>
+          <td><button name = "delete"> 삭제</button> </td>
          </tr>
        </table>
        </div>
        <div class="wrap4">
          <input type="text" placeholder="커스텀이름">
-          <button class = "button" name = "ok"> 확인 </button>
+         <span><button name = "ok"> 확인 </button></span>
        </div>
-     </form>
      </div>
 
   <!--여기까지 아래는 예시로 넣은 div-->
@@ -496,27 +437,8 @@
 </div>
 </footer>-->
 
-<script src="jquery-3.1.0.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
-$("input[type='radio']").click(function(){
-   var selectId = $(this).attr("id");
-   var index = selectId.substr(6, selectId.length); //인덱스번호
-   var listNum = 5;
-   for(var i=1; i<=listNum; i++){
-      var wrap2 = "wrap2-" + i;
-      if(index == i){
-         $("#" + wrap2).css("display", "block");
-         if($("#wrap3").css("display") == 'none'){
-            $("#wrap3").css("display", "block");
-            $("#addform").reset();
-         }
-      }else{
-         $("#" + wrap2).css("display", "none");
-      }
-   }
-
-   });
 $(".topnav").hover(function() {
     $(this).parent().find(".subnav").slideDown('fast').show();
     $(this).parent().hover(function() {
@@ -524,26 +446,7 @@ $(".topnav").hover(function() {
         $(this).parent().find(".subnav").slideUp('fast');
     });
 });
-
-$("#btnLess").click(function(){
-  $("#addlist1 first-child").css("border", "3px solid red");
-/*  $("#1").prepend("얼음");
-  $("#2").prepend("적게");
-  $("#3").prepand("500");*/
 });
-$("#btnMd").click(function(){
-  $("#1").prepend("얼음");
-  $("#2").prepend("보통");
-  $("#3").prepend("500￦");
-    });
-$("#btnMore").click(function(){
-  $("#1").prepend("얼음");
-  $("#2").prepend("많이");
-  $("#3").prepend("600￦");
-    });
-
-});
-
 
 var $list = $('ul.album');
 var size = $list.children().outerWidth();
@@ -565,6 +468,28 @@ return false;
 
 });
 
+function selectionMenu(num) {
+var listNum = 5; //전체 글 개수를 넣어줌. 지금은 5개라서 5개만
+//document.getElementById('wrap2-' + num).style.display='block';
+/*document.getElementById("subject" + num).style.fontWeight='bold';*/
+
+for(var i=1; i<=listNum; i++){
+var content = document.getElementById('wrap2-' + i);
+if(num == i){ //i번째 글 선택하면 내용출력,
+  if(content.style.display == 'block'){//열려있으면 닫아라
+    content.style.display = 'none';
+  }
+  else if(content.style.display == 'none'){ //닫혀있으면 열어라
+    content.style.display = 'block';
+  }
+}else{ //아니면 다른 글 내용 닫기
+  content.style.display = 'none';
+}
+}
+
+}
+
+
 function ficeDiv(){
   var idiv = document.getElementById("iceDiv");
   if(idiv.style.display == 'none')
@@ -572,10 +497,6 @@ function ficeDiv(){
   else
     idiv.style.display = 'none';
 }
-
-
-
-
 </script>
 </body>
 </html>
