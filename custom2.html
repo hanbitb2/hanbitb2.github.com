@@ -129,11 +129,10 @@
       display:block;
       margin-right: -30px;
       float : left;
-
     }
 
     .wrap2{
-      width:40%;
+      width:50%;
       height:80%;
       display: block;
       float:left;
@@ -183,7 +182,7 @@
                         }
 
     .wrap3{
-    width:40%;
+    width:50%;
     height:80%;
     display: none;
     float:left;
@@ -439,7 +438,7 @@
      <div class = "wrap3" id="wrap3">
        <form name = "addform" id="addform">
        <div class = "add">
-       <table class = "addlist">
+       <table class = "addlist" id = "addlist1">
          <h3> Custom Add List </h3>
          <tr>
            <th> <input type = "checkbox" name = "chcek"></th>
@@ -455,9 +454,9 @@
          </tr>
          <tr>
            <td> <input type = "checkbox" name = "chcek"> </td>
-           <td id = "1"> 2 </td>
-           <td id = "2"> 2 </td>
-           <td id = "3"> 2 </td>
+           <td id = "4"> 2 </td>
+           <td id = "5"> 2 </td>
+           <td id = "6"> 2 </td>
          </tr>
          <tr>
            <td> <input type = "checkbox" name = "chcek"> </td>
@@ -532,10 +531,11 @@ $(".topnav").hover(function() {
 });
 
 $("#btnLess").click(function(){
-  $("#1").prepend("얼음");
+  $("#addlist1 first-child").css("border", "3px solid red");
+/*  $("#1").prepend("얼음");
   $("#2").prepend("적게");
-  $("#3").prepand("500");
-  });
+  $("#3").prepand("500");*/
+});
 $("#btnMd").click(function(){
   $("#1").prepend("얼음");
   $("#2").prepend("보통");
