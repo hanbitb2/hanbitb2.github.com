@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -133,11 +134,11 @@
     }
 
     .wrap2{
-      width:40%;
+      width:50%;
       height:80%;
       display: block;
       float:left;
-      background-color: red;
+
     }
 
     #iceDiv{
@@ -183,16 +184,16 @@
                         }
 
     .wrap3{
-    width:40%;
+    width:50%;
     height:80%;
     display: none;
     float:left;
-    background-color: pink;
+    background: orange;
 
     }
 
     div.d2 {/*메뉴사진 클릭틀*/
-     margin : 70px;
+     margin : 30px;
      margin-top: 80px;
      border: 1px solid #ccc;
      width: 150px;
@@ -207,8 +208,8 @@
 
    .cusopt{/*커스텀 옵션메뉴*/
       float : left;
-      margin-left: 250px;
-      margin-top : -280px;
+      margin-left: 200px;
+      margin-top : -250px;
       display: block;
       text-align: center;
      }
@@ -237,14 +238,14 @@
     width:250px;
     height : 300px;
     float:left;
-    margin-top: -230px;
+    margin-top: 80px;
     margin-left: 50px;
     padding : auto;
     text-align: center;
    }
 
   .addlist {
-     width: 100%;
+     width: 110%;
      text-align: center;
  }
 
@@ -264,9 +265,19 @@
      color : white;
    }
 
+   span.dbt{
+     width : 50%;
+     height: 100%;
+     border : 1px solid red;
+
+   }
+
+
+
    .wrap4{/*커스텀 이름*/
-   width:50%;
-   margin-left: 350px;
+   width:40%;
+   height:100%;
+   margin-left : 350px;
    margin-top : 300px;
    border : 1px solid red;
    }
@@ -277,9 +288,6 @@
     text-align: center;
   }
 
-  .dbt{
-    margin-left : 170%;
-  }
 
 </style>
 <script src="../jquery/jquery-1.7.1.min.js"></script>
@@ -376,7 +384,7 @@
     <!--loop돌아야 하는 div. (wrap2-메뉴번호) 포맷-->
   <div id="wrap2-1">
     <div class = "d2">
-       <img class = "img2" src = "../images/americano.jpg" alt = "아메리카노"> 아메리카노
+       <img class = "img2" src = "../images/americano.jpg" alt = "아메리카노"> 아메리카노(3000원)
      </div>
     <div class = "cusopt">
       <h3>Custom Option</h3>
@@ -394,45 +402,45 @@
     <div>
       <ul>
            <li> 샷
-          <input type="number" name="quantity" min="1" max="9">
-          <button name = "submit"> 추가 </button>
+          <input type="number" name="quantity" min="1" max="9" id = "shot">
+          <button id = "subok" name = "submit"> 추가 </button>
         </li> <br>
         <li> 시럽 <br>
-          <button name = "less"> 적게  </button>
-          <button name = "regular"> 보통  </button>
-          <button name = "more"> 많이  </button>
+          <button name = "not" id = "sbtnNot"> 없음  </button>
+          <button name = "Medium" id = "sbtnMd"> 보통  </button>
+          <button name = "more" id = "sbtnMore"> 많이  </button>
         </li> <br>
-        <li> 휘핑 <br> <button name = "not"> 없음 </button>
-                      <button name = "regular"> 보통  </button>
-                      <button name = "more"> 많이 </button>
+        <li> 휘핑 <br> <button name = "not" id = "wbtnNot"> 없음 </button>
+                      <button name = "Medium" id = "wbtnMd"> 보통  </button>
+                      <button name = "more" id = "wbtnMd"> 많이 </button>
         </li> <br>
       <li> 사이즈 <select id = "size">
       <option value = "regular"> REGULAR </option>
       <option value = "large"> LARGE </option>
+      <button id = "addok">
     </li> </select> <br><br>
-
   </ul>
       </div>
   </div>
 </div>
   <div id="wrap2-2">
     <div class = "d2">
-       <img class = "img2" src = "../images/latte.jpg" alt = "카페라떼"> 카페라떼
+       <img class = "img2" src = "../images/latte.jpg" alt = "카페라떼"> 카페라떼(4000원)
      </div>
       </div>
   <div id="wrap2-3">
     <div class = "d2">
-         <img class = "img2" src = "../images/mocca.jpg" alt = "카페모카"> 카페모카
+         <img class = "img2" src = "../images/mocca.jpg" alt = "카페모카"> 카페모카(4500원)
        </div>
       </div>
   <div id="wrap2-4">
     <div class = "d2">
-         <img class = "img2" src = "../images/greentea.jpg" alt = "녹차프라푸치노"> 녹차프라푸치노<br>
+         <img class = "img2" src = "../images/greentea.jpg" alt = "녹차프라푸치노"> 녹차프라푸치노(5000원)<br>
        </div>
       </div>
   <div id="wrap2-5">
       <div class = "d2">
-         <img class = "img2" src = "../images/lemon.jpg" alt = "레몬에이드"> 레몬에이드
+         <img class = "img2" src = "../images/lemon.jpg" alt = "레몬에이드"> 레몬에이드(4500원)
        </div>
   </div>
      </div>
@@ -447,50 +455,16 @@
            <th> option </th>
            <th> price </th>
          </tr>
-  <!--        <tr>
-           <td> <input type = "checkbox" name = "chcek"> </td>
-           <td> </td>
-           <td> </td>
-           <td> </td>
-         </tr>
-         <tr>
-           <td> <input type = "checkbox" name = "chcek"> </td>
-           <td id = "4"> 2 </td>
-           <td id = "5"> 2 </td>
-           <td id = "6"> 2 </td>
-         </tr>
-         <tr>
-           <td> <input type = "checkbox" name = "chcek"> </td>
-           <td> 3 </td>
-           <td> 3 </td>
-           <td> 3 </td>
-         </tr>
-         <tr>
-           <td> <input type = "checkbox" name = "chcek"> </td>
-           <td> 4 </td>
-           <td> 4 </td>
-           <td> 4 </td>
-         </tr>
-         <tr>
-           <td> <input type = "checkbox" name = "chcek"> </td>
-           <td> 5 </td>
-           <td> 5 </td>
-           <td> 5 </td>
-         </tr>
-         -->
-         <tr>
-          <td>
-            <span class = "dbt">
-            <button class = "button" name = "delete"> 삭제</button>
-          </span>
-          </td>
-         </tr>
        </table>
        </div>
-       <div class="wrap4">
-         <input type="text" placeholder="커스텀이름">
-          <button class = "button" name = "ok"> 확인 </button>
-       </div>
+        <span class = "dbt">
+       <button class = "button" name = "copmlete"> 완료</button>
+       <button class = "button" name = "delete"> 삭제</button>
+      </span>
+      <div class="wrap4">
+        <input type="text" placeholder="커스텀이름">
+         <button class = "button" name = "ok"> 확인 </button>
+      </div>
      </form>
      </div>
 
@@ -513,6 +487,8 @@ $("input[type='radio']").click(function(){
    for(var i=1; i<=listNum; i++){
       var wrap2 = "wrap2-" + i;
       if(index == i){
+        $("#addlist").find("tr:last")
+      	.after("<tr><td><input type = 'checkbox' name = 'check'></td><td>아메리카노</td><td></td><td>3000</td></tr>");
          $("#" + wrap2).css("display", "block");
          if($("#wrap3").css("display") == 'none'){
             $("#wrap3").css("display", "block");
@@ -534,27 +510,46 @@ $(".topnav").hover(function() {
 
 $("#btnLess").click(function(){
 	$("#addlist").find("tr:last")
-	.after("<tr><td><input type = 'checkbox' name = 'check'></td><td>얼음</td><td>적게</td><td>500</td></tr>");
-	   
-	
-	//alert(addlist);
-	
-	//$("table:eq(5) >  th:eq(1)").css("background", "blue");
-  //$("table:eq(5) > tr > td:nth-child(1)").css("background", "lightblue");
-/*  $("#1").prepend("얼음");
-  $("#2").prepend("적게");
-  $("#3").prepand("500");*/
+	.after("<tr><td><input type = 'checkbox' name = 'check'></td><td>얼음</td><td>없음</td><td>0</td></tr>");
 });
 $("#btnMd").click(function(){
-  $("#1").prepend("얼음");
-  $("#2").prepend("보통");
-  $("#3").prepend("500￦");
-    });
+	$("#addlist").find("tr:last")
+	.after("<tr><td><input type = 'checkbox' name = 'check'></td><td>얼음</td><td>보통</td><td>500</td></tr>");
+});
 $("#btnMore").click(function(){
-  $("#1").prepend("얼음");
-  $("#2").prepend("많이");
-  $("#3").prepend("600￦");
-    });
+	$("#addlist").find("tr:last")
+	.after("<tr><td><input type = 'checkbox' name = 'check'></td><td>얼음</td><td>많이</td><td>500</td></tr>");
+});
+$("#subok").click(function(){
+  $("#addlist").find("tr:last")
+	.after("<tr><td><input type = 'checkbox' name = 'check'></td><td>샷</td><td>"+$("#shot").val()+"</td><td>"+($("#shot").val()*500)+"</td></tr>");
+});
+
+$("#sbtnNot").click(function(){
+  $("#addlist").find("tr:last")
+  .after("<tr><td><input type = 'checkbox' name = 'check'></td><td>시럽</td><td>없음</td><td>0</td></tr>");
+});
+$("#sbtnMd").click(function(){
+  $("#addlist").find("tr:last")
+  .after("<tr><td><input type = 'checkbox' name = 'check'></td><td>시럽</td><td>보통</td><td>600</td></tr>");
+});
+$("#sbtnMore").click(function(){
+  $("#addlist").find("tr:last")
+  .after("<tr><td><input type = 'checkbox' name = 'check'></td><td>시럽</td><td>많이</td><td>800</td></tr>");
+});
+$("#wbtnNot").click(function(){
+  $("#addlist").find("tr:last")
+  .after("<tr><td><input type = 'checkbox' name = 'check'></td><td>휘핑</td><td>없음</td><td>0</td></tr>");
+});
+$("#wbtnMd").click(function(){
+  $("#addlist").find("tr:last")
+  .after("<tr><td><input type = 'checkbox' name = 'check'></td><td>휘핑</td><td>보통</td><td>0</td></tr>");
+});
+$("#wbtnMore").click(function(){
+  $("#addlist").find("tr:last")
+  .after("<tr><td><input type = 'checkbox' name = 'check'></td><td>휘핑</td><td>많음</td><td>0</td></tr>");
+});
+
 
 });
 
