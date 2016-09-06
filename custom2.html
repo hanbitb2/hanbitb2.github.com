@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -52,7 +50,7 @@
    }
          div.img_bar{
             width:100%;
-            height:200px;
+            height:150px;
             display: block;
             background:url("../images/img_bar.jpg");
          }
@@ -62,10 +60,13 @@
             color:white;
             letter-spacing: -3px;
             position:relative;
+            margin-top : -30px;
+
          }
          .title2{
             color:#eee;
             letter-spacing: -1px;
+            margin-top: -5px;
          }
 
    table.d1 {
@@ -89,30 +90,30 @@
 
     div.list{
         width:17%;
-      	height:100%;
-      	margin-top:2%;
-      	margin-bottom:2%;
-      	float:left;
+         height:100%;
+         margin-top:2%;
+         margin-bottom:2%;
+         float:left;
         display : block;
 
         margin-left:2%;
         padding-bottom:-2%;
       }
-    	.list h3{
-    		font-size: 20pt;
-    		text-indent: 5px;
-    	}
+       .list h3{
+          font-size: 20pt;
+          text-indent: 5px;
+       }
 
-    	.list li:first-child{
-    		border-top: 1px solid #ccc;
-    	}
-    	.list li{
-    		width:50%;
+       .list li:first-child{
+          border-top: 1px solid #ccc;
+       }
+       .list li{
+          width:50%;
         height :100%;
-    		font-size:12pt;
-    		border-bottom: 1px solid #ccc;
-    		padding:10px;
-    	}
+          font-size:12pt;
+          border-bottom: 1px solid #ccc;
+          padding:10px;
+       }
 
     .wrap1{
       width:70%;
@@ -225,11 +226,11 @@
     background-color: #ccc;
   }
 
-    div.add {/*커스텀 옵션 누르면 추가되는 리스트*/
+    div.add {/*커스텀 추가되는 리스트*/
     width:250px;
     height : 300px;
     float:left;
-    margin-top: 80px;
+    margin-top: -250px;
     margin-left: 50px;
     padding : auto;
     text-align: center;
@@ -256,27 +257,23 @@
      color : white;
    }
 
-   span.dbt{
-     width : 50%;
-     height: 100%;
-     border : 1px solid red;
-
-   }
-
-
-
    .wrap4{/*커스텀 이름*/
    width:40%;
    height:100%;
    margin-left : 350px;
    margin-top : 300px;
-   border : 1px solid red;
    }
 
   #size{
     background-color : #4e2b19;
     color : white;
     text-align: center;
+  }
+
+  .wrap5{
+    width : 20%;
+    margin-left: 130px;
+    margin-top : 10px;
   }
 
 
@@ -448,14 +445,14 @@
          </tr>
        </table>
        </div>
-        <span class = "dbt">
-       <button class = "button" name = "copmlete"> 완료</button>
-       <button class = "button" name = "delete"> 삭제</button>
-      </span>
-      <div class="wrap4">
+        <div class="wrap4">
         <input type="text" placeholder="커스텀이름">
          <button class = "button" name = "ok"> 확인 </button>
       </div>
+      <div class = "wrap5">
+    <button class = "button" name = "delete"> 삭제</button>
+    <button class = "button" name = "complete"> 완료</button>
+  </div>
      </form>
      </div>
 
@@ -479,7 +476,7 @@ $("input[type='radio']").click(function(){
       var wrap2 = "wrap2-" + i;
       if(index == i){
         $("#addlist").find("tr:last")
-      	.after("<tr><td><input type = 'checkbox' name = 'check'></td><td>아메리카노</td><td></td><td>3000</td></tr>");
+         .after("<tr><td><input type = 'checkbox' name = 'check'></td><td>아메리카노</td><td></td><td>3000</td></tr>");
          $("#" + wrap2).css("display", "block");
          if($("#wrap3").css("display") == 'none'){
             $("#wrap3").css("display", "block");
@@ -500,20 +497,20 @@ $(".topnav").hover(function() {
 });
 
 $("#btnLess").click(function(){
-	$("#addlist").find("tr:last")
-	.after("<tr><td><input type = 'checkbox' name = 'check'></td><td>얼음</td><td>없음</td><td>0</td></tr>");
+   $("#addlist").find("tr:last")
+   .after("<tr><td><input type = 'checkbox' name = 'check'></td><td>얼음</td><td>없음</td><td>0</td></tr>");
 });
 $("#btnMd").click(function(){
-	$("#addlist").find("tr:last")
-	.after("<tr><td><input type = 'checkbox' name = 'check'></td><td>얼음</td><td>보통</td><td>500</td></tr>");
+   $("#addlist").find("tr:last")
+   .after("<tr><td><input type = 'checkbox' name = 'check'></td><td>얼음</td><td>보통</td><td>500</td></tr>");
 });
 $("#btnMore").click(function(){
-	$("#addlist").find("tr:last")
-	.after("<tr><td><input type = 'checkbox' name = 'check'></td><td>얼음</td><td>많이</td><td>500</td></tr>");
+   $("#addlist").find("tr:last")
+   .after("<tr><td><input type = 'checkbox' name = 'check'></td><td>얼음</td><td>많이</td><td>500</td></tr>");
 });
 $("#subok").click(function(){
   $("#addlist").find("tr:last")
-	.after("<tr><td><input type = 'checkbox' name = 'check'></td><td>샷</td><td>"+$("#shot").val()+"</td><td>"+($("#shot").val()*500)+"</td></tr>");
+   .after("<tr><td><input type = 'checkbox' name = 'check'></td><td>샷</td><td>"+$("#shot").val()+"</td><td>"+($("#shot").val()*500)+"</td></tr>");
 });
 
 $("#sbtnNot").click(function(){
