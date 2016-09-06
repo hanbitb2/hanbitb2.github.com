@@ -439,19 +439,19 @@
      <div class = "wrap3" id="wrap3">
        <form name = "addform" id="addform">
        <div class = "add">
-       <table class = "addlist" id = "addlist1">
-         <h3> Custom Add List </h3>
+       <table class = "addlist" id = "addlist">
+         <!-- <h3 > Custom Add List </h3>-->
          <tr>
            <th> <input type = "checkbox" name = "chcek"></th>
            <th> name </th>
            <th> option </th>
            <th> price </th>
          </tr>
-         <tr>
+  <!--        <tr>
            <td> <input type = "checkbox" name = "chcek"> </td>
-           <td id="1"> </td>
-           <td id="2"> </td>
-           <td id="3"> </td>
+           <td> </td>
+           <td> </td>
+           <td> </td>
          </tr>
          <tr>
            <td> <input type = "checkbox" name = "chcek"> </td>
@@ -477,6 +477,7 @@
            <td> 5 </td>
            <td> 5 </td>
          </tr>
+         -->
          <tr>
           <td>
             <span class = "dbt">
@@ -502,7 +503,7 @@
 </div>
 </footer>-->
 
-<script src="jquery-3.1.0.min.js"></script>
+<script src="http://code.jquery.com/jquery.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
 $("input[type='radio']").click(function(){
@@ -532,7 +533,14 @@ $(".topnav").hover(function() {
 });
 
 $("#btnLess").click(function(){
-  $("#addlist1 first-child").css("border", "3px solid red");
+	$("#addlist").find("tr:last")
+	.after("<tr><td><input type = 'checkbox' name = 'check'></td><td>얼음</td><td>적게</td><td>500</td></tr>");
+	   
+	
+	//alert(addlist);
+	
+	//$("table:eq(5) >  th:eq(1)").css("background", "blue");
+  //$("table:eq(5) > tr > td:nth-child(1)").css("background", "lightblue");
 /*  $("#1").prepend("얼음");
   $("#2").prepend("적게");
   $("#3").prepand("500");*/
