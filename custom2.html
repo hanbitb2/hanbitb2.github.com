@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -260,7 +261,7 @@
    width:40%;
    height:100%;
    margin-left : 350px;
-   margin-top : 300px;
+   margin-top : 250px;
    }
 
   #size{
@@ -399,11 +400,11 @@
         </li> <br>
         <li> 휘핑 <br> <button name = "not" id = "wbtnNot"> 없음 </button>
                       <button name = "Medium" id = "wbtnMd"> 보통  </button>
-                      <button name = "more" id = "wbtnMd"> 많이 </button>
+                      <button name = "more" id = "wbtnMore"> 많이 </button>
         </li> <br>
       <li> 사이즈 <select id = "size">
-      <option value = "regular"> regular </option>
-      <option value = "large"> large </option>
+      <option value = "regular" id = "regular"> regular </option>
+      <option value = "large" id ="large"> large </option>
     </li> </select>
     <!--<button id= "addok" name = "sizeOk"> 추가 </button>-->
   </ul>
@@ -530,11 +531,15 @@ $("#wbtnNot").click(function(){
 });
 $("#wbtnMd").click(function(){
   $("#addlist").find("tr:last")
-  .after("<tr><td><input type = 'checkbox' name = 'check'></td><td>휘핑</td><td>보통</td><td>0</td></tr>");
+  .after("<tr><td><input type = 'checkbox' name = 'check'></td><td>휘핑</td><td>보통</td><td>500</td></tr>");
 });
 $("#wbtnMore").click(function(){
   $("#addlist").find("tr:last")
-  .after("<tr><td><input type = 'checkbox' name = 'check'></td><td>휘핑</td><td>많음</td><td>0</td></tr>");
+  .after("<tr><td><input type = 'checkbox' name = 'check'></td><td>휘핑</td><td>많음</td><td>800</td></tr>");
+});
+$("#size").click(function(){
+  $("#addlist").find("tr:last")
+  .after("<tr><td><input type = 'checkbox' name = 'check'></td><td>사이즈</td><td>+$</td><td>0</td></tr>");
 });
 
 
