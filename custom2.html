@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -82,7 +81,6 @@
     width: 100%;
     height: auto;
   }
-
     .wrap{
     width: 100%;
     height : 100%;
@@ -403,6 +401,7 @@
                       <button name = "more" id = "wbtnMore"> 많이 </button>
         </li> <br>
       <li> 사이즈 <select id = "size">
+        <option value = "size click"> 사이즈 선택 </option>
       <option value = "regular" id = "regular"> regular </option>
       <option value = "large" id ="large"> large </option>
     </li> </select>
@@ -438,7 +437,7 @@
        <table class = "addlist" id = "addlist">
          <!-- <h3 > Custom Add List </h3>-->
          <tr>
-           <th> <input type = "checkbox" name = "chcek"></th>
+           <th> <input type = "checkbox" name = "chcek" id = "check_all" class = "check"></th>
            <th> NAME </th>
            <th> OPTION </th>
            <th> PRICE </th>
@@ -455,7 +454,6 @@
   </div>
      </form>
      </div>
-
   <!--여기까지 아래는 예시로 넣은 div-->
 </div>
 </section>
@@ -476,7 +474,7 @@ $("input[type='radio']").click(function(){
       var wrap2 = "wrap2-" + i;
       if(index == i){
         $("#addlist").find("tr:last")
-         .after("<tr><td><input type = 'checkbox' name = 'check'></td><td>아메리카노</td><td></td><td>3000</td></tr>");
+         .after("<tr><td><input type = 'checkbox' class = 'check' name = 'check'></td><td>Americano</td><td></td><td>3000</td></tr>");
          $("#" + wrap2).css("display", "block");
          if($("#wrap3").css("display") == 'none'){
             $("#wrap3").css("display", "block");
@@ -498,51 +496,67 @@ $(".topnav").hover(function() {
 
 $("#btnLess").click(function(){
    $("#addlist").find("tr:last")
-   .after("<tr><td><input type = 'checkbox' name = 'check'></td><td>얼음</td><td>없음</td><td>0</td></tr>");
+   .after("<tr><td><input type = 'checkbox' class = 'check' name = 'check'></td><td>Ice</td><td>없음</td><td>0</td></tr>");
 });
 $("#btnMd").click(function(){
    $("#addlist").find("tr:last")
-   .after("<tr><td><input type = 'checkbox' name = 'check'></td><td>얼음</td><td>보통</td><td>500</td></tr>");
+   .after("<tr><td><input type = 'checkbox' class = 'check' name = 'check'></td><td>Ice</td><td>보통</td><td>500</td></tr>");
 });
 $("#btnMore").click(function(){
    $("#addlist").find("tr:last")
-   .after("<tr><td><input type = 'checkbox' name = 'check'></td><td>얼음</td><td>많이</td><td>500</td></tr>");
+   .after("<tr><td><input type = 'checkbox' class = 'check' name = 'check'></td><td>Ice</td><td>많이</td><td>500</td></tr>");
 });
+
+$("#btnHot").click(function(){
+   $("#addlist").find("tr:last")
+   .after("<tr><td><input type = 'checkbox' class = 'check' name = 'check'></td><td>Hot</td><td></td><td>0</td></tr>");
+});
+
+
 $("#subok").click(function(){
   $("#addlist").find("tr:last")
-   .after("<tr><td><input type = 'checkbox' name = 'check'></td><td>샷</td><td>"+$("#shot").val()+"</td><td>"+($("#shot").val()*500)+"</td></tr>");
+   .after("<tr><td><input type = 'checkbox' class = 'check' name = 'check'></td><td>Shot</td><td>"+$("#shot").val()+"</td><td>"+($("#shot").val()*500)+"</td></tr>");
 });
 
 $("#sbtnNot").click(function(){
   $("#addlist").find("tr:last")
-  .after("<tr><td><input type = 'checkbox' name = 'check'></td><td>시럽</td><td>없음</td><td>0</td></tr>");
+  .after("<tr><td><input type = 'checkbox' class = 'check' name = 'check'></td><td>Syrup</td><td>없음</td><td>0</td></tr>");
 });
 $("#sbtnMd").click(function(){
   $("#addlist").find("tr:last")
-  .after("<tr><td><input type = 'checkbox' name = 'check'></td><td>시럽</td><td>보통</td><td>600</td></tr>");
+  .after("<tr><td><input type = 'checkbox' class = 'check' name = 'check'></td><td>Syrup</td><td>보통</td><td>600</td></tr>");
 });
 $("#sbtnMore").click(function(){
   $("#addlist").find("tr:last")
-  .after("<tr><td><input type = 'checkbox' name = 'check'></td><td>시럽</td><td>많이</td><td>800</td></tr>");
+  .after("<tr><td><input type = 'checkbox' class = 'check' name = 'check'></td><td>Syrup</td><td>많이</td><td>800</td></tr>");
 });
 $("#wbtnNot").click(function(){
   $("#addlist").find("tr:last")
-  .after("<tr><td><input type = 'checkbox' name = 'check'></td><td>휘핑</td><td>없음</td><td>0</td></tr>");
+  .after("<tr><td><input type = 'checkbox' class = 'check' name = 'check'></td><td>Whip</td><td>없음</td><td>0</td></tr>");
 });
 $("#wbtnMd").click(function(){
   $("#addlist").find("tr:last")
-  .after("<tr><td><input type = 'checkbox' name = 'check'></td><td>휘핑</td><td>보통</td><td>500</td></tr>");
+  .after("<tr><td><input type = 'checkbox' class = 'check' name = 'check'></td><td>Whip</td><td>보통</td><td>500</td></tr>");
 });
 $("#wbtnMore").click(function(){
   $("#addlist").find("tr:last")
-  .after("<tr><td><input type = 'checkbox' name = 'check'></td><td>휘핑</td><td>많음</td><td>800</td></tr>");
+  .after("<tr><td><input type = 'checkbox' class = 'check' name = 'check'></td><td>Whip</td><td>많음</td><td>800</td></tr>");
 });
-$("#size").click(function(){
-  $("#addlist").find("tr:last")
-  .after("<tr><td><input type = 'checkbox' name = 'check'></td><td>사이즈</td><td>+$</td><td>0</td></tr>");
+
+$("#size").change(function(){
+  if($(this).val() == 'regular'){
+    $("#addlist").find("tr:last")
+    .after("<tr><td><input type = 'checkbox' class = 'check' name = 'check'></td><td>Size</td><td>regular</td><td>0</td></tr>");
+  }else if($(this).val() == 'large'){
+    $("#addlist").find("tr:last")
+    .after("<tr><td><input type = 'checkbox' class = 'check' name = 'check'></td><td>Size</td><td>large</td><td>500</td></tr>");
+  }
 });
 
 
+$("#check_all").click( function(){
+      $(".check").prop( 'checked', this.checked );
+    });
 });
 
 
@@ -573,10 +587,6 @@ function ficeDiv(){
   else
     idiv.style.display = 'none';
 }
-
-
-
-
 </script>
 </body>
 </html>
